@@ -1,6 +1,5 @@
 FROM node:20-bookworm-slim AS base
 WORKDIR /app
-ENV NODE_ENV=production
 
 FROM base AS deps
 COPY package.json package-lock.json ./
@@ -14,6 +13,7 @@ RUN cp prisma/schema.postgres.prisma prisma/schema.prisma
 RUN npm run build
 
 FROM base AS runner
+ENV NODE_ENV=production
 COPY --from=deps /app/node_modules ./node_modules
 COPY --from=builder /app/.next ./.next
 COPY --from=builder /app/public ./public
