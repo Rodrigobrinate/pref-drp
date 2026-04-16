@@ -16,8 +16,8 @@ services:
       GOOGLE_DRIVE_ROOT_FOLDER_ID: ${GOOGLE_DRIVE_ROOT_FOLDER_ID:-}
       GOOGLE_DRIVE_SHARED_DRIVE_ID: ${GOOGLE_DRIVE_SHARED_DRIVE_ID:-}
       GOOGLE_DRIVE_CYCLE_PREFIX: ${GOOGLE_DRIVE_CYCLE_PREFIX:-Avaliacao}
-    ports:
-      - "3000:3000"
+    expose:
+      - "3000"
 
   postgres:
     image: postgres:16-alpine
@@ -32,8 +32,6 @@ services:
       interval: 10s
       timeout: 5s
       retries: 10
-    ports:
-      - "5432:5432"
     volumes:
       - postgres_data:/var/lib/postgresql/data
 
