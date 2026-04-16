@@ -45,8 +45,8 @@ const config: Config = {
         ambient: "0 32px 64px -12px rgba(7, 30, 39, 0.06)",
       },
       fontFamily: {
-        headline: ["var(--font-public-sans)"],
-        body: ["var(--font-inter)"],
+        headline: ["'Segoe UI'", "Arial", "sans-serif"],
+        body: ["'Segoe UI'", "Arial", "sans-serif"],
       },
       backgroundImage: {
         "institutional-gradient": "linear-gradient(135deg, #001d44 0%, #00326b 100%)",
