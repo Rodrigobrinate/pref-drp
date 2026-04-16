@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+
+<html class="light" lang="pt-BR"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Gestão de Projetos - Institutional Evaluation Portal</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;600;700;800;900&amp;family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-tertiary-container": "#ff6c63",
+                    "primary-container": "#00326b",
+                    "on-surface": "#071e27",
+                    "on-secondary-container": "#4e6874",
+                    "surface-tint": "#255dad",
+                    "on-secondary": "#ffffff",
+                    "surface-dim": "#c7dde9",
+                    "on-tertiary-fixed-variant": "#930010",
+                    "on-secondary-fixed": "#021f29",
+                    "inverse-primary": "#abc7ff",
+                    "tertiary": "#460003",
+                    "secondary-container": "#cbe7f5",
+                    "inverse-on-surface": "#dff4ff",
+                    "surface-container-low": "#e6f6ff",
+                    "on-background": "#071e27",
+                    "outline": "#737780",
+                    "secondary": "#48626e",
+                    "primary": "#001d44",
+                    "inverse-surface": "#1e333c",
+                    "outline-variant": "#c3c6d1",
+                    "tertiary-container": "#6e0009",
+                    "on-tertiary-fixed": "#410003",
+                    "on-primary": "#ffffff",
+                    "secondary-fixed-dim": "#afcbd8",
+                    "primary-fixed-dim": "#abc7ff",
+                    "on-primary-fixed": "#001b3f",
+                    "tertiary-fixed": "#ffdad6",
+                    "surface-container-lowest": "#ffffff",
+                    "surface-bright": "#f3faff",
+                    "on-tertiary": "#ffffff",
+                    "primary-fixed": "#d7e2ff",
+                    "surface-variant": "#cfe6f2",
+                    "tertiary-fixed-dim": "#ffb3ac",
+                    "surface": "#f3faff",
+                    "surface-container-highest": "#cfe6f2",
+                    "surface-container": "#dbf1fe",
+                    "secondary-fixed": "#cbe7f5",
+                    "on-surface-variant": "#43474f",
+                    "on-error-container": "#93000a",
+                    "error": "#ba1a1a",
+                    "on-error": "#ffffff",
+                    "error-container": "#ffdad6",
+                    "on-primary-container": "#6b9bef",
+                    "surface-container-high": "#d5ecf8",
+                    "on-secondary-fixed-variant": "#304a55",
+                    "background": "#f3faff",
+                    "on-primary-fixed-variant": "#00458f"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "fontFamily": {
+                    "headline": ["Public Sans"],
+                    "body": ["Inter"],
+                    "label": ["Inter"]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+      .material-symbols-outlined {
+        font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      }
+      .glass-effect {
+        background: rgba(243, 250, 255, 0.7);
+        backdrop-filter: blur(20px);
+      }
+      .sidebar-transition {
+        transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+      }
+    </style>
+</head>
+<body class="bg-surface font-body text-on-surface flex min-h-screen">
+<!-- Predicted Component: SideNavBar -->
+<aside class="h-screen w-72 left-0 sticky flex flex-col py-6 px-4 space-y-2 bg-[#e6f6ff] dark:bg-slate-950 shadow-[4px_0_24px_rgba(7,30,39,0.04)] z-50">
+<div class="px-4 mb-8">
+<h1 class="text-lg font-black text-[#001d44] dark:text-white uppercase tracking-widest font-headline">Admin Console</h1>
+<p class="text-xs text-on-secondary-container opacity-70">Institutional Archive</p>
+</div>
+<nav class="flex-grow space-y-1">
+<!-- Active State Logic: Project Lifecycle is active based on request -->
+<a class="flex items-center space-x-3 px-4 py-3 text-slate-500 dark:text-slate-400 hover:bg-[#cfe6f2] dark:hover:bg-slate-800 sidebar-transition font-['Inter'] text-sm font-medium" href="#">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+<span>Command Center</span>
+</a>
+<a class="flex items-center space-x-3 px-4 py-3 text-[#001d44] dark:text-white font-bold border-r-4 border-[#001d44] bg-[#ffffff]/60 dark:bg-slate-800/50 sidebar-transition font-['Inter'] text-sm font-medium" href="#">
+<span class="material-symbols-outlined" data-icon="calendar_add_on">calendar_add_on</span>
+<span>Project Lifecycle</span>
+</a>
+<a class="flex items-center space-x-3 px-4 py-3 text-slate-500 dark:text-slate-400 hover:bg-[#cfe6f2] dark:hover:bg-slate-800 sidebar-transition font-['Inter'] text-sm font-medium" href="#">
+<span class="material-symbols-outlined" data-icon="upload_file">upload_file</span>
+<span>XML Import</span>
+</a>
+<a class="flex items-center space-x-3 px-4 py-3 text-slate-500 dark:text-slate-400 hover:bg-[#cfe6f2] dark:hover:bg-slate-800 sidebar-transition font-['Inter'] text-sm font-medium" href="#">
+<span class="material-symbols-outlined" data-icon="link">link</span>
+<span>Link Registry</span>
+</a>
+<a class="flex items-center space-x-3 px-4 py-3 text-slate-500 dark:text-slate-400 hover:bg-[#cfe6f2] dark:hover:bg-slate-800 sidebar-transition font-['Inter'] text-sm font-medium" href="#">
+<span class="material-symbols-outlined" data-icon="analytics">analytics</span>
+<span>Tracking &amp; Audit</span>
+</a>
+</nav>
+<div class="mt-auto pt-6 space-y-1">
+<a class="flex items-center space-x-3 px-4 py-3 text-slate-500 dark:text-slate-400 hover:bg-[#cfe6f2] dark:hover:bg-slate-800 sidebar-transition font-['Inter'] text-sm font-medium" href="#">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+<span>Settings</span>
+</a>
+<a class="flex items-center space-x-3 px-4 py-3 text-slate-500 dark:text-slate-400 hover:bg-[#cfe6f2] dark:hover:bg-slate-800 sidebar-transition font-['Inter'] text-sm font-medium" href="#">
+<span class="material-symbols-outlined" data-icon="contact_support">contact_support</span>
+<span>Support</span>
+</a>
+<div class="mt-4 px-4 py-4 bg-surface-container-lowest rounded-xl flex items-center space-x-3">
+<div class="w-10 h-10 rounded-full bg-primary-container flex items-center justify-center text-on-primary text-xs font-bold">RH</div>
+<div class="overflow-hidden">
+<p class="text-xs font-bold truncate">RH Administrator</p>
+<p class="text-[10px] text-on-surface-variant truncate">Institutional Portal</p>
+</div>
+</div>
+</div>
+</aside>
+<main class="flex-grow min-h-screen">
+<!-- Predicted Component: TopNavBar -->
+<header class="flex justify-between items-center px-8 py-3 w-full top-0 sticky z-50 border-b-0 bg-[#f3faff] dark:bg-slate-900 bg-gradient-to-b from-[#e6f6ff] to-[#f3faff] dark:from-slate-800 dark:to-slate-900">
+<div class="flex items-center space-x-4">
+<h2 class="text-xl font-bold text-[#001d44] dark:text-white font-headline tracking-tight">Institutional Evaluation Portal</h2>
+</div>
+<div class="flex items-center space-x-6">
+<div class="relative hidden lg:block">
+<input class="bg-surface-container-highest border-none rounded-lg px-4 py-1.5 w-64 text-sm focus:ring-2 focus:ring-primary transition-all placeholder:text-on-surface-variant/50" placeholder="Search system records..." type="text"/>
+<span class="material-symbols-outlined absolute right-3 top-1.5 text-on-surface-variant text-lg" data-icon="search">search</span>
+</div>
+<div class="flex items-center space-x-4 text-[#001d44] dark:text-blue-400">
+<button class="material-symbols-outlined p-2 hover:bg-[#cfe6f2]/50 rounded-full transition-colors" data-icon="notifications">notifications</button>
+<button class="material-symbols-outlined p-2 hover:bg-[#cfe6f2]/50 rounded-full transition-colors" data-icon="help_outline">help_outline</button>
+<button class="material-symbols-outlined p-2 hover:bg-[#cfe6f2]/50 rounded-full transition-colors" data-icon="account_circle">account_circle</button>
+</div>
+</div>
+</header>
+<!-- Main Content Area -->
+<div class="px-8 py-12 max-w-7xl mx-auto space-y-12">
+<!-- Header Section -->
+<section class="flex justify-between items-end">
+<div>
+<span class="text-primary font-bold tracking-widest uppercase text-xs mb-2 block">Gestão de Projetos</span>
+<h3 class="text-4xl font-black text-primary font-headline tracking-tight">Ciclo de Avaliação Institucional</h3>
+</div>
+<button class="bg-gradient-to-br from-primary to-primary-container text-on-primary px-6 py-3 rounded-md font-bold text-sm shadow-lg hover:opacity-90 transition-opacity flex items-center space-x-2">
+<span class="material-symbols-outlined" data-icon="add">add</span>
+<span>Novo Projeto</span>
+</button>
+</section>
+<!-- Grid Layout for Project Definitions -->
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+<!-- Novo Projeto & Ano Definition -->
+<div class="lg:col-span-1 bg-surface-container-lowest rounded-xl p-8 shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-outline-variant/10">
+<div class="flex items-center space-x-3 mb-6">
+<div class="w-10 h-10 bg-secondary-container rounded-lg flex items-center justify-center text-primary">
+<span class="material-symbols-outlined" data-icon="event">event</span>
+</div>
+<h4 class="font-headline font-bold text-lg">Definição do Ciclo</h4>
+</div>
+<div class="space-y-6">
+<div>
+<label class="block text-xs font-bold text-on-surface-variant uppercase mb-2">Ano da Avaliação</label>
+<input class="w-full bg-surface-container-highest border-none focus:ring-0 focus:border-b-2 focus:border-primary border-b-2 border-transparent transition-all py-3 px-4 font-headline text-2xl font-black text-primary" type="text" value="2026"/>
+</div>
+<p class="text-sm text-on-surface-variant leading-relaxed">
+                            Defina o ano base para o processamento dos dados e geração dos links de acesso para servidores e avaliadores.
+                        </p>
+</div>
+</div>
+<!-- Importação de Base (XML) -->
+<div class="lg:col-span-2 bg-surface-container-lowest rounded-xl p-8 shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-outline-variant/10">
+<div class="flex items-center space-x-3 mb-6">
+<div class="w-10 h-10 bg-secondary-container rounded-lg flex items-center justify-center text-primary">
+<span class="material-symbols-outlined" data-icon="cloud_upload">cloud_upload</span>
+</div>
+<h4 class="font-headline font-bold text-lg">Importação de Base</h4>
+</div>
+<div class="border-2 border-dashed border-outline-variant/30 rounded-xl p-10 flex flex-col items-center justify-center bg-surface transition-colors hover:bg-surface-container-low group cursor-pointer">
+<span class="material-symbols-outlined text-5xl text-outline-variant group-hover:text-primary transition-colors mb-4" data-icon="upload_file">upload_file</span>
+<p class="text-sm font-semibold mb-1">Arraste e solte o arquivo XML do servidor</p>
+<p class="text-xs text-on-surface-variant">Suporta apenas arquivos .xml exportados do sistema central</p>
+<button class="mt-6 text-primary font-bold text-sm underline-offset-4 hover:underline">Ou procure no seu computador</button>
+</div>
+</div>
+</div>
+<!-- Link do Ciclo (Generated Content) -->
+<section class="bg-primary text-on-primary rounded-xl p-8 flex flex-col md:flex-row items-center justify-between gap-6 shadow-2xl relative overflow-hidden">
+<div class="absolute top-0 right-0 w-64 h-64 bg-primary-container rounded-full blur-3xl opacity-50 -mr-32 -mt-32"></div>
+<div class="relative z-10">
+<h4 class="text-xl font-bold font-headline mb-1">Link de Acesso Gerado</h4>
+<p class="text-on-primary-container text-sm">Distribua este link para os servidores iniciarem suas avaliações</p>
+</div>
+<div class="flex items-center bg-primary-container/40 rounded-lg p-2 pr-4 border border-white/10 w-full md:w-auto relative z-10">
+<div class="px-4 py-2 font-mono text-sm tracking-tight text-white/90">sistema.com/avaliacao/2026/login</div>
+<button class="ml-auto bg-white text-primary px-4 py-2 rounded font-bold text-xs hover:bg-surface transition-colors flex items-center space-x-2">
+<span class="material-symbols-outlined text-sm" data-icon="content_copy">content_copy</span>
+<span>Copiar Link</span>
+</button>
+</div>
+</section>
+<!-- Tabela de Acompanhamento Global -->
+<section class="space-y-6">
+<div class="flex items-center justify-between">
+<h4 class="text-2xl font-black text-primary font-headline tracking-tight">Acompanhamento Global</h4>
+<div class="flex space-x-4">
+<div class="flex items-center space-x-2 bg-surface-container rounded-full px-4 py-1.5 text-xs font-bold text-on-secondary-container">
+<span class="w-2 h-2 rounded-full bg-emerald-500"></span>
+<span>428 Concluídos</span>
+</div>
+<div class="flex items-center space-x-2 bg-surface-container rounded-full px-4 py-1.5 text-xs font-bold text-on-secondary-container">
+<span class="w-2 h-2 rounded-full bg-amber-500"></span>
+<span>156 Pendentes</span>
+</div>
+</div>
+</div>
+<!-- Table Content with "The Modern Archive" Style -->
+<div class="bg-surface-container-lowest rounded-xl overflow-hidden shadow-[0_8px_30px_rgb(0,0,0,0.04)]">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="bg-surface-container-low text-on-surface-variant text-[10px] uppercase font-bold tracking-widest border-none">
+<th class="px-8 py-5">Nome do Servidor</th>
+<th class="px-8 py-5">Matrícula</th>
+<th class="px-8 py-5">Secretaria</th>
+<th class="px-8 py-5 text-center">Status</th>
+<th class="px-8 py-5 text-right">Ações</th>
+</tr>
+</thead>
+<tbody class="text-sm">
+<!-- Group: Secretaria de Saúde -->
+<tr class="bg-surface-variant/20 border-none">
+<td class="px-8 py-3 font-black text-primary text-xs uppercase tracking-widest" colspan="5">Secretaria Municipal de Saúde (SMS)</td>
+</tr>
+<tr class="hover:bg-surface transition-colors">
+<td class="px-8 py-5">
+<div class="flex items-center space-x-3">
+<div class="w-8 h-8 rounded-full bg-secondary-fixed flex items-center justify-center font-bold text-[10px]">AM</div>
+<span class="font-bold">Adriana Martins de Oliveira</span>
+</div>
+</td>
+<td class="px-8 py-5 text-on-surface-variant">#8829-0</td>
+<td class="px-8 py-5">SMS / Atendimento</td>
+<td class="px-8 py-5">
+<div class="flex justify-center">
+<span class="bg-secondary-container text-on-secondary-container px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-tight">Pendente</span>
+</div>
+</td>
+<td class="px-8 py-5 text-right">
+<button class="text-primary font-bold text-xs hover:opacity-70 transition-opacity">Visualizar Detalhes</button>
+</td>
+</tr>
+<tr class="hover:bg-surface transition-colors bg-surface-container-low/30">
+<td class="px-8 py-5">
+<div class="flex items-center space-x-3">
+<div class="w-8 h-8 rounded-full bg-secondary-fixed flex items-center justify-center font-bold text-[10px]">RS</div>
+<span class="font-bold">Ricardo Santos Ferraz</span>
+</div>
+</td>
+<td class="px-8 py-5 text-on-surface-variant">#9104-5</td>
+<td class="px-8 py-5">SMS / Infraestrutura</td>
+<td class="px-8 py-5">
+<div class="flex justify-center">
+<span class="bg-emerald-100 text-emerald-800 px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-tight">Concluído</span>
+</div>
+</td>
+<td class="px-8 py-5 text-right">
+<button class="bg-primary text-on-primary px-4 py-1.5 rounded text-[10px] font-bold hover:bg-primary-container transition-colors">Solicitar Reavaliação</button>
+</td>
+</tr>
+<!-- Group: Secretaria de Educação -->
+<tr class="bg-surface-variant/20 border-none">
+<td class="px-8 py-3 font-black text-primary text-xs uppercase tracking-widest" colspan="5">Secretaria Municipal de Educação (SME)</td>
+</tr>
+<tr class="hover:bg-surface transition-colors">
+<td class="px-8 py-5">
+<div class="flex items-center space-x-3">
+<div class="w-8 h-8 rounded-full bg-secondary-fixed flex items-center justify-center font-bold text-[10px]">JB</div>
+<span class="font-bold">Juliana Barbosa Lins</span>
+</div>
+</td>
+<td class="px-8 py-5 text-on-surface-variant">#4451-2</td>
+<td class="px-8 py-5">SME / Docência Fundamental</td>
+<td class="px-8 py-5">
+<div class="flex justify-center">
+<span class="bg-emerald-100 text-emerald-800 px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-tight">Concluído</span>
+</div>
+</td>
+<td class="px-8 py-5 text-right">
+<button class="bg-primary text-on-primary px-4 py-1.5 rounded text-[10px] font-bold hover:bg-primary-container transition-colors">Solicitar Reavaliação</button>
+</td>
+</tr>
+<tr class="hover:bg-surface transition-colors bg-surface-container-low/30">
+<td class="px-8 py-5">
+<div class="flex items-center space-x-3">
+<div class="w-8 h-8 rounded-full bg-secondary-fixed flex items-center justify-center font-bold text-[10px]">MS</div>
+<span class="font-bold">Marcos Silva Pereira</span>
+</div>
+</td>
+<td class="px-8 py-5 text-on-surface-variant">#7723-9</td>
+<td class="px-8 py-5">SME / Apoio Administrativo</td>
+<td class="px-8 py-5">
+<div class="flex justify-center">
+<span class="bg-on-tertiary-fixed-variant/10 text-on-tertiary-fixed-variant px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-tight">Atrasado</span>
+</div>
+</td>
+<td class="px-8 py-5 text-right">
+<button class="text-primary font-bold text-xs hover:opacity-70 transition-opacity">Notificar Servidor</button>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+</div>
+</main>
+</body></html>

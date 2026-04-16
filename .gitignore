@@ -1,0 +1,15 @@
+node_modules
+.next
+coverage
+prisma/dev.db
+prisma/dev.db-journal
+public/uploads/**
+!public/uploads/.gitkeep
+.env
+.env.local
+next-env.d.ts
+!package*.json
+!tsconfig.json
+project-*.json
+tsconfig.tsbuildinfo
+0

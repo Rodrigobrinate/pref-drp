@@ -1,0 +1,554 @@
+<!DOCTYPE html>
+
+<html class="light" lang="pt-BR"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Avaliação de Desempenho - Servidor Efetivo</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;600;700;800&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-surface": "#071e27",
+                    "on-surface-variant": "#43474f",
+                    "surface-container-high": "#d5ecf8",
+                    "outline": "#737780",
+                    "tertiary-container": "#6e0009",
+                    "surface-container-highest": "#cfe6f2",
+                    "inverse-primary": "#abc7ff",
+                    "on-tertiary": "#ffffff",
+                    "on-tertiary-fixed": "#410003",
+                    "tertiary-fixed": "#ffdad6",
+                    "on-secondary-fixed-variant": "#304a55",
+                    "tertiary": "#460003",
+                    "on-primary-fixed-variant": "#00458f",
+                    "surface-container": "#dbf1fe",
+                    "on-primary-fixed": "#001b3f",
+                    "inverse-surface": "#1e333c",
+                    "on-error-container": "#93000a",
+                    "inverse-on-surface": "#dff4ff",
+                    "surface-container-lowest": "#ffffff",
+                    "background": "#f3faff",
+                    "surface-bright": "#f3faff",
+                    "tertiary-fixed-dim": "#ffb3ac",
+                    "outline-variant": "#c3c6d1",
+                    "on-secondary-fixed": "#021f29",
+                    "surface": "#f3faff",
+                    "primary": "#001d44",
+                    "on-tertiary-container": "#ff6c63",
+                    "on-primary": "#ffffff",
+                    "surface-variant": "#cfe6f2",
+                    "error": "#ba1a1a",
+                    "on-secondary": "#ffffff",
+                    "on-background": "#071e27",
+                    "error-container": "#ffdad6",
+                    "primary-fixed": "#d7e2ff",
+                    "surface-container-low": "#e6f6ff",
+                    "secondary": "#48626e",
+                    "primary-fixed-dim": "#abc7ff",
+                    "primary-container": "#00326b",
+                    "on-tertiary-fixed-variant": "#930010",
+                    "on-primary-container": "#6b9bef",
+                    "secondary-fixed": "#cbe7f5",
+                    "surface-dim": "#c7dde9",
+                    "on-error": "#ffffff",
+                    "surface-tint": "#255dad",
+                    "secondary-container": "#cbe7f5",
+                    "secondary-fixed-dim": "#afcbd8",
+                    "on-secondary-container": "#4e6874"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "fontFamily": {
+                    "headline": ["Public Sans"],
+                    "body": ["Inter"],
+                    "label": ["Inter"]
+            }
+          },
+        }
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .no-line { border: none !important; }
+        .tonal-depth { background-color: rgba(243, 250, 255, 0.7); backdrop-filter: blur(20px); }
+        .bg-primary-gradient { background: linear-gradient(135deg, #001d44 0%, #00326b 100%); }
+    </style>
+</head>
+<body class="bg-background text-on-surface font-body pb-32">
+<!-- TopAppBar -->
+<header class="fixed top-0 w-full z-50 bg-[#f3faff] dark:bg-slate-900 flex items-center justify-between px-4 h-16 w-full no-line tonal-depth transition-colors duration-200">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-[#001d44] dark:text-blue-400">menu</span>
+<h1 class="text-lg font-bold text-[#001d44] dark:text-blue-200 font-headline tracking-tight">Institutional Portal</h1>
+</div>
+<div class="w-8 h-8 rounded-full overflow-hidden border border-outline-variant/20">
+<img alt="Profile" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCLywHbovLMtb65JcVf7R82kppv2AZGHv5kqKpX9Ae47IamFLhXJscHDqgdTfvMHSi7IDSoU8eP488AcmiImF3rCOf5wre5NMEURGNUH5A1yrIRmRNmhlxWaRdKmk2DduWEuf8HOC5dFer2AkN2Snw-EQFFC0RE5LLRp_VKtlRL8T2Hs5XnfjSq7-RvEMbXxWFM06rkMFsUU5pJzm6zXXCTiHAWX0Cpgt0_YGXGVeoG-BKXTYzTBH8AWUpLOhQ-apZ0fDG58CXS5QI"/>
+</div>
+</header>
+<main class="pt-20 px-4 max-w-lg mx-auto">
+<!-- Score Header: Partial Points -->
+<section class="mb-8 mt-4 sticky top-[72px] z-40">
+<div class="bg-surface-container-lowest p-5 rounded-xl shadow-[0_4px_12px_rgba(7,30,39,0.06)] border-b-2 border-primary/10">
+<div class="flex justify-between items-end">
+<div>
+<p class="text-on-surface-variant text-xs font-medium uppercase tracking-wider mb-1">Pontuação Parcial</p>
+<div class="flex items-baseline gap-1">
+<span class="text-3xl font-extrabold text-primary font-headline">7.50</span>
+<span class="text-on-surface-variant text-sm font-medium">/ 60.00</span>
+</div>
+</div>
+<div class="text-right">
+<span class="inline-flex items-center px-3 py-1 rounded-full bg-secondary-container text-on-secondary-container text-[10px] font-bold uppercase tracking-tighter">
+                        Em Andamento
+                    </span>
+</div>
+</div>
+<div class="mt-4 w-full bg-surface-container-highest h-1.5 rounded-full overflow-hidden">
+<div class="bg-primary-gradient h-full w-[12.5%]"></div>
+</div>
+</div>
+</section>
+<!-- Evaluation Factors Section -->
+<div class="space-y-6">
+<header class="mb-4">
+<h2 class="text-xl font-extrabold text-primary font-headline tracking-tight">Fatores de Avaliação</h2>
+<p class="text-on-surface-variant text-sm">Analise criteriosamente cada fator abaixo.</p>
+</header>
+<!-- Factor Card Template for all 8 factors -->
+<!-- Factor 1: Disciplina -->
+<div class="bg-surface-container-lowest rounded-xl p-6 transition-shadow border border-outline-variant/10">
+<div class="flex items-center gap-3 mb-3">
+<span class="w-8 h-8 flex items-center justify-center bg-primary text-white font-bold rounded-lg text-sm">01</span>
+<h3 class="font-bold text-on-surface text-lg">Disciplina</h3>
+</div>
+<p class="text-on-surface-variant text-sm mb-6 leading-relaxed">Observância às normas, regulamentos e ordens superiores, mantendo conduta ética e profissional.</p>
+<div class="space-y-2">
+<label class="flex items-center justify-between p-3 rounded-lg bg-surface-container-low hover:bg-surface-container active:bg-surface-container-high transition-colors cursor-pointer border border-transparent focus-within:border-primary/30">
+<span class="text-sm font-medium text-on-surface">Excepcional conduta e ética</span>
+<div class="flex items-center gap-3">
+<span class="text-xs font-bold text-primary">7.50</span>
+<input checked="" class="w-5 h-5 text-primary border-outline-variant focus:ring-primary bg-white" name="f1" type="radio"/>
+</div>
+</label>
+<label class="flex items-center justify-between p-3 rounded-lg bg-surface-container-low hover:bg-surface-container active:bg-surface-container-high transition-colors cursor-pointer border border-transparent focus-within:border-primary/30">
+<span class="text-sm font-medium text-on-surface">Atende plenamente</span>
+<div class="flex items-center gap-3">
+<span class="text-xs font-bold text-primary">6.00</span>
+<input class="w-5 h-5 text-primary border-outline-variant focus:ring-primary bg-white" name="f1" type="radio"/>
+</div>
+</label>
+<label class="flex items-center justify-between p-3 rounded-lg bg-surface-container-low hover:bg-surface-container active:bg-surface-container-high transition-colors cursor-pointer border border-transparent focus-within:border-primary/30">
+<span class="text-sm font-medium text-on-surface">Atende satisfatoriamente</span>
+<div class="flex items-center gap-3">
+<span class="text-xs font-bold text-primary">4.00</span>
+<input class="w-5 h-5 text-primary border-outline-variant focus:ring-primary bg-white" name="f1" type="radio"/>
+</div>
+</label>
+<label class="flex items-center justify-between p-3 rounded-lg bg-surface-container-low hover:bg-surface-container active:bg-surface-container-high transition-colors cursor-pointer border border-transparent focus-within:border-primary/30">
+<span class="text-sm font-medium text-on-surface">Atende com restrições</span>
+<div class="flex items-center gap-3">
+<span class="text-xs font-bold text-primary">2.00</span>
+<input class="w-5 h-5 text-primary border-outline-variant focus:ring-primary bg-white" name="f1" type="radio"/>
+</div>
+</label>
+<label class="flex items-center justify-between p-3 rounded-lg bg-surface-container-low hover:bg-surface-container active:bg-surface-container-high transition-colors cursor-pointer border border-transparent focus-within:border-primary/30">
+<span class="text-sm font-medium text-on-surface">Não atende às expectativas</span>
+<div class="flex items-center gap-3">
+<span class="text-xs font-bold text-primary">0.75</span>
+<input class="w-5 h-5 text-primary border-outline-variant focus:ring-primary bg-white" name="f1" type="radio"/>
+</div>
+</label>
+</div>
+</div>
+<!-- Factor 2: Iniciativa -->
+<div class="bg-surface-container-lowest rounded-xl p-6 transition-shadow border border-outline-variant/10">
+<div class="flex items-center gap-3 mb-3">
+<span class="w-8 h-8 flex items-center justify-center bg-surface-container-highest text-primary font-bold rounded-lg text-sm">02</span>
+<h3 class="font-bold text-on-surface text-lg">Iniciativa</h3>
+</div>
+<p class="text-on-surface-variant text-sm mb-6 leading-relaxed">Capacidade de agir proativamente na resolução de problemas e propor melhorias nos processos.</p>
+<div class="space-y-2">
+<label class="flex items-center justify-between p-3 rounded-lg bg-surface-container-low hover:bg-surface-container active:bg-surface-container-high transition-colors cursor-pointer border border-transparent focus-within:border-primary/30">
+<span class="text-sm font-medium text-on-surface">Altamente proativo e resolutivo</span>
+<div class="flex items-center gap-3">
+<span class="text-xs font-bold text-primary">7.50</span>
+<input class="w-5 h-5 text-primary border-outline-variant focus:ring-primary bg-white" name="f2" type="radio"/>
+</div>
+</label>
+<label class="flex items-center justify-between p-3 rounded-lg bg-surface-container-low hover:bg-surface-container active:bg-surface-container-high transition-colors cursor-pointer border border-transparent focus-within:border-primary/30">
+<span class="text-sm font-medium text-on-surface">Frequente iniciativa própria</span>
+<div class="flex items-center gap-3">
+<span class="text-xs font-bold text-primary">6.00</span>
+<input class="w-5 h-5 text-primary border-outline-variant focus:ring-primary bg-white" name="f2" type="radio"/>
+</div>
+</label>
+<label class="flex items-center justify-between p-3 rounded-lg bg-surface-container-low hover:bg-surface-container active:bg-surface-container-high transition-colors cursor-pointer border border-transparent focus-within:border-primary/30">
+<span class="text-sm font-medium text-on-surface">Age quando solicitado</span>
+<div class="flex items-center gap-3">
+<span class="text-xs font-bold text-primary">4.00</span>
+<input class="w-5 h-5 text-primary border-outline-variant focus:ring-primary bg-white" name="f2" type="radio"/>
+</div>
+</label>
+<label class="flex items-center justify-between p-3 rounded-lg bg-surface-container-low hover:bg-surface-container active:bg-surface-container-high transition-colors cursor-pointer border border-transparent focus-within:border-primary/30">
+<span class="text-sm font-medium text-on-surface">Pouca disposição para agir</span>
+<div class="flex items-center gap-3">
+<span class="text-xs font-bold text-primary">2.00</span>
+<input class="w-5 h-5 text-primary border-outline-variant focus:ring-primary bg-white" name="f2" type="radio"/>
+</div>
+</label>
+<label class="flex items-center justify-between p-3 rounded-lg bg-surface-container-low hover:bg-surface-container active:bg-surface-container-high transition-colors cursor-pointer border border-transparent focus-within:border-primary/30">
+<span class="text-sm font-medium text-on-surface">Dependência excessiva</span>
+<div class="flex items-center gap-3">
+<span class="text-xs font-bold text-primary">0.75</span>
+<input class="w-5 h-5 text-primary border-outline-variant focus:ring-primary bg-white" name="f2" type="radio"/>
+</div>
+</label>
+</div>
+</div>
+<!-- Factor 3: Produtividade -->
+<div class="bg-surface-container-lowest rounded-xl p-6 transition-shadow border border-outline-variant/10">
+<div class="flex items-center gap-3 mb-3">
+<span class="w-8 h-8 flex items-center justify-center bg-surface-container-highest text-primary font-bold rounded-lg text-sm">03</span>
+<h3 class="font-bold text-on-surface text-lg">Produtividade</h3>
+</div>
+<p class="text-on-surface-variant text-sm mb-6 leading-relaxed">Volume e qualidade do trabalho executado dentro dos prazos estabelecidos.</p>
+<div class="space-y-2">
+<label class="flex items-center justify-between p-3 rounded-lg bg-surface-container-low hover:bg-surface-container active:bg-surface-container-high transition-colors cursor-pointer border border-transparent focus-within:border-primary/30">
+<span class="text-sm font-medium text-on-surface">Supera metas com qualidade</span>
+<div class="flex items-center gap-3">
+<span class="text-xs font-bold text-primary">7.50</span>
+<input class="w-5 h-5 text-primary border-outline-variant focus:ring-primary bg-white" name="f3" type="radio"/>
+</div>
+</label>
+<label class="flex items-center justify-between p-3 rounded-lg bg-surface-container-low hover:bg-surface-container active:bg-surface-container-high transition-colors cursor-pointer border border-transparent focus-within:border-primary/30">
+<span class="text-sm font-medium text-on-surface">Cumpre metas integralmente</span>
+<div class="flex items-center gap-3">
+<span class="text-xs font-bold text-primary">6.00</span>
+<input class="w-5 h-5 text-primary border-outline-variant focus:ring-primary bg-white" name="f3" type="radio"/>
+</div>
+</label>
+<label class="flex items-center justify-between p-3 rounded-lg bg-surface-container-low hover:bg-surface-container active:bg-surface-container-high transition-colors cursor-pointer border border-transparent focus-within:border-primary/30">
+<span class="text-sm font-medium text-on-surface">Produção regular e aceitável</span>
+<div class="flex items-center gap-3">
+<span class="text-xs font-bold text-primary">4.00</span>
+<input class="w-5 h-5 text-primary border-outline-variant focus:ring-primary bg-white" name="f3" type="radio"/>
+</div>
+</label>
+<label class="flex items-center justify-between p-3 rounded-lg bg-surface-container-low hover:bg-surface-container active:bg-surface-container-high transition-colors cursor-pointer border border-transparent focus-within:border-primary/30">
+<span class="text-sm font-medium text-on-surface">Abaixo do esperado</span>
+<div class="flex items-center gap-3">
+<span class="text-xs font-bold text-primary">2.00</span>
+<input class="w-5 h-5 text-primary border-outline-variant focus:ring-primary bg-white" name="f3" type="radio"/>
+</div>
+</label>
+<label class="flex items-center justify-between p-3 rounded-lg bg-surface-container-low hover:bg-surface-container active:bg-surface-container-high transition-colors cursor-pointer border border-transparent focus-within:border-primary/30">
+<span class="text-sm font-medium text-on-surface">Inexpressiva ou insuficiente</span>
+<div class="flex items-center gap-3">
+<span class="text-xs font-bold text-primary">0.75</span>
+<input class="w-5 h-5 text-primary border-outline-variant focus:ring-primary bg-white" name="f3" type="radio"/>
+</div>
+</label>
+</div>
+</div>
+<!-- Factor 4: Responsabilidade -->
+<div class="bg-surface-container-lowest rounded-xl p-6 transition-shadow border border-outline-variant/10">
+<div class="flex items-center gap-3 mb-3">
+<span class="w-8 h-8 flex items-center justify-center bg-surface-container-highest text-primary font-bold rounded-lg text-sm">04</span>
+<h3 class="font-bold text-on-surface text-lg">Responsabilidade</h3>
+</div>
+<p class="text-on-surface-variant text-sm mb-6 leading-relaxed">Compromisso com deveres, guarda de materiais e sigilo de informações.</p>
+<div class="space-y-2">
+<label class="flex items-center justify-between p-3 rounded-lg bg-surface-container-low hover:bg-surface-container active:bg-surface-container-high transition-colors cursor-pointer border border-transparent focus-within:border-primary/30">
+<span class="text-sm font-medium text-on-surface">Exemplar zelo e compromisso</span>
+<div class="flex items-center gap-3">
+<span class="text-xs font-bold text-primary">7.50</span>
+<input class="w-5 h-5 text-primary border-outline-variant focus:ring-primary bg-white" name="f4" type="radio"/>
+</div>
+</label>
+<label class="flex items-center justify-between p-3 rounded-lg bg-surface-container-low hover:bg-surface-container active:bg-surface-container-high transition-colors cursor-pointer border border-transparent focus-within:border-primary/30">
+<span class="text-sm font-medium text-on-surface">Cumpre plenamente as obrigações</span>
+<div class="flex items-center gap-3">
+<span class="text-xs font-bold text-primary">6.00</span>
+<input class="w-5 h-5 text-primary border-outline-variant focus:ring-primary bg-white" name="f4" type="radio"/>
+</div>
+</label>
+<label class="flex items-center justify-between p-3 rounded-lg bg-surface-container-low hover:bg-surface-container active:bg-surface-container-high transition-colors cursor-pointer border border-transparent focus-within:border-primary/30">
+<span class="text-sm font-medium text-on-surface">Cumpre o básico necessário</span>
+<div class="flex items-center gap-3">
+<span class="text-xs font-bold text-primary">4.00</span>
+<input class="w-5 h-5 text-primary border-outline-variant focus:ring-primary bg-white" name="f4" type="radio"/>
+</div>
+</label>
+<label class="flex items-center justify-between p-3 rounded-lg bg-surface-container-low hover:bg-surface-container active:bg-surface-container-high transition-colors cursor-pointer border border-transparent focus-within:border-primary/30">
+<span class="text-sm font-medium text-on-surface">Eventuais falhas de zelo</span>
+<div class="flex items-center gap-3">
+<span class="text-xs font-bold text-primary">2.00</span>
+<input class="w-5 h-5 text-primary border-outline-variant focus:ring-primary bg-white" name="f4" type="radio"/>
+</div>
+</label>
+<label class="flex items-center justify-between p-3 rounded-lg bg-surface-container-low hover:bg-surface-container active:bg-surface-container-high transition-colors cursor-pointer border border-transparent focus-within:border-primary/30">
+<span class="text-sm font-medium text-on-surface">Irresponsável com deveres</span>
+<div class="flex items-center gap-3">
+<span class="text-xs font-bold text-primary">0.75</span>
+<input class="w-5 h-5 text-primary border-outline-variant focus:ring-primary bg-white" name="f4" type="radio"/>
+</div>
+</label>
+</div>
+</div>
+<!-- Factor 5: Controle Emocional -->
+<div class="bg-surface-container-lowest rounded-xl p-6 transition-shadow border border-outline-variant/10">
+<div class="flex items-center gap-3 mb-3">
+<span class="w-8 h-8 flex items-center justify-center bg-surface-container-highest text-primary font-bold rounded-lg text-sm">05</span>
+<h3 class="font-bold text-on-surface text-lg">Controle Emocional</h3>
+</div>
+<p class="text-on-surface-variant text-sm mb-6 leading-relaxed">Capacidade de manter o equilíbrio e a calma em situações de pressão ou conflito.</p>
+<div class="space-y-2">
+<label class="flex items-center justify-between p-3 rounded-lg bg-surface-container-low hover:bg-surface-container active:bg-surface-container-high transition-colors cursor-pointer border border-transparent focus-within:border-primary/30">
+<span class="text-sm font-medium text-on-surface">Equilíbrio exemplar em crises</span>
+<div class="flex items-center gap-3">
+<span class="text-xs font-bold text-primary">7.50</span>
+<input class="w-5 h-5 text-primary border-outline-variant focus:ring-primary bg-white" name="f5" type="radio"/>
+</div>
+</label>
+<label class="flex items-center justify-between p-3 rounded-lg bg-surface-container-low hover:bg-surface-container active:bg-surface-container-high transition-colors cursor-pointer border border-transparent focus-within:border-primary/30">
+<span class="text-sm font-medium text-on-surface">Mantém calma e objetividade</span>
+<div class="flex items-center gap-3">
+<span class="text-xs font-bold text-primary">6.00</span>
+<input class="w-5 h-5 text-primary border-outline-variant focus:ring-primary bg-white" name="f5" type="radio"/>
+</div>
+</label>
+<label class="flex items-center justify-between p-3 rounded-lg bg-surface-container-low hover:bg-surface-container active:bg-surface-container-high transition-colors cursor-pointer border border-transparent focus-within:border-primary/30">
+<span class="text-sm font-medium text-on-surface">Equilibrado rotineiramente</span>
+<div class="flex items-center gap-3">
+<span class="text-xs font-bold text-primary">4.00</span>
+<input class="w-5 h-5 text-primary border-outline-variant focus:ring-primary bg-white" name="f5" type="radio"/>
+</div>
+</label>
+<label class="flex items-center justify-between p-3 rounded-lg bg-surface-container-low hover:bg-surface-container active:bg-surface-container-high transition-colors cursor-pointer border border-transparent focus-within:border-primary/30">
+<span class="text-sm font-medium text-on-surface">Demonstra irritação sob pressão</span>
+<div class="flex items-center gap-3">
+<span class="text-xs font-bold text-primary">2.00</span>
+<input class="w-5 h-5 text-primary border-outline-variant focus:ring-primary bg-white" name="f5" type="radio"/>
+</div>
+</label>
+<label class="flex items-center justify-between p-3 rounded-lg bg-surface-container-low hover:bg-surface-container active:bg-surface-container-high transition-colors cursor-pointer border border-transparent focus-within:border-primary/30">
+<span class="text-sm font-medium text-on-surface">Reações emocionais inadequadas</span>
+<div class="flex items-center gap-3">
+<span class="text-xs font-bold text-primary">0.75</span>
+<input class="w-5 h-5 text-primary border-outline-variant focus:ring-primary bg-white" name="f5" type="radio"/>
+</div>
+</label>
+</div>
+</div>
+<!-- Factor 6: Cooperação -->
+<div class="bg-surface-container-lowest rounded-xl p-6 transition-shadow border border-outline-variant/10">
+<div class="flex items-center gap-3 mb-3">
+<span class="w-8 h-8 flex items-center justify-center bg-surface-container-highest text-primary font-bold rounded-lg text-sm">06</span>
+<h3 class="font-bold text-on-surface text-lg">Cooperação</h3>
+</div>
+<p class="text-on-surface-variant text-sm mb-6 leading-relaxed">Disponibilidade para colaborar com colegas e chefias, visando os objetivos da unidade.</p>
+<div class="space-y-2">
+<label class="flex items-center justify-between p-3 rounded-lg bg-surface-container-low hover:bg-surface-container active:bg-surface-container-high transition-colors cursor-pointer border border-transparent focus-within:border-primary/30">
+<span class="text-sm font-medium text-on-surface">Colaboração extrema e voluntária</span>
+<div class="flex items-center gap-3">
+<span class="text-xs font-bold text-primary">7.50</span>
+<input class="w-5 h-5 text-primary border-outline-variant focus:ring-primary bg-white" name="f6" type="radio"/>
+</div>
+</label>
+<label class="flex items-center justify-between p-3 rounded-lg bg-surface-container-low hover:bg-surface-container active:bg-surface-container-high transition-colors cursor-pointer border border-transparent focus-within:border-primary/30">
+<span class="text-sm font-medium text-on-surface">Bom espírito de equipe</span>
+<div class="flex items-center gap-3">
+<span class="text-xs font-bold text-primary">6.00</span>
+<input class="w-5 h-5 text-primary border-outline-variant focus:ring-primary bg-white" name="f6" type="radio"/>
+</div>
+</label>
+<label class="flex items-center justify-between p-3 rounded-lg bg-surface-container-low hover:bg-surface-container active:bg-surface-container-high transition-colors cursor-pointer border border-transparent focus-within:border-primary/30">
+<span class="text-sm font-medium text-on-surface">Coopera quando solicitado</span>
+<div class="flex items-center gap-3">
+<span class="text-xs font-bold text-primary">4.00</span>
+<input class="w-5 h-5 text-primary border-outline-variant focus:ring-primary bg-white" name="f6" type="radio"/>
+</div>
+</label>
+<label class="flex items-center justify-between p-3 rounded-lg bg-surface-container-low hover:bg-surface-container active:bg-surface-container-high transition-colors cursor-pointer border border-transparent focus-within:border-primary/30">
+<span class="text-sm font-medium text-on-surface">Dificuldade em trabalhar junto</span>
+<div class="flex items-center gap-3">
+<span class="text-xs font-bold text-primary">2.00</span>
+<input class="w-5 h-5 text-primary border-outline-variant focus:ring-primary bg-white" name="f6" type="radio"/>
+</div>
+</label>
+<label class="flex items-center justify-between p-3 rounded-lg bg-surface-container-low hover:bg-surface-container active:bg-surface-container-high transition-colors cursor-pointer border border-transparent focus-within:border-primary/30">
+<span class="text-sm font-medium text-on-surface">Isolamento ou oposição</span>
+<div class="flex items-center gap-3">
+<span class="text-xs font-bold text-primary">0.75</span>
+<input class="w-5 h-5 text-primary border-outline-variant focus:ring-primary bg-white" name="f6" type="radio"/>
+</div>
+</label>
+</div>
+</div>
+<!-- Factor 7: Comprometimento -->
+<div class="bg-surface-container-lowest rounded-xl p-6 transition-shadow border border-outline-variant/10">
+<div class="flex items-center gap-3 mb-3">
+<span class="w-8 h-8 flex items-center justify-center bg-surface-container-highest text-primary font-bold rounded-lg text-sm">07</span>
+<h3 class="font-bold text-on-surface text-lg">Comprometimento</h3>
+</div>
+<p class="text-on-surface-variant text-sm mb-6 leading-relaxed">Nível de engajamento com a missão institucional e dedicação às atribuições do cargo.</p>
+<div class="space-y-2">
+<label class="flex items-center justify-between p-3 rounded-lg bg-surface-container-low hover:bg-surface-container active:bg-surface-container-high transition-colors cursor-pointer border border-transparent focus-within:border-primary/30">
+<span class="text-sm font-medium text-on-surface">Veste a camisa da instituição</span>
+<div class="flex items-center gap-3">
+<span class="text-xs font-bold text-primary">7.50</span>
+<input class="w-5 h-5 text-primary border-outline-variant focus:ring-primary bg-white" name="f7" type="radio"/>
+</div>
+</label>
+<label class="flex items-center justify-between p-3 rounded-lg bg-surface-container-low hover:bg-surface-container active:bg-surface-container-high transition-colors cursor-pointer border border-transparent focus-within:border-primary/30">
+<span class="text-sm font-medium text-on-surface">Demonstra forte engajamento</span>
+<div class="flex items-center gap-3">
+<span class="text-xs font-bold text-primary">6.00</span>
+<input class="w-5 h-5 text-primary border-outline-variant focus:ring-primary bg-white" name="f7" type="radio"/>
+</div>
+</label>
+<label class="flex items-center justify-between p-3 rounded-lg bg-surface-container-low hover:bg-surface-container active:bg-surface-container-high transition-colors cursor-pointer border border-transparent focus-within:border-primary/30">
+<span class="text-sm font-medium text-on-surface">Cumpre seu papel adequadamente</span>
+<div class="flex items-center gap-3">
+<span class="text-xs font-bold text-primary">4.00</span>
+<input class="w-5 h-5 text-primary border-outline-variant focus:ring-primary bg-white" name="f7" type="radio"/>
+</div>
+</label>
+<label class="flex items-center justify-between p-3 rounded-lg bg-surface-container-low hover:bg-surface-container active:bg-surface-container-high transition-colors cursor-pointer border border-transparent focus-within:border-primary/30">
+<span class="text-sm font-medium text-on-surface">Baixa identificação institucional</span>
+<div class="flex items-center gap-3">
+<span class="text-xs font-bold text-primary">2.00</span>
+<input class="w-5 h-5 text-primary border-outline-variant focus:ring-primary bg-white" name="f7" type="radio"/>
+</div>
+</label>
+<label class="flex items-center justify-between p-3 rounded-lg bg-surface-container-low hover:bg-surface-container active:bg-surface-container-high transition-colors cursor-pointer border border-transparent focus-within:border-primary/30">
+<span class="text-sm font-medium text-on-surface">Desinteresse manifesto</span>
+<div class="flex items-center gap-3">
+<span class="text-xs font-bold text-primary">0.75</span>
+<input class="w-5 h-5 text-primary border-outline-variant focus:ring-primary bg-white" name="f7" type="radio"/>
+</div>
+</label>
+</div>
+</div>
+<!-- Factor 8: Relações Interpessoais -->
+<div class="bg-surface-container-lowest rounded-xl p-6 transition-shadow border border-outline-variant/10">
+<div class="flex items-center gap-3 mb-3">
+<span class="w-8 h-8 flex items-center justify-center bg-surface-container-highest text-primary font-bold rounded-lg text-sm">08</span>
+<h3 class="font-bold text-on-surface text-lg">Relações Interpessoais</h3>
+</div>
+<p class="text-on-surface-variant text-sm mb-6 leading-relaxed">Qualidade do convívio com o público interno e externo, demonstrando urbanidade e respeito.</p>
+<div class="space-y-2">
+<label class="flex items-center justify-between p-3 rounded-lg bg-surface-container-low hover:bg-surface-container active:bg-surface-container-high transition-colors cursor-pointer border border-transparent focus-within:border-primary/30">
+<span class="text-sm font-medium text-on-surface">Relacionamento excelente e empático</span>
+<div class="flex items-center gap-3">
+<span class="text-xs font-bold text-primary">7.50</span>
+<input class="w-5 h-5 text-primary border-outline-variant focus:ring-primary bg-white" name="f8" type="radio"/>
+</div>
+</label>
+<label class="flex items-center justify-between p-3 rounded-lg bg-surface-container-low hover:bg-surface-container active:bg-surface-container-high transition-colors cursor-pointer border border-transparent focus-within:border-primary/30">
+<span class="text-sm font-medium text-on-surface">Cordial e respeitoso sempre</span>
+<div class="flex items-center gap-3">
+<span class="text-xs font-bold text-primary">6.00</span>
+<input class="w-5 h-5 text-primary border-outline-variant focus:ring-primary bg-white" name="f8" type="radio"/>
+</div>
+</label>
+<label class="flex items-center justify-between p-3 rounded-lg bg-surface-container-low hover:bg-surface-container active:bg-surface-container-high transition-colors cursor-pointer border border-transparent focus-within:border-primary/30">
+<span class="text-sm font-medium text-on-surface">Convívio social harmônico</span>
+<div class="flex items-center gap-3">
+<span class="text-xs font-bold text-primary">4.00</span>
+<input class="w-5 h-5 text-primary border-outline-variant focus:ring-primary bg-white" name="f8" type="radio"/>
+</div>
+</label>
+<label class="flex items-center justify-between p-3 rounded-lg bg-surface-container-low hover:bg-surface-container active:bg-surface-container-high transition-colors cursor-pointer border border-transparent focus-within:border-primary/30">
+<span class="text-sm font-medium text-on-surface">Dificuldades pontuais de convívio</span>
+<div class="flex items-center gap-3">
+<span class="text-xs font-bold text-primary">2.00</span>
+<input class="w-5 h-5 text-primary border-outline-variant focus:ring-primary bg-white" name="f8" type="radio"/>
+</div>
+</label>
+<label class="flex items-center justify-between p-3 rounded-lg bg-surface-container-low hover:bg-surface-container active:bg-surface-container-high transition-colors cursor-pointer border border-transparent focus-within:border-primary/30">
+<span class="text-sm font-medium text-on-surface">Conflituoso ou indelicado</span>
+<div class="flex items-center gap-3">
+<span class="text-xs font-bold text-primary">0.75</span>
+<input class="w-5 h-5 text-primary border-outline-variant focus:ring-primary bg-white" name="f8" type="radio"/>
+</div>
+</label>
+</div>
+</div>
+<!-- Upload Section -->
+<section class="mt-12 bg-surface-container p-6 rounded-2xl">
+<div class="flex items-center gap-2 mb-4">
+<span class="material-symbols-outlined text-primary">upload_file</span>
+<h3 class="text-lg font-bold text-primary font-headline tracking-tight">Certificados e Anexos</h3>
+</div>
+<div class="border-2 border-dashed border-primary/20 rounded-xl p-8 flex flex-col items-center justify-center bg-white/50 text-center">
+<span class="material-symbols-outlined text-4xl text-primary/40 mb-2">cloud_upload</span>
+<p class="text-sm font-bold text-on-surface">Toque para fazer upload</p>
+<p class="text-[10px] text-on-surface-variant mt-1">PDF apenas (Max. 10MB)</p>
+</div>
+<div class="mt-6 space-y-3">
+<div class="flex items-center justify-between bg-surface-container-lowest p-3 rounded-lg shadow-sm border border-outline-variant/10">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-error">picture_as_pdf</span>
+<div>
+<p class="text-xs font-bold text-on-surface truncate w-40">Certificado_Pos_Graduacao.pdf</p>
+<p class="text-[10px] text-on-surface-variant">2.4 MB • 12 Out 2023</p>
+</div>
+</div>
+<button class="p-2 text-on-surface-variant hover:text-error transition-colors">
+<span class="material-symbols-outlined text-sm">close</span>
+</button>
+</div>
+</div>
+</section>
+</div>
+<!-- Footer Banner: Safety Lock -->
+<div class="mt-12 mb-8 flex items-center justify-center gap-2 py-3 px-4 bg-surface-container-high/50 rounded-full border border-white/50">
+<span class="material-symbols-outlined text-sm text-on-secondary-container" style="font-variation-settings: 'FILL' 1;">lock</span>
+<p class="text-[10px] font-bold uppercase tracking-widest text-on-secondary-container">Trava de Segurança: Habilitada</p>
+</div>
+<!-- Footer Actions -->
+<div class="flex flex-col gap-3 mb-10">
+<button class="bg-primary-gradient text-on-primary py-4 rounded-xl font-bold text-sm shadow-lg active:scale-95 transition-transform">
+            Finalizar Avaliação
+        </button>
+<button class="bg-transparent border border-outline text-on-surface-variant py-4 rounded-xl font-bold text-sm active:bg-surface-container-low transition-colors">
+            Salvar Rascunho
+        </button>
+</div>
+</main>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 w-full z-50 rounded-t-xl bg-[#f3faff]/70 dark:bg-slate-900/70 backdrop-blur-md flex justify-around items-center w-full pb-safe pt-2 px-2 shadow-[0_-4px_12px_rgba(7,30,39,0.06)]">
+<a class="flex flex-col items-center justify-center text-[#43474f] px-3 py-1 scale-95 active:scale-90 transition-transform" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="font-inter text-[10px] font-medium">Overview</span>
+</a>
+<a class="flex flex-col items-center justify-center bg-[#00326b] text-white rounded-xl px-3 py-1 scale-95 active:scale-90 transition-transform" href="#">
+<span class="material-symbols-outlined">fact_check</span>
+<span class="font-inter text-[10px] font-medium">Factors</span>
+</a>
+<a class="flex flex-col items-center justify-center text-[#43474f] px-3 py-1 scale-95 active:scale-90 transition-transform" href="#">
+<span class="material-symbols-outlined">upload_file</span>
+<span class="font-inter text-[10px] font-medium">Files</span>
+</a>
+<a class="flex flex-col items-center justify-center text-[#43474f] px-3 py-1 scale-95 active:scale-90 transition-transform" href="#">
+<span class="material-symbols-outlined">history</span>
+<span class="font-inter text-[10px] font-medium">History</span>
+</a>
+<a class="flex flex-col items-center justify-center text-[#43474f] px-3 py-1 scale-95 active:scale-90 transition-transform" href="#">
+<span class="material-symbols-outlined">send</span>
+<span class="font-inter text-[10px] font-medium">Submit</span>
+</a>
+</nav>
+</body></html>

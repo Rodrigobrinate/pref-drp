@@ -1,0 +1,111 @@
+Aqui está a transcrição exata de todas as perguntas e alternativas dos dois formulários, conforme constam nos documentos anexados:
+
+### Formulário 1: Avaliação de Desempenho - Estágio Probatório (5 Fatores)
+
+**1. [cite_start]Assiduidade e Pontualidade** [cite: 90]
+* [cite_start]**Enunciado:** Presença do servidor no local de trabalho dentro do horário estabelecido para o expediente da unidade. [cite: 90]
+* [cite_start]**a)** Cumpre o horário e é pontual estando sempre presente, mostrando-se disposto a atender às necessidades de trabalho e domina o serviço previamente estabelecido. [cite: 90]
+* [cite_start]**b)** Cumpre o horário estabelecido e é pontual nos seus compromissos de trabalho, tem pouca disponibilidade e domina o serviço previamente estabelecido. [cite: 90]
+* [cite_start]**c)** Normalmente não cumpre o horário estabelecido, mas, quando presente, atende às necessidades de trabalho. [cite: 90]
+* [cite_start]**d)** Normalmente não cumpre o horário estabelecido, e não domina o serviço previamente estabelecido. [cite: 90]
+* [cite_start]**e)** Nunca cumpre horário e está sempre ausente. [cite: 90]
+
+**2. [cite_start]Disciplina** [cite: 90]
+* [cite_start]**Enunciado:** Observa sistematicamente aos regulamentos e às normas emanadas das autoridades competentes. [cite: 90]
+* [cite_start]**a)** Sempre cumpre as normas e deveres, além de contribuir para a manutenção da ordem no ambiente de trabalho. [cite: 90]
+* [cite_start]**b)** Mantém um comportamento satisfatório atendendo às normas e deveres da unidade. [cite: 90]
+* [cite_start]**c)** Mantém um comportamento satisfatório, mas não atende às normas e deveres da unidade. [cite: 90]
+* [cite_start]**d)** Eventualmente descumpre as determinações que lhes são atribuídas e tem um comportamento instável no grupo. [cite: 90]
+* [cite_start]**e)** Mostra-se resistente a cumprir normas e deveres e sempre influencia negativamente no comportamento do grupo. [cite: 90]
+
+**3. [cite_start]Eficiência** [cite: 90] [cite_start]*(Nota: No documento Word este fator é chamado de "Iniciativa" [cite: 7][cite_start], mas na ficha em PDF consta como "Eficiência" [cite: 90])*
+* [cite_start]**Enunciado:** Adota providências em situações não definidas pela chefia ou não previstas nos manuais ou normas. [cite: 79, 90]
+* [cite_start]**a)** Tem facilidade em buscar soluções para situações imprevistas do trabalho, quando solicitado. [cite: 90]
+* [cite_start]**b)** Esforça-se para solucionar algumas situações imprevistas na execução do trabalho. [cite: 90]
+* [cite_start]**c)** Eventualmente apresenta soluções para situações imprevistas do trabalho, quando solicitado. [cite: 90]
+* [cite_start]**d)** Mostra pouco interesse em solucionar problemas decorrentes de situações imprevistas na execução do trabalho. [cite: 80]
+* [cite_start]**e)** Deixa de solucionar problemas decorrentes de situações imprevistas na execução do trabalho. [cite: 80]
+
+**4. [cite_start]Produtividade** [cite: 80]
+* [cite_start]**Enunciado:** Apresenta volume e qualidade de trabalho num intervalo de tempo satisfatório. [cite: 80]
+* [cite_start]**a)** Ultrapassa o volume de trabalho exigido, entregando as tarefas antes dos prazos estabelecidos e com qualidade. [cite: 80]
+* [cite_start]**b)** Apresenta resultados satisfatórios, entregando as tarefas dentro dos prazos estabelecidos. [cite: 80]
+* [cite_start]**c)** Apresenta pouco resultado para o trabalho exigido, e não cumpre os prazos estabelecidos devido a pouco conhecimento dos serviços. [cite: 80]
+* [cite_start]**d)** Apresenta resultados para o trabalho exigido, porém não cumpre os prazos estabelecidos. [cite: 80]
+* [cite_start]**e)** Demonstra resultados abaixo do exigido e as tarefas são sempre entregues fora dos prazos previstos. [cite: 80]
+
+**5. [cite_start]Responsabilidade** [cite: 80]
+* [cite_start]**Enunciado:** É comprometido com suas tarefas, com as metas estabelecidas pelo órgão ou entidade e com o bom conceito da administração pública Municipal. [cite: 80]
+* [cite_start]**a)** Conhece suas atribuições executando suas atividades acima das expectativas, antecipando-se às solicitações. [cite: 80]
+* [cite_start]**b)** Executa adequadamente as suas atividades de acordo com as metas estabelecidas para a unidade. [cite: 80]
+* [cite_start]**c)** Em algumas situações demonstra pouca atenção em relação a execução das atribuições do seu cargo. [cite: 80]
+* [cite_start]**d)** Não cumpre adequadamente suas atribuições demonstrando pouca atenção necessitando de permanente orientação e controle. [cite: 80]
+* [cite_start]**e)** È descuidado demonstra nenhuma atenção às suas atribuições, descumprindo as orientações dos serviços, causando prejuízos. [cite: 80]
+
+---
+
+### Formulário 2: Avaliação de Desempenho - Servidor Efetivo (8 Fatores)
+
+**1. [cite_start]Disciplina** [cite: 102]
+* [cite_start]**Enunciado:** Considere se o servidor observa sistematicamente aos regulamentos e às normas emanadas das autoridades. [cite: 102]
+* [cite_start]**1.1)** Sempre cumpre as normas e deveres, além de contribuir para a manutenção da ordem no ambiente de trabalho. [cite: 102]
+* [cite_start]**1.2)** Mantém um comportamento satisfatório atendendo às normas e deveres da unidade. [cite: 102]
+* [cite_start]**1.3)** Mantém um comportamento satisfatório, mas não atende às normas e deveres da unidade. [cite: 102]
+* [cite_start]**1.4)** Eventualmente descumpre as determinações que lhes são atribuídas e tem um comportamento instável no grupo. [cite: 102]
+* [cite_start]**1.5)** Mostra-se resistente a cumprir normas e deveres e sempre influencia negativamente no comportamento do grupo. [cite: 102]
+
+**2. [cite_start]Iniciativa** [cite: 102]
+* [cite_start]**Enunciado:** Considere se o servidor adota providências em situações não definidas pela chefia ou não previstas nos manuais ou normas de serviço. [cite: 102]
+* [cite_start]**a)** Tem facilidade em buscar soluções para situações imprevistas do trabalho, quando solicitado. [cite: 102]
+* [cite_start]**b)** Esforça-se para solucionar algumas situações imprevistas na execução do trabalho. [cite: 102]
+* [cite_start]**c)** Eventualmente apresenta soluções para situações imprevistas do trabalho, quando solicitado. [cite: 102]
+* [cite_start]**d)** Mostra pouco interesse em solucionar problemas decorrentes de situações imprevistas na execução do trabalho. [cite: 102]
+* [cite_start]**e)** Deixa de solucionar problemas decorrentes de situações imprevistas na execução do trabalho. [cite: 102]
+
+**3. [cite_start]Produtividade** [cite: 102, 104]
+* [cite_start]**Enunciado:** Considere se o servidor apresenta volume e qualidade de trabalho num intervalo de tempo satisfatório. [cite: 102, 104]
+* [cite_start]**a)** Ultrapassa o volume de trabalho exigido, entregando as tarefas antes dos prazos estabelecidos e com qualidade. [cite: 102]
+* [cite_start]**b)** Apresenta resultados satisfatórios, entregando as tarefas dentro dos prazos estabelecidos. [cite: 102]
+* [cite_start]**c)** Apresenta pouco resultado para o trabalho exigido, e não cumpre os prazos estabelecidos devido a pouco conhecimento dos serviços. [cite: 104]
+* [cite_start]**d)** Apresenta resultados para o trabalho exigido, porém não cumpre os prazos estabelecidos. [cite: 104]
+* [cite_start]**e)** Demonstra resultados abaixo do exigido e as tarefas são sempre entregues fora dos prazos previstos. [cite: 104]
+
+**4. [cite_start]Responsabilidade** [cite: 104]
+* [cite_start]**Enunciado:** Considere o comprometimento com suas tarefas, com as metas estabelecidas pelo órgão ou entidade e com o bom conceito da administração pública do Municipio. [cite: 104]
+* [cite_start]**a)** Conhece suas atribuições executando suas atividades acima das expectativas, antecipando-se às solicitações. [cite: 104]
+* [cite_start]**b)** Executa adequadamente as suas atividades de acordo com as metas estabelecidas para a unidade. [cite: 104]
+* [cite_start]**c)** Em algumas situações demonstra pouca atenção em relação a execução das atribuições do seu cargo. [cite: 104]
+* [cite_start]**d)** Não cumpre adequadamente suas atribuições demonstrando pouca atenção necessitando de permanente orientação e controle. [cite: 104]
+* [cite_start]**e)** È descuidado demonstra nenhuma atenção às suas atribuições, descumprindo as orientações dos serviços, causando prejuízos. [cite: 104]
+
+**5. [cite_start]Controle Emocional** [cite: 104]
+* [cite_start]**Enunciado:** Considere a capacidade de manter o equilíbrio emocional diante de situações adversas. [cite: 104]
+* **a)** Mantêm o equilíbrio emocional diante das mais adversas situações. Demonstra capacidade de solucionar qualquer problema sem perder a calma. [cite_start]Jamais perde o equilíbrio com chefias, subordinados ou colegas de trabalho. [cite: 104]
+* **b)** É equilibrado emocionalmente, Mas diante de algumas situações reage com insensatez na resolução do problema. [cite_start]Age com equilíbrio no trato com chefes, subordinados ou colegas de trabalho. [cite: 104]
+* **c)** É equilibrado emocionalmente, Mas diante de algumas situações reage com total Insensatez na resolução do problema. [cite_start]Demonstra pouco equilíbrio no trato com chefes, subordinados ou colegas de trabalho. [cite: 104]
+* **d)** Constantemente age com desequilíbrio emocional. [cite_start]Nem sempre age com equilíbrio no trato com chefes, subordinados ou colegas de trabalho. [cite: 104]
+* [cite_start]**e)** Age sempre com desequilíbrio emocional principalmente no trato com as pessoas prejudicando as atividades que desenvolve trazendo prejuízos para administração. [cite: 104]
+
+**6. [cite_start]Cooperação** [cite: 104, 128]
+* [cite_start]**Enunciado:** Considere a disposição colaborar para independentemente de solicitação de demanda. [cite: 104, 128]
+* [cite_start]**a)** Demonstra em seus atos, comportamentos e atitudes de colaboração com os superiores, subordinados e colegas de trabalho independente de demanda e ou determinação. [cite: 104]
+* [cite_start]**b)** Se solicitado demonstra em seus atos, comportamentos e atitudes de colaboração com os superiores, subordinados e colegas de trabalho independente de demanda e ou determinação. [cite: 104]
+* [cite_start]**c)** Dependendo da demanda e ou determinação, se solicitado demonstra em seus atos, comportamentos e atitudes de colaboração com os superiores subordinados e colegas de trabalho. [cite: 128]
+* [cite_start]**d)** Na maioria das vezes não coopera com as solicitações. [cite: 128]
+* [cite_start]**e)** Não coopera e ainda tenta impedir que outros cooperem quando solicitado. [cite: 128]
+
+**7. [cite_start]Comprometimento** [cite: 128]
+* [cite_start]**Enunciado:** Considere se o servidor é comprometido com suas tarefas, com as metas estabelecidas pelo órgão ou entidade e com o bom conceito da administração pública do Município. [cite: 128]
+* [cite_start]**a)** Conhece suas atribuições executando suas atividades acima das expectativas antecipando-se às solicitações. [cite: 128]
+* [cite_start]**b)** Executa adequadamente as suas atividades de acordo com as metas estabelecidas para a unidade. [cite: 128]
+* [cite_start]**c)** Em algumas situações demonstra pouca atenção em relação a execução das atribuições do seu cargo. [cite: 128]
+* [cite_start]**d)** Não cumpre adequadamente suas atribuições demonstrando pouca atenção necessitando de permanente orientação e controle. [cite: 128]
+* [cite_start]**e)** È descuidado demonstra nenhuma atenção às suas atribuições, descumprindo as orientações dos serviços, causando prejuízos. [cite: 128]
+
+**8. [cite_start]Relações Interpessoais** [cite: 128]
+* [cite_start]**Enunciado:** Considere a capacidade de manter relações humanas saudáveis e construtivas. [cite: 128]
+* [cite_start]**a)** É capaz de manter relações humanas saudáveis e construtivas, visando proporcionar ao grupo um ambiente harmonioso tendo em vista a execução integrada do trabalho. [cite: 128]
+* [cite_start]**b)** Se integra bem ao grupo e consegue manter boa as relações interpessoais. [cite: 128]
+* [cite_start]**c)** Eventualmente se integra bem ao grupo e consegue manter boa as relações interpessoais. [cite: 128]
+* [cite_start]**d)** Se integra com dificuldade ao grupo e nem sempre consegue manter boa as relações interpessoal. [cite: 128]
+* [cite_start]**e)** Não se integra ao grupo e tenta desequilibrar o relacionamento dos integrantes dos grupos que com ele se relacionam. [cite: 128]

@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+
+<html lang="pt-BR"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Performance Evaluation - Civic Blueprint</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500;600;700;800&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-surface-variant": "#43474f",
+                        "outline": "#737780",
+                        "background": "#f3faff",
+                        "surface-variant": "#cfe6f2",
+                        "primary-container": "#00326b",
+                        "on-background": "#071e27",
+                        "secondary-container": "#cbe7f5",
+                        "on-primary-fixed": "#001b3f",
+                        "on-secondary-container": "#4e6874",
+                        "tertiary": "#460003",
+                        "surface-container-lowest": "#ffffff",
+                        "on-primary-fixed-variant": "#00458f",
+                        "on-secondary-fixed-variant": "#304a55",
+                        "inverse-primary": "#abc7ff",
+                        "surface-container-low": "#e6f6ff",
+                        "on-tertiary-container": "#ff6c63",
+                        "on-tertiary": "#ffffff",
+                        "primary-fixed": "#d7e2ff",
+                        "on-tertiary-fixed": "#410003",
+                        "inverse-surface": "#1e333c",
+                        "surface-container": "#dbf1fe",
+                        "tertiary-fixed": "#ffdad6",
+                        "on-secondary": "#ffffff",
+                        "on-error": "#ffffff",
+                        "surface-container-high": "#d5ecf8",
+                        "on-primary": "#ffffff",
+                        "error": "#ba1a1a",
+                        "secondary": "#48626e",
+                        "on-secondary-fixed": "#021f29",
+                        "inverse-on-surface": "#dff4ff",
+                        "primary": "#001d44",
+                        "tertiary-fixed-dim": "#ffb3ac",
+                        "on-tertiary-fixed-variant": "#930010",
+                        "primary-fixed-dim": "#abc7ff",
+                        "surface-container-highest": "#cfe6f2",
+                        "surface": "#f3faff",
+                        "surface-bright": "#f3faff",
+                        "secondary-fixed": "#cbe7f5",
+                        "on-primary-container": "#6b9bef",
+                        "on-error-container": "#93000a",
+                        "error-container": "#ffdad6",
+                        "surface-dim": "#c7dde9",
+                        "outline-variant": "#c3c6d1",
+                        "tertiary-container": "#6e0009",
+                        "surface-tint": "#255dad",
+                        "on-surface": "#071e27",
+                        "secondary-fixed-dim": "#afcbd8"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "fontFamily": {
+                        "headline": ["Public Sans"],
+                        "body": ["Inter"],
+                        "label": ["Inter"]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .form-radio:checked {
+            background-image: url("data:image/svg+xml,%3csvg viewBox='0 0 16 16' fill='white' xmlns='http://www.w3.org/2000/svg'%3e%3ccircle cx='8' cy='8' r='3'/%3e%3c/svg%3e");
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-surface font-body text-on-surface antialiased">
+<!-- TopAppBar -->
+<header class="fixed top-0 w-full z-50 bg-[#f3faff] dark:bg-slate-900 flex items-center justify-between px-4 h-16 w-full">
+<div class="flex items-center gap-4">
+<button class="p-2 rounded-full hover:bg-[#cfe6f2] dark:hover:bg-slate-700 transition-colors duration-200 text-[#001d44] dark:text-blue-400">
+<span class="material-symbols-outlined">arrow_back</span>
+</button>
+<h1 class="text-lg font-bold text-[#001d44] dark:text-blue-200 font-['Public_Sans'] tracking-tight">Performance Evaluation</h1>
+</div>
+<div class="flex items-center">
+<button class="p-2 rounded-full hover:bg-[#cfe6f2] dark:hover:bg-slate-700 transition-colors duration-200 text-[#001d44] dark:text-blue-400">
+<span class="material-symbols-outlined">more_vert</span>
+</button>
+</div>
+</header>
+<!-- Separation Logic -->
+<div class="fixed top-16 w-full h-1 bg-[#e6f6ff] dark:bg-slate-800 z-50"></div>
+<main class="pt-24 pb-32 px-4 max-w-4xl mx-auto space-y-12">
+<!-- Summary Dashboard Card -->
+<section class="bg-surface-container-lowest rounded-xl p-8 shadow-[0_-4px_20px_rgba(7,30,39,0.06)] relative overflow-hidden">
+<div class="absolute top-0 right-0 w-32 h-32 bg-primary/5 rounded-bl-full -mr-8 -mt-8"></div>
+<div class="relative z-10">
+<div class="inline-flex items-center px-3 py-1 rounded-full bg-secondary-container text-on-secondary-container text-xs font-bold uppercase tracking-wider mb-4">
+                    Probationary Period
+                </div>
+<h2 class="text-3xl font-headline font-extrabold text-primary mb-2 leading-tight">Avaliação de Desempenho</h2>
+<p class="text-on-surface-variant max-w-2xl">Formulário oficial para acompanhamento técnico-administrativo. Pontuação máxima: 50 pontos.</p>
+<div class="mt-8 grid grid-cols-1 md:grid-cols-3 gap-6">
+<div class="bg-surface-container-low p-4 rounded-lg">
+<span class="text-xs font-semibold text-outline block mb-1">SERVIDOR</span>
+<span class="text-sm font-bold text-on-surface">Carlos Eduardo Menezes</span>
+</div>
+<div class="bg-surface-container-low p-4 rounded-lg">
+<span class="text-xs font-semibold text-outline block mb-1">MATRÍCULA</span>
+<span class="text-sm font-bold text-on-surface">#882.109-0</span>
+</div>
+<div class="bg-surface-container-low p-4 rounded-lg">
+<span class="text-xs font-semibold text-outline block mb-1">DATA LIMITE</span>
+<span class="text-sm font-bold text-on-surface">24 Out 2023</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Evaluation Factors -->
+<div class="space-y-8">
+<!-- Factor 1 -->
+<section class="bg-surface-container-low rounded-xl p-0 overflow-hidden">
+<div class="p-6 bg-surface-container-highest/50">
+<div class="flex items-start gap-4">
+<div class="w-10 h-10 rounded-lg bg-primary flex items-center justify-center text-white shrink-0">
+<span class="text-lg font-bold">1</span>
+</div>
+<div>
+<h3 class="text-xl font-headline font-bold text-primary">Assiduidade e Pontualidade</h3>
+<p class="text-sm text-on-surface-variant mt-1 italic">Presença do servidor no local de trabalho dentro do horário estabelecido para o expediente da unidade.</p>
+</div>
+</div>
+</div>
+<div class="p-6 space-y-4">
+<!-- Option A -->
+<label class="flex items-start gap-4 p-4 rounded-xl border border-transparent hover:bg-surface-container-highest cursor-pointer transition-all group">
+<input checked="" class="mt-1 w-5 h-5 text-primary focus:ring-primary border-outline-variant bg-white" name="factor1" type="radio"/>
+<div class="flex-1">
+<div class="flex justify-between items-center mb-1">
+<span class="text-sm font-bold text-primary uppercase">Option A</span>
+<span class="text-xs font-bold px-2 py-0.5 bg-primary text-white rounded">10 pts</span>
+</div>
+<p class="text-sm text-on-surface leading-relaxed">Cumpre o horário e é pontual estando sempre presente, mostrando-se disposto a atender às necessidades de trabalho e domina o serviço previamente estabelecido.</p>
+</div>
+</label>
+<!-- Option B -->
+<label class="flex items-start gap-4 p-4 rounded-xl border border-transparent hover:bg-surface-container-highest cursor-pointer transition-all group">
+<input class="mt-1 w-5 h-5 text-primary focus:ring-primary border-outline-variant bg-white" name="factor1" type="radio"/>
+<div class="flex-1">
+<div class="flex justify-between items-center mb-1">
+<span class="text-sm font-bold text-outline uppercase">Option B</span>
+<span class="text-xs font-bold px-2 py-0.5 bg-outline text-white rounded">8 pts</span>
+</div>
+<p class="text-sm text-on-surface leading-relaxed">Cumpre o horário estabelecido e é pontual nos seus compromissos de trabalho, tem pouca disponibilidade e domina o serviço previamente estabelecido.</p>
+</div>
+</label>
+<!-- Option C -->
+<label class="flex items-start gap-4 p-4 rounded-xl border border-transparent hover:bg-surface-container-highest cursor-pointer transition-all group">
+<input class="mt-1 w-5 h-5 text-primary focus:ring-primary border-outline-variant bg-white" name="factor1" type="radio"/>
+<div class="flex-1">
+<div class="flex justify-between items-center mb-1">
+<span class="text-sm font-bold text-outline uppercase">Option C</span>
+<span class="text-xs font-bold px-2 py-0.5 bg-outline text-white rounded">6 pts</span>
+</div>
+<p class="text-sm text-on-surface leading-relaxed">Normalmente não cumpre o horário estabelecido, mas, quando presente, atende às necessidades de trabalho.</p>
+</div>
+</label>
+<!-- Option D -->
+<label class="flex items-start gap-4 p-4 rounded-xl border border-transparent hover:bg-surface-container-highest cursor-pointer transition-all group">
+<input class="mt-1 w-5 h-5 text-primary focus:ring-primary border-outline-variant bg-white" name="factor1" type="radio"/>
+<div class="flex-1">
+<div class="flex justify-between items-center mb-1">
+<span class="text-sm font-bold text-outline uppercase">Option D</span>
+<span class="text-xs font-bold px-2 py-0.5 bg-outline text-white rounded">3 pts</span>
+</div>
+<p class="text-sm text-on-surface leading-relaxed">Normalmente não cumpre o horário estabelecido, e não domina o serviço previamente estabelecido.</p>
+</div>
+</label>
+<!-- Option E -->
+<label class="flex items-start gap-4 p-4 rounded-xl border border-transparent hover:bg-surface-container-highest cursor-pointer transition-all group">
+<input class="mt-1 w-5 h-5 text-primary focus:ring-primary border-outline-variant bg-white" name="factor1" type="radio"/>
+<div class="flex-1">
+<div class="flex justify-between items-center mb-1">
+<span class="text-sm font-bold text-outline uppercase">Option E</span>
+<span class="text-xs font-bold px-2 py-0.5 bg-outline text-white rounded">1 pt</span>
+</div>
+<p class="text-sm text-on-surface leading-relaxed text-error font-medium">Nunca cumpre horário e está sempre ausente.</p>
+</div>
+</label>
+</div>
+</section>
+<!-- Factor 2 -->
+<section class="bg-surface-container-low rounded-xl p-0 overflow-hidden">
+<div class="p-6 bg-surface-container-highest/50">
+<div class="flex items-start gap-4">
+<div class="w-10 h-10 rounded-lg bg-primary flex items-center justify-center text-white shrink-0">
+<span class="text-lg font-bold">2</span>
+</div>
+<div>
+<h3 class="text-xl font-headline font-bold text-primary">Disciplina</h3>
+<p class="text-sm text-on-surface-variant mt-1 italic">Observa sistematicamente aos regulamentos e às normas emanadas das autoridades competentes.</p>
+</div>
+</div>
+</div>
+<div class="p-6 space-y-4">
+<label class="flex items-start gap-4 p-4 rounded-xl border border-transparent hover:bg-surface-container-highest cursor-pointer transition-all">
+<input class="mt-1 w-5 h-5 text-primary focus:ring-primary border-outline-variant bg-white" name="factor2" type="radio"/>
+<div class="flex-1">
+<div class="flex justify-between items-center mb-1">
+<span class="text-sm font-bold text-primary uppercase">Option A</span>
+<span class="text-xs font-bold px-2 py-0.5 bg-primary text-white rounded">10 pts</span>
+</div>
+<p class="text-sm text-on-surface">Sempre cumpre as normas e deveres, além de contribuir para a manutenção da ordem no ambiente de trabalho.</p>
+</div>
+</label>
+<label class="flex items-start gap-4 p-4 rounded-xl border border-transparent hover:bg-surface-container-highest cursor-pointer transition-all">
+<input checked="" class="mt-1 w-5 h-5 text-primary focus:ring-primary border-outline-variant bg-white" name="factor2" type="radio"/>
+<div class="flex-1">
+<div class="flex justify-between items-center mb-1">
+<span class="text-sm font-bold text-outline uppercase">Option B</span>
+<span class="text-xs font-bold px-2 py-0.5 bg-outline text-white rounded">8 pts</span>
+</div>
+<p class="text-sm text-on-surface">Mantém um comportamento satisfatório atendendo às normas e deveres da unidade.</p>
+</div>
+</label>
+<label class="flex items-start gap-4 p-4 rounded-xl border border-transparent hover:bg-surface-container-highest cursor-pointer transition-all">
+<input class="mt-1 w-5 h-5 text-primary focus:ring-primary border-outline-variant bg-white" name="factor2" type="radio"/>
+<div class="flex-1">
+<div class="flex justify-between items-center mb-1">
+<span class="text-sm font-bold text-outline uppercase">Option C</span>
+<span class="text-xs font-bold px-2 py-0.5 bg-outline text-white rounded">6 pts</span>
+</div>
+<p class="text-sm text-on-surface">Mantém um comportamento satisfatório, mas não atende às normas e deveres da unidade.</p>
+</div>
+</label>
+<label class="flex items-start gap-4 p-4 rounded-xl border border-transparent hover:bg-surface-container-highest cursor-pointer transition-all">
+<input class="mt-1 w-5 h-5 text-primary focus:ring-primary border-outline-variant bg-white" name="factor2" type="radio"/>
+<div class="flex-1">
+<div class="flex justify-between items-center mb-1">
+<span class="text-sm font-bold text-outline uppercase">Option D</span>
+<span class="text-xs font-bold px-2 py-0.5 bg-outline text-white rounded">3 pts</span>
+</div>
+<p class="text-sm text-on-surface">Eventualmente descumpre as determinações que lhes são atribuídas e tem um comportamento instável no grupo.</p>
+</div>
+</label>
+<label class="flex items-start gap-4 p-4 rounded-xl border border-transparent hover:bg-surface-container-highest cursor-pointer transition-all">
+<input class="mt-1 w-5 h-5 text-primary focus:ring-primary border-outline-variant bg-white" name="factor2" type="radio"/>
+<div class="flex-1">
+<div class="flex justify-between items-center mb-1">
+<span class="text-sm font-bold text-outline uppercase">Option E</span>
+<span class="text-xs font-bold px-2 py-0.5 bg-outline text-white rounded">1 pt</span>
+</div>
+<p class="text-sm text-on-surface text-error">Mostra-se resistente a cumprir normas e deveres e sempre influencia negativamente no comportamento do grupo.</p>
+</div>
+</label>
+</div>
+</section>
+<!-- Factor 3 -->
+<section class="bg-surface-container-low rounded-xl p-0 overflow-hidden">
+<div class="p-6 bg-surface-container-highest/50">
+<div class="flex items-start gap-4">
+<div class="w-10 h-10 rounded-lg bg-primary flex items-center justify-center text-white shrink-0">
+<span class="text-lg font-bold">3</span>
+</div>
+<div>
+<h3 class="text-xl font-headline font-bold text-primary">Eficiência (Iniciativa)</h3>
+<p class="text-sm text-on-surface-variant mt-1 italic">Adota providências em situações não definidas pela chefia ou não previstas nos manuais ou normas.</p>
+</div>
+</div>
+</div>
+<div class="p-6 space-y-4">
+<label class="flex items-start gap-4 p-4 rounded-xl border border-transparent hover:bg-surface-container-highest cursor-pointer transition-all">
+<input class="mt-1 w-5 h-5 text-primary focus:ring-primary border-outline-variant bg-white" name="factor3" type="radio"/>
+<div class="flex-1">
+<div class="flex justify-between items-center mb-1">
+<span class="text-sm font-bold text-primary uppercase">Option A</span>
+<span class="text-xs font-bold px-2 py-0.5 bg-primary text-white rounded">10 pts</span>
+</div>
+<p class="text-sm text-on-surface">Tem facilidade em buscar soluções para situações imprevistas do trabalho, quando solicitado.</p>
+</div>
+</label>
+<label class="flex items-start gap-4 p-4 rounded-xl border border-transparent hover:bg-surface-container-highest cursor-pointer transition-all">
+<input class="mt-1 w-5 h-5 text-primary focus:ring-primary border-outline-variant bg-white" name="factor3" type="radio"/>
+<div class="flex-1">
+<div class="flex justify-between items-center mb-1">
+<span class="text-sm font-bold text-outline uppercase">Option B</span>
+<span class="text-xs font-bold px-2 py-0.5 bg-outline text-white rounded">8 pts</span>
+</div>
+<p class="text-sm text-on-surface">Esforça-se para solucionar algumas situações imprevistas na execução do trabalho.</p>
+</div>
+</label>
+<label class="flex items-start gap-4 p-4 rounded-xl border border-transparent hover:bg-surface-container-highest cursor-pointer transition-all">
+<input checked="" class="mt-1 w-5 h-5 text-primary focus:ring-primary border-outline-variant bg-white" name="factor3" type="radio"/>
+<div class="flex-1">
+<div class="flex justify-between items-center mb-1">
+<span class="text-sm font-bold text-outline uppercase">Option C</span>
+<span class="text-xs font-bold px-2 py-0.5 bg-outline text-white rounded">6 pts</span>
+</div>
+<p class="text-sm text-on-surface">Eventualmente apresenta soluções para situações imprevistas do trabalho, quando solicitado.</p>
+</div>
+</label>
+<label class="flex items-start gap-4 p-4 rounded-xl border border-transparent hover:bg-surface-container-highest cursor-pointer transition-all">
+<input class="mt-1 w-5 h-5 text-primary focus:ring-primary border-outline-variant bg-white" name="factor3" type="radio"/>
+<div class="flex-1">
+<div class="flex justify-between items-center mb-1">
+<span class="text-sm font-bold text-outline uppercase">Option D</span>
+<span class="text-xs font-bold px-2 py-0.5 bg-outline text-white rounded">3 pts</span>
+</div>
+<p class="text-sm text-on-surface">Mostra pouco interesse em solucionar problemas decorrentes de situações imprevistas na execução do trabalho.</p>
+</div>
+</label>
+<label class="flex items-start gap-4 p-4 rounded-xl border border-transparent hover:bg-surface-container-highest cursor-pointer transition-all">
+<input class="mt-1 w-5 h-5 text-primary focus:ring-primary border-outline-variant bg-white" name="factor3" type="radio"/>
+<div class="flex-1">
+<div class="flex justify-between items-center mb-1">
+<span class="text-sm font-bold text-outline uppercase">Option E</span>
+<span class="text-xs font-bold px-2 py-0.5 bg-outline text-white rounded">1 pt</span>
+</div>
+<p class="text-sm text-on-surface text-error">Deixa de solucionar problemas decorrentes de situações imprevistas na execução do trabalho.</p>
+</div>
+</label>
+</div>
+</section>
+<!-- Factor 4 -->
+<section class="bg-surface-container-low rounded-xl p-0 overflow-hidden">
+<div class="p-6 bg-surface-container-highest/50">
+<div class="flex items-start gap-4">
+<div class="w-10 h-10 rounded-lg bg-primary flex items-center justify-center text-white shrink-0">
+<span class="text-lg font-bold">4</span>
+</div>
+<div>
+<h3 class="text-xl font-headline font-bold text-primary">Produtividade</h3>
+<p class="text-sm text-on-surface-variant mt-1 italic">Apresenta volume e qualidade de trabalho num intervalo de tempo satisfatório.</p>
+</div>
+</div>
+</div>
+<div class="p-6 space-y-4">
+<label class="flex items-start gap-4 p-4 rounded-xl border border-transparent hover:bg-surface-container-highest cursor-pointer transition-all">
+<input class="mt-1 w-5 h-5 text-primary focus:ring-primary border-outline-variant bg-white" name="factor4" type="radio"/>
+<div class="flex-1">
+<div class="flex justify-between items-center mb-1">
+<span class="text-sm font-bold text-primary uppercase">Option A</span>
+<span class="text-xs font-bold px-2 py-0.5 bg-primary text-white rounded">10 pts</span>
+</div>
+<p class="text-sm text-on-surface">Ultrapassa o volume de trabalho exigido, entregando as tarefas antes dos prazos estabelecidos e com qualidade.</p>
+</div>
+</label>
+<label class="flex items-start gap-4 p-4 rounded-xl border border-transparent hover:bg-surface-container-highest cursor-pointer transition-all">
+<input checked="" class="mt-1 w-5 h-5 text-primary focus:ring-primary border-outline-variant bg-white" name="factor4" type="radio"/>
+<div class="flex-1">
+<div class="flex justify-between items-center mb-1">
+<span class="text-sm font-bold text-outline uppercase">Option B</span>
+<span class="text-xs font-bold px-2 py-0.5 bg-outline text-white rounded">8 pts</span>
+</div>
+<p class="text-sm text-on-surface">Apresenta resultados satisfatórios, entregando as tarefas dentro dos prazos estabelecidos.</p>
+</div>
+</label>
+<label class="flex items-start gap-4 p-4 rounded-xl border border-transparent hover:bg-surface-container-highest cursor-pointer transition-all">
+<input class="mt-1 w-5 h-5 text-primary focus:ring-primary border-outline-variant bg-white" name="factor4" type="radio"/>
+<div class="flex-1">
+<div class="flex justify-between items-center mb-1">
+<span class="text-sm font-bold text-outline uppercase">Option C</span>
+<span class="text-xs font-bold px-2 py-0.5 bg-outline text-white rounded">6 pts</span>
+</div>
+<p class="text-sm text-on-surface">Apresenta pouco resultado para o trabalho exigido, e não cumpre os prazos estabelecidos devido a pouco conhecimento dos serviços.</p>
+</div>
+</label>
+<label class="flex items-start gap-4 p-4 rounded-xl border border-transparent hover:bg-surface-container-highest cursor-pointer transition-all">
+<input class="mt-1 w-5 h-5 text-primary focus:ring-primary border-outline-variant bg-white" name="factor4" type="radio"/>
+<div class="flex-1">
+<div class="flex justify-between items-center mb-1">
+<span class="text-sm font-bold text-outline uppercase">Option D</span>
+<span class="text-xs font-bold px-2 py-0.5 bg-outline text-white rounded">3 pts</span>
+</div>
+<p class="text-sm text-on-surface">Apresenta resultados para o trabalho exigido, porém não cumpre os prazos estabelecidos.</p>
+</div>
+</label>
+<label class="flex items-start gap-4 p-4 rounded-xl border border-transparent hover:bg-surface-container-highest cursor-pointer transition-all">
+<input class="mt-1 w-5 h-5 text-primary focus:ring-primary border-outline-variant bg-white" name="factor4" type="radio"/>
+<div class="flex-1">
+<div class="flex justify-between items-center mb-1">
+<span class="text-sm font-bold text-outline uppercase">Option E</span>
+<span class="text-xs font-bold px-2 py-0.5 bg-outline text-white rounded">1 pt</span>
+</div>
+<p class="text-sm text-on-surface text-error">Demonstra resultados abaixo do exigido e as tarefas são sempre entregues fora dos prazos previstos.</p>
+</div>
+</label>
+</div>
+</section>
+<!-- Factor 5 -->
+<section class="bg-surface-container-low rounded-xl p-0 overflow-hidden">
+<div class="p-6 bg-surface-container-highest/50">
+<div class="flex items-start gap-4">
+<div class="w-10 h-10 rounded-lg bg-primary flex items-center justify-center text-white shrink-0">
+<span class="text-lg font-bold">5</span>
+</div>
+<div>
+<h3 class="text-xl font-headline font-bold text-primary">Responsabilidade</h3>
+<p class="text-sm text-on-surface-variant mt-1 italic">É comprometido com suas tarefas, com as metas estabelecidas pelo órgão ou entidade e com o bom conceito da administração pública Municipal.</p>
+</div>
+</div>
+</div>
+<div class="p-6 space-y-4">
+<label class="flex items-start gap-4 p-4 rounded-xl border border-transparent hover:bg-surface-container-highest cursor-pointer transition-all">
+<input checked="" class="mt-1 w-5 h-5 text-primary focus:ring-primary border-outline-variant bg-white" name="factor5" type="radio"/>
+<div class="flex-1">
+<div class="flex justify-between items-center mb-1">
+<span class="text-sm font-bold text-primary uppercase">Option A</span>
+<span class="text-xs font-bold px-2 py-0.5 bg-primary text-white rounded">10 pts</span>
+</div>
+<p class="text-sm text-on-surface">Conhece suas atribuições executando suas atividades acima das expectativas, antecipando-se às solicitações.</p>
+</div>
+</label>
+<label class="flex items-start gap-4 p-4 rounded-xl border border-transparent hover:bg-surface-container-highest cursor-pointer transition-all">
+<input class="mt-1 w-5 h-5 text-primary focus:ring-primary border-outline-variant bg-white" name="factor5" type="radio"/>
+<div class="flex-1">
+<div class="flex justify-between items-center mb-1">
+<span class="text-sm font-bold text-outline uppercase">Option B</span>
+<span class="text-xs font-bold px-2 py-0.5 bg-outline text-white rounded">8 pts</span>
+</div>
+<p class="text-sm text-on-surface">Executa adequadamente as suas atividades de acordo com as metas estabelecidas para a unidade.</p>
+</div>
+</label>
+<label class="flex items-start gap-4 p-4 rounded-xl border border-transparent hover:bg-surface-container-highest cursor-pointer transition-all">
+<input class="mt-1 w-5 h-5 text-primary focus:ring-primary border-outline-variant bg-white" name="factor5" type="radio"/>
+<div class="flex-1">
+<div class="flex justify-between items-center mb-1">
+<span class="text-sm font-bold text-outline uppercase">Option C</span>
+<span class="text-xs font-bold px-2 py-0.5 bg-outline text-white rounded">6 pts</span>
+</div>
+<p class="text-sm text-on-surface">Em algumas situações demonstra pouca atenção em relação a execução das atribuições do seu cargo.</p>
+</div>
+</label>
+<label class="flex items-start gap-4 p-4 rounded-xl border border-transparent hover:bg-surface-container-highest cursor-pointer transition-all">
+<input class="mt-1 w-5 h-5 text-primary focus:ring-primary border-outline-variant bg-white" name="factor5" type="radio"/>
+<div class="flex-1">
+<div class="flex justify-between items-center mb-1">
+<span class="text-sm font-bold text-outline uppercase">Option D</span>
+<span class="text-xs font-bold px-2 py-0.5 bg-outline text-white rounded">3 pts</span>
+</div>
+<p class="text-sm text-on-surface">Não cumpre adequadamente suas atribuições demonstrando pouca atenção necessitando de permanente orientação e controle.</p>
+</div>
+</label>
+<label class="flex items-start gap-4 p-4 rounded-xl border border-transparent hover:bg-surface-container-highest cursor-pointer transition-all">
+<input class="mt-1 w-5 h-5 text-primary focus:ring-primary border-outline-variant bg-white" name="factor5" type="radio"/>
+<div class="flex-1">
+<div class="flex justify-between items-center mb-1">
+<span class="text-sm font-bold text-outline uppercase">Option E</span>
+<span class="text-xs font-bold px-2 py-0.5 bg-outline text-white rounded">1 pt</span>
+</div>
+<p class="text-sm text-on-surface text-error">É descuidado demonstra nenhuma atenção às suas atribuições, descumprindo as orientações dos serviços, causando prejuízos.</p>
+</div>
+</label>
+</div>
+</section>
+</div>
+<!-- Certificates and Attachments Section -->
+<section class="bg-surface-container rounded-xl p-8">
+<h3 class="text-2xl font-headline font-bold text-primary mb-6 flex items-center gap-2">
+<span class="material-symbols-outlined">attach_file</span>
+                Certificados e Anexos
+            </h3>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+<div class="border-2 border-dashed border-outline-variant rounded-xl p-8 flex flex-col items-center justify-center text-center bg-surface-container-lowest hover:bg-white transition-colors cursor-pointer group">
+<span class="material-symbols-outlined text-4xl text-outline mb-2 group-hover:text-primary">cloud_upload</span>
+<p class="text-sm font-bold text-primary mb-1">Upload de Certificados</p>
+<p class="text-xs text-outline">PDF, JPG ou PNG (Máx 5MB)</p>
+</div>
+<div class="space-y-3">
+<div class="flex items-center gap-3 p-3 bg-surface-container-lowest rounded-lg border border-outline-variant/20 shadow-sm">
+<span class="material-symbols-outlined text-primary-container">description</span>
+<div class="flex-1 min-w-0">
+<p class="text-xs font-bold text-primary truncate">Certificado_Ingles_B2.pdf</p>
+<p class="text-[10px] text-outline">Anexado em 12/10/2023</p>
+</div>
+<button class="text-error hover:bg-error-container/20 p-1 rounded">
+<span class="material-symbols-outlined text-sm">delete</span>
+</button>
+</div>
+<div class="flex items-center gap-3 p-3 bg-surface-container-lowest rounded-lg border border-outline-variant/20 shadow-sm">
+<span class="material-symbols-outlined text-primary-container">description</span>
+<div class="flex-1 min-w-0">
+<p class="text-xs font-bold text-primary truncate">Especializacao_Gestao_Publica.pdf</p>
+<p class="text-[10px] text-outline">Anexado em 12/10/2023</p>
+</div>
+<button class="text-error hover:bg-error-container/20 p-1 rounded">
+<span class="material-symbols-outlined text-sm">delete</span>
+</button>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 w-full z-50 bg-[#ffffff] dark:bg-slate-950 border-t border-[#c3c6d1]/20 shadow-[0_-4px_20px_rgba(7,30,39,0.06)] flex justify-around items-center h-20 px-2 pb-safe w-full">
+<a class="flex flex-col items-center justify-center text-[#43474f] dark:text-slate-400 px-3 py-1.5 hover:bg-[#f3faff] dark:hover:bg-slate-800 scale-95 active:scale-90 transition-transform" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="font-['Public_Sans'] text-[11px] font-medium mt-1">Overview</span>
+</a>
+<a class="flex flex-col items-center justify-center text-[#43474f] dark:text-slate-400 px-3 py-1.5 hover:bg-[#f3faff] dark:hover:bg-slate-800 scale-95 active:scale-90 transition-transform" href="#">
+<span class="material-symbols-outlined">assignment_turned_in</span>
+<span class="font-['Public_Sans'] text-[11px] font-medium mt-1">Factors</span>
+</a>
+<a class="flex flex-col items-center justify-center text-[#43474f] dark:text-slate-400 px-3 py-1.5 hover:bg-[#f3faff] dark:hover:bg-slate-800 scale-95 active:scale-90 transition-transform" href="#">
+<span class="material-symbols-outlined">cloud_upload</span>
+<span class="font-['Public_Sans'] text-[11px] font-medium mt-1">Files</span>
+</a>
+<button class="flex flex-col items-center justify-center bg-[#00326b] text-white rounded-xl px-4 py-2 scale-95 active:scale-90 transition-transform shadow-lg shadow-primary/20">
+<span class="material-symbols-outlined">send</span>
+<span class="font-['Public_Sans'] text-[11px] font-medium mt-0.5">Finalizar Avaliação</span>
+</button>
+</nav>
+</body></html>

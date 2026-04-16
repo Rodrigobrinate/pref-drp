@@ -1,0 +1,32 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: light;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  @apply bg-surface text-on-surface font-body antialiased;
+}
+
+.glass-panel {
+  background: rgba(243, 250, 255, 0.7);
+  backdrop-filter: blur(20px);
+}
+
+.institutional-card {
+  @apply rounded-xl bg-surface-container-lowest shadow-ambient;
+}
+
+.input-shell {
+  @apply w-full rounded-lg border-none bg-surface-container-highest px-4 py-3 text-sm text-on-surface outline-none transition focus:border-b-2 focus:border-primary focus:ring-0;
+}
+
+.headline-gradient {
+  background: linear-gradient(135deg, #001d44 0%, #00326b 100%);
+}

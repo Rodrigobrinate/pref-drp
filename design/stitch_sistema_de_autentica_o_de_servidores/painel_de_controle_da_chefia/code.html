@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+
+<html class="light" lang="pt-BR"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Painel de Controle - Gestão de Desempenho</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;600;700;800&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "tertiary-fixed-dim": "#ffb3ac",
+                        "on-tertiary-container": "#ff6c63",
+                        "tertiary-container": "#6e0009",
+                        "surface-bright": "#f3faff",
+                        "secondary-fixed": "#cbe7f5",
+                        "surface-container-highest": "#cfe6f2",
+                        "on-primary-container": "#6b9bef",
+                        "primary-fixed": "#d7e2ff",
+                        "on-surface-variant": "#43474f",
+                        "primary": "#001d44",
+                        "on-primary-fixed-variant": "#00458f",
+                        "inverse-primary": "#abc7ff",
+                        "primary-fixed-dim": "#abc7ff",
+                        "outline-variant": "#c3c6d1",
+                        "surface-container-lowest": "#ffffff",
+                        "outline": "#737780",
+                        "error-container": "#ffdad6",
+                        "inverse-on-surface": "#dff4ff",
+                        "secondary-container": "#cbe7f5",
+                        "on-primary": "#ffffff",
+                        "on-primary-fixed": "#001b3f",
+                        "on-secondary": "#ffffff",
+                        "surface-tint": "#255dad",
+                        "primary-container": "#00326b",
+                        "inverse-surface": "#1e333c",
+                        "surface-container-high": "#d5ecf8",
+                        "on-tertiary": "#ffffff",
+                        "surface-container-low": "#e6f6ff",
+                        "surface": "#f3faff",
+                        "on-secondary-fixed": "#021f29",
+                        "on-error": "#ffffff",
+                        "on-error-container": "#93000a",
+                        "on-tertiary-fixed": "#410003",
+                        "tertiary": "#460003",
+                        "error": "#ba1a1a",
+                        "tertiary-fixed": "#ffdad6",
+                        "background": "#f3faff",
+                        "surface-container": "#dbf1fe",
+                        "secondary": "#48626e",
+                        "on-secondary-container": "#4e6874",
+                        "surface-variant": "#cfe6f2",
+                        "secondary-fixed-dim": "#afcbd8",
+                        "on-background": "#071e27",
+                        "surface-dim": "#c7dde9",
+                        "on-surface": "#071e27",
+                        "on-secondary-fixed-variant": "#304a55"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "fontFamily": {
+                        "headline": ["Public Sans"],
+                        "body": ["Inter"],
+                        "label": ["Inter"]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body { font-family: 'Inter', sans-serif; }
+        h1, h2, .brand-font { font-family: 'Public Sans', sans-serif; }
+    </style>
+</head>
+<body class="bg-surface text-on-surface min-h-screen flex">
+<!-- SideNavBar Shell -->
+<aside class="hidden md:flex flex-col h-screen w-64 fixed left-0 top-0 bg-[#f3faff] text-[#001d44] border-r border-transparent z-40 p-4 gap-2 font-['Inter'] text-sm font-medium">
+<div class="mb-8 px-2">
+<div class="flex items-center gap-3 mb-2">
+<div class="w-10 h-10 rounded-lg bg-primary flex items-center justify-center text-on-primary">
+<span class="material-symbols-outlined" data-icon="account_balance">account_balance</span>
+</div>
+<div>
+<h2 class="text-lg font-bold text-[#001d44] leading-tight">Gestão de Desempenho</h2>
+<p class="text-xs text-on-surface-variant font-normal">Chefia Imediata</p>
+</div>
+</div>
+</div>
+<nav class="flex flex-col gap-1 flex-1">
+<a class="flex items-center gap-3 p-3 text-[#001d44] font-bold bg-[#e6f6ff] rounded-lg transition-all duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+<span>Painel de Avaliação</span>
+</a>
+<a class="flex items-center gap-3 p-3 text-[#43474f] hover:bg-[#e6f6ff] rounded-lg transition-all duration-200 group" href="#">
+<span class="material-symbols-outlined" data-icon="groups">groups</span>
+<span>Equipe</span>
+</a>
+<a class="flex items-center gap-3 p-3 text-[#43474f] hover:bg-[#e6f6ff] rounded-lg transition-all duration-200 group" href="#">
+<span class="material-symbols-outlined" data-icon="event_note">event_note</span>
+<span>Cronograma</span>
+</a>
+<a class="flex items-center gap-3 p-3 text-[#43474f] hover:bg-[#e6f6ff] rounded-lg transition-all duration-200 group" href="#">
+<span class="material-symbols-outlined" data-icon="history">history</span>
+<span>Histórico</span>
+</a>
+</nav>
+<div class="pt-4 mt-auto border-t border-outline-variant/20">
+<a class="flex items-center gap-3 p-3 text-[#43474f] hover:bg-[#e6f6ff] rounded-lg transition-all duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="logout">logout</span>
+<span>Sair</span>
+</a>
+</div>
+</aside>
+<!-- Main Content Area -->
+<main class="flex-1 md:ml-64 flex flex-col min-h-screen">
+<!-- TopNavBar Shell -->
+<header class="flex justify-between items-center w-full px-8 h-16 bg-[#f3faff] sticky top-0 z-50 font-['Public_Sans'] tracking-tight">
+<div class="flex items-center gap-8">
+<span class="text-xl font-bold text-[#001d44]">Portal Institucional</span>
+<nav class="hidden lg:flex items-center gap-6">
+<a class="text-[#001d44] border-b-2 border-[#001d44] pb-1 font-semibold transition-colors" href="#">Início</a>
+<a class="text-[#43474f] hover:text-[#00326b] transition-colors" href="#">Relatórios</a>
+<a class="text-[#43474f] hover:text-[#00326b] transition-colors" href="#">Configurações</a>
+</nav>
+</div>
+<div class="flex items-center gap-4">
+<div class="relative hidden sm:block">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-outline" data-icon="search">search</span>
+<input class="pl-10 pr-4 py-2 bg-surface-container-highest border-none rounded-full text-sm focus:ring-2 focus:ring-primary-container w-64 transition-all" placeholder="Pesquisar servidor..." type="text"/>
+</div>
+<div class="flex items-center gap-2">
+<button class="p-2 text-on-surface-variant hover:bg-surface-container-low rounded-full transition-all">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+</button>
+<button class="p-2 text-on-surface-variant hover:bg-surface-container-low rounded-full transition-all">
+<span class="material-symbols-outlined" data-icon="help_outline">help_outline</span>
+</button>
+</div>
+<div class="w-8 h-8 rounded-full overflow-hidden border border-outline-variant">
+<img alt="Avatar do Gestor" data-alt="professional portrait of a senior manager in a business suit with a neutral confident expression and soft office lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAY0MaWeLJ37GcXcd4EciU22V3F9sw9ZVYshaspFg08_vTv8QjJbhFBSwBpwNbXzYriVI6iq4gCVvuybANS8TwF2ndVv5XMKRRYGpkEC2fYGZNvcO3yMGHOOjYKHmshDJ3EdvytUCpZv1-Fz-DfwMgm9ADwnSpSg2zR1nzahCsdM4HaDvvpGlXzDgb2sGeIMfnbQxiGWZeKB45Vz-l_sGjDZyt3xkBbe3oqSA8XDZ-OiFWOzKl3-AV1Kg2AF0M0s3bReAthOoqO_ZY"/>
+</div>
+</div>
+</header>
+<!-- Canvas Area -->
+<div class="p-8 max-w-7xl mx-auto w-full flex flex-col gap-8">
+<!-- Page Heading -->
+<div>
+<h1 class="text-3xl font-extrabold text-primary tracking-tighter">Painel de Avaliação</h1>
+<p class="text-on-surface-variant mt-1">Monitore o progresso da autoavaliação e inicie os pareceres da chefia.</p>
+</div>
+<!-- Summary Cards (Bento-lite) -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+<div class="bg-surface-container-lowest p-6 rounded-xl border-none shadow-none flex flex-col gap-2">
+<span class="text-on-surface-variant text-sm font-medium">Total de Subordinados</span>
+<div class="flex items-end gap-3">
+<span class="text-4xl font-bold text-primary">24</span>
+<span class="text-on-surface-variant pb-1 text-xs">Servidores ativos</span>
+</div>
+</div>
+<div class="bg-surface-container-lowest p-6 rounded-xl border-none shadow-none flex flex-col gap-2">
+<span class="text-on-surface-variant text-sm font-medium">Avaliações Pendentes</span>
+<div class="flex items-end gap-3">
+<span class="text-4xl font-bold text-error">08</span>
+<span class="bg-error-container text-on-error-container text-[10px] px-2 py-0.5 rounded-full font-bold mb-2">URGENTE</span>
+</div>
+</div>
+<div class="bg-surface-container-lowest p-6 rounded-xl border-none shadow-none flex flex-col gap-2">
+<span class="text-on-surface-variant text-sm font-medium">Concluídas</span>
+<div class="flex items-end gap-3">
+<span class="text-4xl font-bold text-primary-container">16</span>
+<div class="w-24 h-2 bg-surface-container rounded-full mb-3 overflow-hidden">
+<div class="h-full bg-primary-container w-[66%]"></div>
+</div>
+</div>
+</div>
+</div>
+<!-- Filter Bar -->
+<section class="bg-surface-container-low p-4 rounded-xl flex flex-wrap items-center gap-4">
+<div class="flex-1 min-w-[240px]">
+<label class="block text-[10px] font-bold text-on-surface-variant uppercase tracking-wider mb-1 px-1">Secretaria</label>
+<div class="relative">
+<select class="w-full bg-surface-container-highest border-none rounded-lg text-sm appearance-none py-2.5 px-4 focus:ring-primary focus:ring-1">
+<option>Secretaria de Gestão e Planejamento</option>
+<option>Secretaria de Saúde</option>
+<option>Secretaria de Educação</option>
+</select>
+<span class="material-symbols-outlined absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none text-outline" data-icon="expand_more">expand_more</span>
+</div>
+</div>
+<div class="flex-[1.5] min-w-[280px]">
+<label class="block text-[10px] font-bold text-on-surface-variant uppercase tracking-wider mb-1 px-1">Busca Rápida</label>
+<div class="relative">
+<input class="w-full bg-surface-container-highest border-none rounded-lg text-sm py-2.5 px-10 focus:ring-primary focus:ring-1" placeholder="Nome ou Matrícula..." type="text"/>
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-outline" data-icon="person_search">person_search</span>
+</div>
+</div>
+<button class="mt-5 px-6 py-2.5 bg-primary-container text-on-primary rounded-lg font-semibold text-sm hover:opacity-90 transition-all flex items-center gap-2">
+<span class="material-symbols-outlined text-sm" data-icon="filter_alt">filter_alt</span>
+                    Filtrar
+                </button>
+</section>
+<!-- Team Monitoring Table -->
+<div class="bg-surface-container-lowest rounded-xl overflow-hidden shadow-none">
+<div class="overflow-x-auto">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="bg-surface-container-low/50">
+<th class="px-6 py-4 text-xs font-bold text-on-surface-variant uppercase tracking-widest">Servidor</th>
+<th class="px-6 py-4 text-xs font-bold text-on-surface-variant uppercase tracking-widest">Tipo de Vínculo</th>
+<th class="px-6 py-4 text-xs font-bold text-on-surface-variant uppercase tracking-widest">Autoavaliação</th>
+<th class="px-6 py-4 text-xs font-bold text-on-surface-variant uppercase tracking-widest">Prazo Restante</th>
+<th class="px-6 py-4 text-xs font-bold text-on-surface-variant uppercase tracking-widest text-right">Ações</th>
+</tr>
+</thead>
+<tbody class="divide-y-0">
+<!-- Row 1: Ready to Evaluate -->
+<tr class="hover:bg-surface-container-low/30 transition-colors">
+<td class="px-6 py-5">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full overflow-hidden flex-shrink-0 bg-surface-container">
+<img alt="Ana Paula Silva" data-alt="portrait of a professional woman with glasses smiling in a bright modern office setting with natural lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCfFJtuiPfH95LKLtglJDTul6eTtvC8YT8abh_1-0hgU1rmHwB_9WtEWulHCGacYudl9kuSBQBjZr6DtoCjkH2K-mzSYqs_gQIZw09uLH85VNhd56P9WPvf9l4Vjd5SrH2ItxnDfHM5va_In85ngAD8nn5zLJ5C6W2EtDOzaPnRaDLP0JyIiyHjZZiuhylKJwWloRKze6Q_dbcC0KqUjc606I6vwhjcnWRb8DJL49l0vaplL3cVAvHOB4ruSEJAsg0b7Z5CZQQYHiw"/>
+</div>
+<div>
+<p class="font-bold text-on-surface leading-none">Ana Paula Silva</p>
+<p class="text-xs text-on-surface-variant mt-1">Mat: 44.592-1</p>
+</div>
+</div>
+</td>
+<td class="px-6 py-5">
+<span class="px-3 py-1 bg-surface-container-highest text-on-secondary-fixed-variant text-[11px] font-bold rounded-full">EFETIVO</span>
+</td>
+<td class="px-6 py-5">
+<div class="flex items-center gap-2 text-primary-container">
+<span class="material-symbols-outlined" data-icon="check_circle" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+<span class="text-xs font-medium">Concluído</span>
+</div>
+</td>
+<td class="px-6 py-5">
+<p class="text-sm font-medium">12 Dias</p>
+</td>
+<td class="px-6 py-5 text-right">
+<button class="bg-gradient-to-br from-primary to-primary-container text-on-primary px-4 py-2 rounded-lg text-xs font-bold hover:shadow-lg transition-all active:scale-95">
+                                        Avaliar Agora
+                                    </button>
+</td>
+</tr>
+<!-- Row 2: Waiting -->
+<tr class="hover:bg-surface-container-low/30 transition-colors bg-surface-container-low/10">
+<td class="px-6 py-5">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full overflow-hidden flex-shrink-0 bg-surface-container">
+<img alt="Ricardo Gomes" data-alt="professional headshot of a mid-adult man with a neat beard and friendly expression in a corporate environment" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCxr6_g_T1rRFhzZOxT89Qc6dK44b9ys6-BNHkbxFZyzr2AbNJu_T7QHM6VgVL147qMkpkEFQ8DXupARuXG_8RWfBhQZbzN2xQwQgltamuTmmO_bxcEVHDlrYDFTfAm50eWkn1tNcETxvFx7OfSZ5TFjGtFLET4PYW7ZitITaQRHeGxzaQlouWIcIUHRhISpHUBt7hrns8Fq0HEw0c-hjem1PrF7C6zFlow4T_Ajmkf9phxrXft4xMAQWJI6vz7BumTaUFF_aQiL0s"/>
+</div>
+<div>
+<p class="font-bold text-on-surface leading-none">Ricardo Gomes</p>
+<p class="text-xs text-on-surface-variant mt-1">Mat: 31.204-8</p>
+</div>
+</div>
+</td>
+<td class="px-6 py-5">
+<span class="px-3 py-1 bg-secondary-container text-on-secondary-container text-[11px] font-bold rounded-full">PROBATÓRIO</span>
+</td>
+<td class="px-6 py-5">
+<div class="flex items-center gap-2 text-error">
+<span class="material-symbols-outlined" data-icon="pending">pending</span>
+<span class="text-xs font-medium">Pendente</span>
+</div>
+</td>
+<td class="px-6 py-5">
+<p class="text-sm font-medium text-error">02 Dias</p>
+</td>
+<td class="px-6 py-5 text-right relative group">
+<button class="bg-outline-variant/30 text-on-surface-variant/50 px-4 py-2 rounded-lg text-xs font-bold cursor-not-allowed" disabled="">
+                                        Aguardando
+                                    </button>
+<div class="absolute bottom-full right-0 mb-2 hidden group-hover:block bg-inverse-surface text-inverse-on-surface text-[10px] p-2 rounded shadow-xl w-40 text-center z-10">
+                                        O servidor ainda não realizou a autoavaliação.
+                                    </div>
+</td>
+</tr>
+<!-- Row 3: Already Evaluated -->
+<tr class="hover:bg-surface-container-low/30 transition-colors">
+<td class="px-6 py-5">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full overflow-hidden flex-shrink-0 bg-surface-container">
+<img alt="Marina Lima" data-alt="headshot of a young professional woman with a bright smile in a clean minimalist office background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCEECaFLyYGFHzEeVmlj8mjgTFY6MuopMHYJE6jdBXMYyig0Fi3Zda2FnWqjqZZ5vb_q7OEG4WdnJnRHZR1H1Y7V-CQpn9reeqKxhimvzk3-shjJytGiae0jG6g7YOgFdhwR_i2-GFvlpa60AzRc0AnhrdAbHYDouAyuHtphFQCDhOI6yknR3VoYaeI1seOhibpT3btpRVknEqlFQ1r-AgRKgw64RVhWsMJ7huLpLJlWRCLqa0EaP6W6VIiq1wWyADZACGh90tq4I4"/>
+</div>
+<div>
+<p class="font-bold text-on-surface leading-none">Marina Lima</p>
+<p class="text-xs text-on-surface-variant mt-1">Mat: 55.109-0</p>
+</div>
+</div>
+</td>
+<td class="px-6 py-5">
+<span class="px-3 py-1 bg-surface-container-highest text-on-secondary-fixed-variant text-[11px] font-bold rounded-full">EFETIVO</span>
+</td>
+<td class="px-6 py-5">
+<div class="flex items-center gap-2 text-primary-container">
+<span class="material-symbols-outlined" data-icon="check_circle" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+<span class="text-xs font-medium">Concluído</span>
+</div>
+</td>
+<td class="px-6 py-5">
+<p class="text-sm font-medium">Finalizado</p>
+</td>
+<td class="px-6 py-5 text-right">
+<button class="bg-surface-container text-primary-container px-4 py-2 rounded-lg text-xs font-bold flex items-center gap-2 ml-auto">
+<span class="material-symbols-outlined text-sm" data-icon="visibility">visibility</span>
+                                        Avaliação Concluída
+                                    </button>
+</td>
+</tr>
+<!-- Row 4: Ready to Evaluate -->
+<tr class="hover:bg-surface-container-low/30 transition-colors">
+<td class="px-6 py-5">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full overflow-hidden flex-shrink-0 bg-surface-container">
+<img alt="Carlos Eduardo" data-alt="professional portrait of a man with short hair and a welcoming smile in a soft daylight office setting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDFGGRg2gile1kNNOvPkNaa3Llw-RYNucsznt5z5RJcI6Rc4BRaEiYiJetH-4Mb3_pwG4hVYFteafzEolHTTEJ--thazMUiOh_wHqHJkuwZfuFtu1UteSYf2XumHqGyNiMxoEqNHDgQ19Vgs726VKgEtnJA8CX5-2qd5c59KqrhJ_gr_BnASEwS_27MV3DtE-EYjN_Sjo8p5Q4sgQGZ36tT25rxgyDttd_msVoDz3eM48FvnjtdgbKfLYEigEjCI0NLLQ_7hmnhFHc"/>
+</div>
+<div>
+<p class="font-bold text-on-surface leading-none">Carlos Eduardo</p>
+<p class="text-xs text-on-surface-variant mt-1">Mat: 48.331-5</p>
+</div>
+</div>
+</td>
+<td class="px-6 py-5">
+<span class="px-3 py-1 bg-surface-container-highest text-on-secondary-fixed-variant text-[11px] font-bold rounded-full">EFETIVO</span>
+</td>
+<td class="px-6 py-5">
+<div class="flex items-center gap-2 text-primary-container">
+<span class="material-symbols-outlined" data-icon="check_circle" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+<span class="text-xs font-medium">Concluído</span>
+</div>
+</td>
+<td class="px-6 py-5">
+<p class="text-sm font-medium">08 Dias</p>
+</td>
+<td class="px-6 py-5 text-right">
+<button class="bg-gradient-to-br from-primary to-primary-container text-on-primary px-4 py-2 rounded-lg text-xs font-bold hover:shadow-lg transition-all">
+                                        Avaliar Agora
+                                    </button>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- Pagination Control -->
+<div class="p-4 bg-surface-container-low/20 flex items-center justify-between">
+<span class="text-xs text-on-surface-variant">Mostrando 1-4 de 24 servidores</span>
+<div class="flex items-center gap-1">
+<button class="p-2 rounded hover:bg-surface-container transition-all">
+<span class="material-symbols-outlined text-sm" data-icon="chevron_left">chevron_left</span>
+</button>
+<button class="w-8 h-8 rounded bg-primary text-on-primary text-xs font-bold">1</button>
+<button class="w-8 h-8 rounded hover:bg-surface-container text-xs font-bold">2</button>
+<button class="w-8 h-8 rounded hover:bg-surface-container text-xs font-bold">3</button>
+<button class="p-2 rounded hover:bg-surface-container transition-all">
+<span class="material-symbols-outlined text-sm" data-icon="chevron_right">chevron_right</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Urgent Notices (Asymmetric Highlight) -->
+<div class="flex flex-col md:flex-row gap-6 mt-4">
+<div class="flex-1 bg-tertiary-fixed text-on-tertiary-fixed p-6 rounded-xl relative overflow-hidden">
+<div class="relative z-10">
+<h3 class="font-bold flex items-center gap-2 mb-2">
+<span class="material-symbols-outlined" data-icon="priority_high">priority_high</span>
+                            Atenção ao Prazo
+                        </h3>
+<p class="text-sm opacity-90 max-w-md">O ciclo de avaliação 2024.1 encerra em 15 de novembro. Garanta que todos os pareceres da chefia sejam enviados até esta data para evitar bloqueio administrativo.</p>
+</div>
+<span class="material-symbols-outlined absolute -right-4 -bottom-4 text-9xl opacity-5 pointer-events-none" data-icon="schedule">schedule</span>
+</div>
+<div class="flex-none w-full md:w-72 bg-primary-container text-on-primary p-6 rounded-xl flex flex-col justify-center items-center text-center">
+<span class="material-symbols-outlined text-4xl mb-2" data-icon="school">school</span>
+<h3 class="font-bold mb-1">Precisa de Ajuda?</h3>
+<p class="text-xs opacity-80 mb-4">Acesse o manual do gestor para orientações sobre critérios de avaliação.</p>
+<button class="w-full bg-surface-container-lowest text-primary text-xs font-bold py-2 rounded-lg hover:bg-surface-bright transition-all">
+                        Ver Guia Prático
+                    </button>
+</div>
+</div>
+</div>
+<!-- Footer Branding -->
+<footer class="mt-auto p-8 flex justify-between items-center text-on-surface-variant/60 text-[10px] font-medium tracking-widest uppercase">
+<span>© 2024 Portal de Gestão de Desempenho Institucional</span>
+<div class="flex gap-4">
+<a class="hover:text-primary" href="#">Termos de Uso</a>
+<a class="hover:text-primary" href="#">Suporte Técnico</a>
+</div>
+</footer>
+</main>
+</body></html>

@@ -1,0 +1,49 @@
+{
+  "name": "projeto-pref-drp",
+  "version": "1.0.0",
+  "scripts": {
+    "clean": "rm -rf .next coverage",
+    "dev": "next dev",
+    "build": "next build",
+    "rebuild": "npm run clean && npm run build",
+    "start": "next start",
+    "lint": "eslint .",
+    "test": "vitest run --coverage",
+    "db:generate": "prisma generate",
+    "db:push": "prisma db push",
+    "db:seed": "node prisma/seed.js",
+    "db:push:prod": "prisma db push --schema prisma/schema.postgres.prisma"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "Sistema Nomos de avaliação de desempenho",
+  "devDependencies": {
+    "@types/node": "^25.6.0",
+    "@types/react": "^19.2.14",
+    "@types/react-dom": "^19.2.3",
+    "@vitest/coverage-v8": "^4.1.4",
+    "autoprefixer": "^10.4.20",
+    "eslint": "^9.39.4",
+    "eslint-config-next": "^16.2.3",
+    "postcss": "^8.4.49",
+    "prisma": "^6.16.3",
+    "tailwindcss": "^3.4.17",
+    "typescript": "^5.9.3",
+    "vitest": "^4.1.4"
+  },
+  "dependencies": {
+    "@prisma/client": "^6.16.3",
+    "bcryptjs": "^3.0.3",
+    "clsx": "^2.1.1",
+    "date-fns": "^4.1.0",
+    "fast-xml-parser": "^5.6.0",
+    "googleapis": "^171.4.0",
+    "lucide-react": "^1.8.0",
+    "next": "^15.5.15",
+    "react": "^19.2.0",
+    "react-dom": "^19.2.0",
+    "tailwind-merge": "^3.5.0",
+    "zod": "^4.3.6"
+  }
+}

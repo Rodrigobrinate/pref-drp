@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+
+<html lang="pt-BR"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;600;700;800&amp;family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "surface-container-lowest": "#ffffff",
+                    "outline-variant": "#c3c6d1",
+                    "tertiary-fixed-dim": "#ffb3ac",
+                    "on-secondary-container": "#4e6874",
+                    "error": "#ba1a1a",
+                    "on-primary": "#ffffff",
+                    "surface-dim": "#c7dde9",
+                    "on-tertiary-container": "#ff6c63",
+                    "primary-fixed-dim": "#abc7ff",
+                    "primary-container": "#00326b",
+                    "on-surface": "#071e27",
+                    "on-error-container": "#93000a",
+                    "inverse-on-surface": "#dff4ff",
+                    "on-secondary-fixed-variant": "#304a55",
+                    "surface-container": "#dbf1fe",
+                    "inverse-primary": "#abc7ff",
+                    "surface-tint": "#255dad",
+                    "secondary-container": "#cbe7f5",
+                    "on-surface-variant": "#43474f",
+                    "secondary-fixed": "#cbe7f5",
+                    "on-primary-fixed": "#001b3f",
+                    "primary-fixed": "#d7e2ff",
+                    "on-secondary": "#ffffff",
+                    "secondary": "#48626e",
+                    "on-tertiary-fixed": "#410003",
+                    "on-tertiary-fixed-variant": "#930010",
+                    "on-tertiary": "#ffffff",
+                    "tertiary-container": "#6e0009",
+                    "on-background": "#071e27",
+                    "surface-bright": "#f3faff",
+                    "surface-variant": "#cfe6f2",
+                    "on-secondary-fixed": "#021f29",
+                    "tertiary-fixed": "#ffdad6",
+                    "inverse-surface": "#1e333c",
+                    "surface-container-low": "#e6f6ff",
+                    "on-primary-container": "#6b9bef",
+                    "surface": "#f3faff",
+                    "on-primary-fixed-variant": "#00458f",
+                    "primary": "#001d44",
+                    "background": "#f3faff",
+                    "on-error": "#ffffff",
+                    "outline": "#737780",
+                    "error-container": "#ffdad6",
+                    "tertiary": "#460003",
+                    "surface-container-high": "#d5ecf8",
+                    "surface-container-highest": "#cfe6f2",
+                    "secondary-fixed-dim": "#afcbd8"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "fontFamily": {
+                    "headline": ["Public Sans"],
+                    "body": ["Inter"],
+                    "label": ["Inter"]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        body { font-family: 'Inter', sans-serif; }
+        .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+        .bg-institutional-gradient { background: linear-gradient(135deg, #001d44 0%, #00326b 100%); }
+        .glass-header { backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); }
+        .radio-custom:checked + label { background-color: #ffffff; box-shadow: 0 4px 12px rgba(7, 30, 39, 0.06); border-left-color: #001d44; }
+    </style>
+</head>
+<body class="bg-surface text-on-surface">
+<!-- TopAppBar -->
+<header class="flex justify-between items-center px-8 h-16 w-full fixed top-0 z-50 bg-[#f3faff] dark:bg-slate-950 bg-opacity-70 backdrop-blur-md transition-colors duration-200">
+<div class="flex items-center gap-4">
+<span class="text-xl font-bold tracking-tight text-[#001d44] dark:text-white font-['Public_Sans'] font-semibold">Portal Institucional</span>
+<span class="text-on-surface-variant/30 font-light text-xl">|</span>
+<div class="flex flex-col">
+<span class="text-xs font-bold text-[#001d44] leading-tight">MÓDULO DE RECURSOS HUMANOS</span>
+<span class="text-[10px] uppercase tracking-wider text-on-surface-variant">Avaliação de Desempenho</span>
+</div>
+</div>
+<div class="flex items-center gap-6 h-full">
+<nav class="hidden md:flex items-center gap-8 h-full">
+<a class="text-[#001d44] border-b-2 border-[#001d44] h-full flex items-center px-2 font-medium transition-colors" href="#">Avaliações</a>
+<a class="text-[#43474f] hover:bg-white/50 px-2 h-full flex items-center transition-colors" href="#">Relatórios</a>
+<a class="text-[#43474f] hover:bg-white/50 px-2 h-full flex items-center transition-colors" href="#">Histórico</a>
+</nav>
+<div class="flex items-center gap-3">
+<button class="p-2 rounded-full hover:bg-white/50 text-[#001d44]">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+</button>
+<button class="p-2 rounded-full hover:bg-white/50 text-[#001d44]">
+<span class="material-symbols-outlined" data-icon="account_circle">account_circle</span>
+</button>
+</div>
+</div>
+</header>
+<!-- SideNavBar -->
+<aside class="fixed left-0 top-16 h-[calc(100vh-64px)] w-72 bg-[#e6f6ff] dark:bg-slate-900 flex flex-col p-6 overflow-y-auto z-40 hidden lg:flex">
+<div class="mb-8">
+<h2 class="text-lg font-bold text-[#001d44] font-['Inter'] text-sm font-medium">Fatores de Avaliação</h2>
+<p class="text-xs text-on-surface-variant">Estágio Probatório</p>
+</div>
+<nav class="space-y-1 flex-1">
+<a class="flex items-center gap-3 p-3 rounded-lg text-[#001d44] dark:text-white font-bold border-r-4 border-[#001d44] bg-white/40 hover:translate-x-1 transition-transform" href="#fator-1">
+<span class="material-symbols-outlined" data-icon="event_available">event_available</span>
+<span class="font-['Inter'] text-sm font-medium">Assiduidade</span>
+</a>
+<a class="flex items-center gap-3 p-3 rounded-lg text-[#43474f] dark:text-slate-400 hover:bg-white/20 hover:translate-x-1 transition-transform" href="#fator-2">
+<span class="material-symbols-outlined" data-icon="gavel">gavel</span>
+<span class="font-['Inter'] text-sm font-medium">Disciplina</span>
+</a>
+<a class="flex items-center gap-3 p-3 rounded-lg text-[#43474f] dark:text-slate-400 hover:bg-white/20 hover:translate-x-1 transition-transform" href="#fator-3">
+<span class="material-symbols-outlined" data-icon="speed">speed</span>
+<span class="font-['Inter'] text-sm font-medium">Eficiência</span>
+</a>
+<a class="flex items-center gap-3 p-3 rounded-lg text-[#43474f] dark:text-slate-400 hover:bg-white/20 hover:translate-x-1 transition-transform" href="#fator-4">
+<span class="material-symbols-outlined" data-icon="trending_up">trending_up</span>
+<span class="font-['Inter'] text-sm font-medium">Produtividade</span>
+</a>
+<a class="flex items-center gap-3 p-3 rounded-lg text-[#43474f] dark:text-slate-400 hover:bg-white/20 hover:translate-x-1 transition-transform" href="#fator-5">
+<span class="material-symbols-outlined" data-icon="assignment_turned_in">assignment_turned_in</span>
+<span class="font-['Inter'] text-sm font-medium">Responsabilidade</span>
+</a>
+</nav>
+<div class="mt-auto pt-6 border-t border-outline-variant/20 space-y-1">
+<div class="flex items-center gap-3 p-3 mb-4 bg-white/20 rounded-lg">
+<div class="w-10 h-10 rounded-full bg-institutional-gradient flex items-center justify-center text-white">
+<span class="material-symbols-outlined" data-icon="person">person</span>
+</div>
+<div class="flex flex-col">
+<span class="text-xs font-bold text-[#001d44]">João Silva</span>
+<span class="text-[10px] text-on-surface-variant uppercase">Servidor Avaliado</span>
+</div>
+</div>
+<a class="flex items-center gap-3 p-3 rounded-lg text-[#43474f] hover:translate-x-1 transition-transform" href="#">
+<span class="material-symbols-outlined" data-icon="help">help</span>
+<span class="font-['Inter'] text-sm font-medium">Ajuda</span>
+</a>
+<a class="flex items-center gap-3 p-3 rounded-lg text-[#43474f] hover:translate-x-1 transition-transform" href="#">
+<span class="material-symbols-outlined" data-icon="logout">logout</span>
+<span class="font-['Inter'] text-sm font-medium">Sair</span>
+</a>
+</div>
+</aside>
+<!-- Main Content Canvas -->
+<main class="lg:ml-72 pt-24 pb-32 px-6 md:px-12 max-w-6xl mx-auto">
+<!-- Dashboard Header Card -->
+<div class="bg-institutional-gradient p-8 rounded-xl text-white mb-12 flex flex-col md:flex-row justify-between items-center shadow-lg relative overflow-hidden">
+<div class="relative z-10">
+<h1 class="text-3xl font-headline font-extrabold tracking-tight mb-2">Formulário de Avaliação</h1>
+<div class="flex items-center gap-4">
+<span class="bg-white/20 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-widest">Estágio Probatório</span>
+<span class="text-blue-100/60 font-light italic text-sm">Ciclo Avaliativo: 2023-2024</span>
+</div>
+</div>
+<div class="relative z-10 text-center md:text-right mt-6 md:mt-0">
+<div class="text-5xl font-extrabold font-headline text-white mb-1">
+<span class="text-blue-200">10</span> <span class="text-2xl text-blue-300">/ 50</span>
+</div>
+<div class="text-xs font-bold tracking-widest text-blue-200 uppercase">Pontuação Atual</div>
+</div>
+<div class="absolute top-0 right-0 w-64 h-64 bg-white/5 rounded-full blur-3xl -mr-20 -mt-20"></div>
+</div>
+<div class="space-y-12">
+<!-- Factor 1: Assiduidade -->
+<section class="bg-surface-container-low p-1 rounded-xl" id="fator-1">
+<div class="p-8">
+<div class="flex items-start justify-between mb-6">
+<div>
+<h3 class="text-primary font-headline font-bold text-xl mb-2">Fator 1: Assiduidade e Pontualidade</h3>
+<p class="text-on-surface-variant max-w-2xl leading-relaxed">Avalia a regularidade do servidor ao trabalho e o cumprimento fiel da jornada de trabalho estabelecida.</p>
+</div>
+<span class="bg-secondary-container text-on-secondary-container px-4 py-1 rounded-full text-xs font-bold font-label">Peso: 10 pts</span>
+</div>
+<div class="grid gap-3">
+<input class="hidden radio-custom" id="f1-a" name="fator1" type="radio"/>
+<label class="flex items-center justify-between p-4 bg-surface-container-highest border-l-4 border-transparent rounded-lg cursor-pointer transition-all hover:bg-white/80 group" for="f1-a">
+<span class="text-on-surface-variant group-hover:text-primary transition-colors flex-1 pr-4">A - O servidor é exemplar, nunca falta e sempre cumpre o horário rigorosamente.</span>
+<span class="font-headline font-bold text-on-surface-variant">10</span>
+</label>
+<input class="hidden radio-custom" id="f1-b" name="fator1" type="radio"/>
+<label class="flex items-center justify-between p-4 bg-surface-container-highest border-l-4 border-transparent rounded-lg cursor-pointer transition-all hover:bg-white/80 group" for="f1-b">
+<span class="text-on-surface-variant group-hover:text-primary transition-colors flex-1 pr-4">B - Frequentemente pontual, com raras ausências justificadas que não comprometem o serviço.</span>
+<span class="font-headline font-bold text-on-surface-variant">08</span>
+</label>
+<input class="hidden radio-custom" id="f1-c" name="fator1" type="radio"/>
+<label class="flex items-center justify-between p-4 bg-surface-container-highest border-l-4 border-transparent rounded-lg cursor-pointer transition-all hover:bg-white/80 group" for="f1-c">
+<span class="text-on-surface-variant group-hover:text-primary transition-colors flex-1 pr-4">C - Apresenta regularidade satisfatória, embora com alguns atrasos eventuais sob controle.</span>
+<span class="font-headline font-bold text-on-surface-variant">06</span>
+</label>
+<input class="hidden radio-custom" id="f1-d" name="fator1" type="radio"/>
+<label class="flex items-center justify-between p-4 bg-surface-container-highest border-l-4 border-transparent rounded-lg cursor-pointer transition-all hover:bg-white/80 group" for="f1-d">
+<span class="text-on-surface-variant group-hover:text-primary transition-colors flex-1 pr-4">D - Demonstra inconsistência no cumprimento da jornada, exigindo supervisão constante.</span>
+<span class="font-headline font-bold text-on-surface-variant">03</span>
+</label>
+<input class="hidden radio-custom" id="f1-e" name="fator1" type="radio"/>
+<label class="flex items-center justify-between p-4 bg-surface-container-highest border-l-4 border-transparent rounded-lg cursor-pointer transition-all hover:bg-white/80 group" for="f1-e">
+<span class="text-on-surface-variant group-hover:text-primary transition-colors flex-1 pr-4">E - Apresenta faltas frequentes e atrasos constantes, prejudicando o fluxo institucional.</span>
+<span class="font-headline font-bold text-on-surface-variant">01</span>
+</label>
+</div>
+</div>
+</section>
+<!-- Factor 2: Disciplina -->
+<section class="bg-surface-container-low p-1 rounded-xl" id="fator-2">
+<div class="p-8">
+<div class="flex items-start justify-between mb-6">
+<div>
+<h3 class="text-primary font-headline font-bold text-xl mb-2">Fator 2: Disciplina</h3>
+<p class="text-on-surface-variant max-w-2xl leading-relaxed">Observância das normas legais e regulamentares, acatamento de ordens e urbanidade no trato.</p>
+</div>
+<span class="bg-secondary-container text-on-secondary-container px-4 py-1 rounded-full text-xs font-bold font-label">Peso: 10 pts</span>
+</div>
+<div class="grid gap-3">
+<input class="hidden radio-custom" id="f2-a" name="fator2" type="radio"/>
+<label class="flex items-center justify-between p-4 bg-surface-container-highest border-l-4 border-transparent rounded-lg cursor-pointer transition-all hover:bg-white/80 group" for="f2-a">
+<span class="text-on-surface-variant group-hover:text-primary transition-colors flex-1 pr-4">A - Cumpre rigorosamente todas as normas e demonstra respeito absoluto às instâncias superiores.</span>
+<span class="font-headline font-bold text-on-surface-variant">10</span>
+</label>
+<input class="hidden radio-custom" id="f2-b" name="fator2" type="radio"/>
+<label class="flex items-center justify-between p-4 bg-surface-container-highest border-l-4 border-transparent rounded-lg cursor-pointer transition-all hover:bg-white/80 group" for="f2-b">
+<span class="text-on-surface-variant group-hover:text-primary transition-colors flex-1 pr-4">B - Acata as instruções recebidas sem questionamentos e mantém boa conduta ética.</span>
+<span class="font-headline font-bold text-on-surface-variant">08</span>
+</label>
+<input class="hidden radio-custom" id="f2-c" name="fator2" type="radio"/>
+<label class="flex items-center justify-between p-4 bg-surface-container-highest border-l-4 border-transparent rounded-lg cursor-pointer transition-all hover:bg-white/80 group" for="f2-c">
+<span class="text-on-surface-variant group-hover:text-primary transition-colors flex-1 pr-4">C - Atende às normas de maneira regular, ocasionalmente necessitando de orientação corretiva.</span>
+<span class="font-headline font-bold text-on-surface-variant">06</span>
+</label>
+<input class="hidden radio-custom" id="f2-d" name="fator2" type="radio"/>
+<label class="flex items-center justify-between p-4 bg-surface-container-highest border-l-4 border-transparent rounded-lg cursor-pointer transition-all hover:bg-white/80 group" for="f2-d">
+<span class="text-on-surface-variant group-hover:text-primary transition-colors flex-1 pr-4">D - Demonstra dificuldades em seguir hierarquias ou normas internas da instituição.</span>
+<span class="font-headline font-bold text-on-surface-variant">03</span>
+</label>
+<input class="hidden radio-custom" id="f2-e" name="fator2" type="radio"/>
+<label class="flex items-center justify-between p-4 bg-surface-container-highest border-l-4 border-transparent rounded-lg cursor-pointer transition-all hover:bg-white/80 group" for="f2-e">
+<span class="text-on-surface-variant group-hover:text-primary transition-colors flex-1 pr-4">E - Reincidente em infrações disciplinares ou desrespeito às normas estabelecidas.</span>
+<span class="font-headline font-bold text-on-surface-variant">01</span>
+</label>
+</div>
+</div>
+</section>
+<!-- Factor 3: Eficiência -->
+<section class="bg-surface-container-low p-1 rounded-xl" id="fator-3">
+<div class="p-8">
+<div class="flex items-start justify-between mb-6">
+<div>
+<h3 class="text-primary font-headline font-bold text-xl mb-2">Fator 3: Eficiência / Iniciativa</h3>
+<p class="text-on-surface-variant max-w-2xl leading-relaxed">Capacidade de realizar tarefas com precisão, buscando soluções e otimização de processos.</p>
+</div>
+<span class="bg-secondary-container text-on-secondary-container px-4 py-1 rounded-full text-xs font-bold font-label">Peso: 10 pts</span>
+</div>
+<div class="grid gap-3">
+<input class="hidden radio-custom" id="f3-a" name="fator3" type="radio"/>
+<label class="flex items-center justify-between p-4 bg-surface-container-highest border-l-4 border-transparent rounded-lg cursor-pointer transition-all hover:bg-white/80 group" for="f3-a">
+<span class="text-on-surface-variant group-hover:text-primary transition-colors flex-1 pr-4">A - Proativo, apresenta soluções inovadoras e executa tarefas com perfeição técnica.</span>
+<span class="font-headline font-bold text-on-surface-variant">10</span>
+</label>
+<input class="hidden radio-custom" id="f3-b" name="fator3" type="radio"/>
+<label class="flex items-center justify-between p-4 bg-surface-container-highest border-l-4 border-transparent rounded-lg cursor-pointer transition-all hover:bg-white/80 group" for="f3-b">
+<span class="text-on-surface-variant group-hover:text-primary transition-colors flex-1 pr-4">B - Realiza o trabalho com qualidade acima da média e resolve problemas rotineiros.</span>
+<span class="font-headline font-bold text-on-surface-variant">08</span>
+</label>
+<input class="hidden radio-custom" id="f3-c" name="fator3" type="radio"/>
+<label class="flex items-center justify-between p-4 bg-surface-container-highest border-l-4 border-transparent rounded-lg cursor-pointer transition-all hover:bg-white/80 group" for="f3-c">
+<span class="text-on-surface-variant group-hover:text-primary transition-colors flex-1 pr-4">C - Executa as tarefas conforme o esperado, com qualidade técnica satisfatória.</span>
+<span class="font-headline font-bold text-on-surface-variant">06</span>
+</label>
+<input class="hidden radio-custom" id="f3-d" name="fator3" type="radio"/>
+<label class="flex items-center justify-between p-4 bg-surface-container-highest border-l-4 border-transparent rounded-lg cursor-pointer transition-all hover:bg-white/80 group" for="f3-d">
+<span class="text-on-surface-variant group-hover:text-primary transition-colors flex-1 pr-4">D - Frequentemente comete erros ou necessita de revisão constante em suas entregas.</span>
+<span class="font-headline font-bold text-on-surface-variant">03</span>
+</label>
+<input class="hidden radio-custom" id="f3-e" name="fator3" type="radio"/>
+<label class="flex items-center justify-between p-4 bg-surface-container-highest border-l-4 border-transparent rounded-lg cursor-pointer transition-all hover:bg-white/80 group" for="f3-e">
+<span class="text-on-surface-variant group-hover:text-primary transition-colors flex-1 pr-4">E - Desempenho técnico insuficiente, não atendendo aos requisitos básicos do cargo.</span>
+<span class="font-headline font-bold text-on-surface-variant">01</span>
+</label>
+</div>
+</div>
+</section>
+<!-- Factor 4: Produtividade -->
+<section class="bg-surface-container-low p-1 rounded-xl" id="fator-4">
+<div class="p-8">
+<div class="flex items-start justify-between mb-6">
+<div>
+<h3 class="text-primary font-headline font-bold text-xl mb-2">Fator 4: Produtividade</h3>
+<p class="text-on-surface-variant max-w-2xl leading-relaxed">Volume de trabalho produzido em relação ao tempo e recursos disponíveis.</p>
+</div>
+<span class="bg-secondary-container text-on-secondary-container px-4 py-1 rounded-full text-xs font-bold font-label">Peso: 10 pts</span>
+</div>
+<div class="grid gap-3">
+<input class="hidden radio-custom" id="f4-a" name="fator4" type="radio"/>
+<label class="flex items-center justify-between p-4 bg-surface-container-highest border-l-4 border-transparent rounded-lg cursor-pointer transition-all hover:bg-white/80 group" for="f4-a">
+<span class="text-on-surface-variant group-hover:text-primary transition-colors flex-1 pr-4">A - Produz volume muito acima do esperado, otimizando o tempo de forma excepcional.</span>
+<span class="font-headline font-bold text-on-surface-variant">10</span>
+</label>
+<input class="hidden radio-custom" id="f4-b" name="fator4" type="radio"/>
+<label class="flex items-center justify-between p-4 bg-surface-container-highest border-l-4 border-transparent rounded-lg cursor-pointer transition-all hover:bg-white/80 group" for="f4-b">
+<span class="text-on-surface-variant group-hover:text-primary transition-colors flex-1 pr-4">B - Mantém um ritmo de trabalho constante e entrega todas as demandas no prazo.</span>
+<span class="font-headline font-bold text-on-surface-variant">08</span>
+</label>
+<input class="hidden radio-custom" id="f4-c" name="fator4" type="radio"/>
+<label class="flex items-center justify-between p-4 bg-surface-container-highest border-l-4 border-transparent rounded-lg cursor-pointer transition-all hover:bg-white/80 group" for="f4-c">
+<span class="text-on-surface-variant group-hover:text-primary transition-colors flex-1 pr-4">C - Cumpre o volume de trabalho padrão exigido para a função dentro do horário.</span>
+<span class="font-headline font-bold text-on-surface-variant">06</span>
+</label>
+<input class="hidden radio-custom" id="f4-d" name="fator4" type="radio"/>
+<label class="flex items-center justify-between p-4 bg-surface-container-highest border-l-4 border-transparent rounded-lg cursor-pointer transition-all hover:bg-white/80 group" for="f4-d">
+<span class="text-on-surface-variant group-hover:text-primary transition-colors flex-1 pr-4">D - Apresenta lentidão ou dificuldade em concluir as tarefas no tempo previsto.</span>
+<span class="font-headline font-bold text-on-surface-variant">03</span>
+</label>
+<input class="hidden radio-custom" id="f4-e" name="fator4" type="radio"/>
+<label class="flex items-center justify-between p-4 bg-surface-container-highest border-l-4 border-transparent rounded-lg cursor-pointer transition-all hover:bg-white/80 group" for="f4-e">
+<span class="text-on-surface-variant group-hover:text-primary transition-colors flex-1 pr-4">E - Baixa produtividade, comprometendo o andamento das atividades do setor.</span>
+<span class="font-headline font-bold text-on-surface-variant">01</span>
+</label>
+</div>
+</div>
+</section>
+<!-- Factor 5: Responsabilidade -->
+<section class="bg-surface-container-low p-1 rounded-xl" id="fator-5">
+<div class="p-8">
+<div class="flex items-start justify-between mb-6">
+<div>
+<h3 class="text-primary font-headline font-bold text-xl mb-2">Fator 5: Responsabilidade</h3>
+<p class="text-on-surface-variant max-w-2xl leading-relaxed">Comprometimento com os resultados, zelo pelo patrimônio e sigilo profissional.</p>
+</div>
+<span class="bg-secondary-container text-on-secondary-container px-4 py-1 rounded-full text-xs font-bold font-label">Peso: 10 pts</span>
+</div>
+<div class="grid gap-3">
+<input class="hidden radio-custom" id="f5-a" name="fator5" type="radio"/>
+<label class="flex items-center justify-between p-4 bg-surface-container-highest border-l-4 border-transparent rounded-lg cursor-pointer transition-all hover:bg-white/80 group" for="f5-a">
+<span class="text-on-surface-variant group-hover:text-primary transition-colors flex-1 pr-4">A - Total comprometimento, zela exemplarmente pelos bens e informações da instituição.</span>
+<span class="font-headline font-bold text-on-surface-variant">10</span>
+</label>
+<input class="hidden radio-custom" id="f5-b" name="fator5" type="radio"/>
+<label class="flex items-center justify-between p-4 bg-surface-container-highest border-l-4 border-transparent rounded-lg cursor-pointer transition-all hover:bg-white/80 group" for="f5-b">
+<span class="text-on-surface-variant group-hover:text-primary transition-colors flex-1 pr-4">B - Demonstra alto senso de dever e cuidado com as ferramentas de trabalho disponibilizadas.</span>
+<span class="font-headline font-bold text-on-surface-variant">08</span>
+</label>
+<input class="hidden radio-custom" id="f5-c" name="fator5" type="radio"/>
+<label class="flex items-center justify-between p-4 bg-surface-container-highest border-l-4 border-transparent rounded-lg cursor-pointer transition-all hover:bg-white/80 group" for="f5-c">
+<span class="text-on-surface-variant group-hover:text-primary transition-colors flex-1 pr-4">C - Atua com a responsabilidade esperada, mantendo o zelo básico necessário.</span>
+<span class="font-headline font-bold text-on-surface-variant">06</span>
+</label>
+<input class="hidden radio-custom" id="f5-d" name="fator5" type="radio"/>
+<label class="flex items-center justify-between p-4 bg-surface-container-highest border-l-4 border-transparent rounded-lg cursor-pointer transition-all hover:bg-white/80 group" for="f5-d">
+<span class="text-on-surface-variant group-hover:text-primary transition-colors flex-1 pr-4">D - Demonstra desatenção eventual com prazos, equipamentos ou normas de sigilo.</span>
+<span class="font-headline font-bold text-on-surface-variant">03</span>
+</label>
+<input class="hidden radio-custom" id="f5-e" name="fator5" type="radio"/>
+<label class="flex items-center justify-between p-4 bg-surface-container-highest border-l-4 border-transparent rounded-lg cursor-pointer transition-all hover:bg-white/80 group" for="f5-e">
+<span class="text-on-surface-variant group-hover:text-primary transition-colors flex-1 pr-4">E - Age com desleixo ou irresponsabilidade, gerando riscos ou prejuízos à instituição.</span>
+<span class="font-headline font-bold text-on-surface-variant">01</span>
+</label>
+</div>
+</div>
+</section>
+<!-- Document Upload Section -->
+<section class="bg-surface-container-low p-8 rounded-xl">
+<h3 class="text-primary font-headline font-bold text-xl mb-4">Envio de Certificados e Comprovações</h3>
+<div class="border-2 border-dashed border-outline-variant rounded-xl p-10 bg-surface-container-highest flex flex-col items-center justify-center transition-colors hover:bg-white/50 group cursor-pointer">
+<div class="w-16 h-16 bg-primary/5 rounded-full flex items-center justify-center text-primary mb-4 group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-4xl" data-icon="upload_file">upload_file</span>
+</div>
+<p class="text-on-surface font-bold text-center">Arraste e solte seus arquivos PDF aqui</p>
+<p class="text-on-surface-variant text-sm mt-1 text-center">ou clique para selecionar do seu computador</p>
+<p class="text-[10px] uppercase font-bold text-outline-variant mt-4 tracking-widest">Tamanho máximo: 10MB por arquivo</p>
+<input accept="application/pdf" class="hidden" id="file-upload" multiple="" type="file"/>
+</div>
+<div class="mt-8">
+<h4 class="text-xs font-bold text-[#001d44] uppercase tracking-wider mb-4">Arquivos Enviados</h4>
+<div class="space-y-3">
+<div class="flex items-center justify-between p-4 bg-white rounded-lg border border-outline-variant/30">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 bg-red-50 text-red-600 rounded flex items-center justify-center">
+<span class="material-symbols-outlined" data-icon="description">description</span>
+</div>
+<div>
+<p class="text-sm font-bold text-on-surface">certificado_pos_graduacao.pdf</p>
+<p class="text-[10px] text-on-surface-variant">2.4 MB • Carregado em 24/10/2023</p>
+</div>
+</div>
+<button class="text-on-surface-variant hover:text-error transition-colors p-2">
+<span class="material-symbols-outlined" data-icon="delete">delete</span>
+</button>
+</div>
+<div class="flex items-center justify-between p-4 bg-white rounded-lg border border-outline-variant/30">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 bg-red-50 text-red-600 rounded flex items-center justify-center">
+<span class="material-symbols-outlined" data-icon="description">description</span>
+</div>
+<div>
+<p class="text-sm font-bold text-on-surface">comprovante_projeto_especial.pdf</p>
+<p class="text-[10px] text-on-surface-variant">1.1 MB • Carregado em 24/10/2023</p>
+</div>
+</div>
+<button class="text-on-surface-variant hover:text-error transition-colors p-2">
+<span class="material-symbols-outlined" data-icon="delete">delete</span>
+</button>
+</div>
+</div>
+</div>
+</section>
+</div>
+<!-- Footer Notification Section -->
+<div class="mt-12 flex flex-col md:flex-row gap-6 items-center justify-between p-6 bg-surface-container-highest rounded-xl border border-outline-variant/30">
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 bg-secondary-container rounded-full flex items-center justify-center text-secondary">
+<span class="material-symbols-outlined" data-icon="verified_user">verified_user</span>
+</div>
+<div>
+<h4 class="font-bold text-sm text-on-surface">Trava de Segurança: Habilitada</h4>
+<p class="text-xs text-on-surface-variant">Status: Em Edição (Draft)</p>
+</div>
+</div>
+<div class="text-right">
+<p class="text-[10px] uppercase font-bold text-outline tracking-widest mb-1">Assinatura Digital Requerida no Envio</p>
+<div class="flex items-center gap-2 justify-end text-xs text-on-surface-variant">
+<span class="material-symbols-outlined text-sm" data-icon="lock">lock</span>
+<span>Criptografia de Ponta a Ponta Ativa</span>
+</div>
+</div>
+</div>
+</main>
+<!-- Bottom Action Bar (Fixed at bottom) -->
+<footer class="fixed bottom-0 left-0 right-0 lg:left-72 bg-white/80 glass-header border-t border-outline-variant/20 p-4 md:px-12 flex justify-between items-center shadow-[0_-10px_20px_rgba(0,0,0,0.03)] z-50">
+<div class="hidden md:block">
+<span class="text-xs font-medium text-on-surface-variant">Última alteração salva às: 14:42</span>
+</div>
+<div class="flex gap-4 w-full md:w-auto">
+<button class="flex-1 md:flex-none px-6 py-3 border border-outline rounded text-[#001d44] font-bold text-sm hover:bg-surface-container transition-colors">
+            Salvar Rascunho
+        </button>
+<button class="flex-1 md:flex-none px-8 py-3 bg-institutional-gradient text-white rounded font-bold text-sm shadow-md hover:scale-[1.02] active:scale-[0.98] transition-all">
+            Finalizar Avaliação
+        </button>
+</div>
+</footer>
+</body></html>
