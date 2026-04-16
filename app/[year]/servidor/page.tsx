@@ -10,6 +10,8 @@ import { decimalToNumber, ensureCurrentEvaluation } from "@/lib/evaluations-data
 import { getClassification, getQuestionTypeByEmploymentType, isReadOnly, SCORE_BY_TYPE } from "@/lib/evaluation";
 import { prisma } from "@/lib/prisma";
 
+export const dynamic = "force-dynamic";
+
 export default async function ServidorPage({
   params,
 }: {

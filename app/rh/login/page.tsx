@@ -3,6 +3,8 @@ import { redirect } from "next/navigation";
 import { LoginForm } from "@/components/login-form";
 import { getSessionContext } from "@/lib/auth";
 
+export const dynamic = "force-dynamic";
+
 export default async function RhLoginPage() {
   const session = await getSessionContext();
 

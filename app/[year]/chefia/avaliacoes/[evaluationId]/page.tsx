@@ -9,6 +9,8 @@ import { decimalToNumber, getEvaluationWithRelations } from "@/lib/evaluations-d
 import { canManagerEvaluate, getQuestionTypeByEmploymentType, isReadOnly, SCORE_BY_TYPE } from "@/lib/evaluation";
 import { prisma } from "@/lib/prisma";
 
+export const dynamic = "force-dynamic";
+
 export default async function ManagerEvaluationPage({
   params,
 }: {

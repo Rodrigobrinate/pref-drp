@@ -10,6 +10,8 @@ import { decimalToNumber } from "@/lib/evaluations-data";
 import { canManagerEvaluate, getDeadline, getRemainingDays } from "@/lib/evaluation";
 import { prisma } from "@/lib/prisma";
 
+export const dynamic = "force-dynamic";
+
 export default async function ChefiaPage({
   params,
 }: {

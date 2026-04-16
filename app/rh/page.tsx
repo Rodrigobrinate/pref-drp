@@ -8,6 +8,8 @@ import { LogoutButton } from "@/components/logout-button";
 import { requireGlobalRhSession } from "@/lib/auth";
 import { prisma } from "@/lib/prisma";
 
+export const dynamic = "force-dynamic";
+
 export default async function GlobalRhPage() {
   const context = await requireGlobalRhSession();
   const cycles = await prisma.cycle.findMany({
