@@ -11,7 +11,7 @@ FROM deps AS builder
 ENV NEXT_TELEMETRY_DISABLED=1
 COPY . .
 RUN cp prisma/schema.postgres.prisma prisma/schema.prisma
-RUN NODE_OPTIONS=--max-old-space-size=512 npm run build
+RUN  npm run build
 
 FROM base AS runner
 ENV NODE_ENV=production
