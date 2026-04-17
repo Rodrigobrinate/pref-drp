@@ -33,11 +33,12 @@ vi.mock("bcryptjs", () => ({
   },
 }));
 
-import { verifyCredentials, verifyGlobalRhCredentials } from "@/lib/auth";
+import { getPostLoginPath, getRhLandingPath, verifyCredentials, verifyGlobalRhCredentials } from "@/lib/auth";
 
 describe("auth security", () => {
   beforeEach(() => {
     vi.clearAllMocks();
+    delete process.env.DEVELOPER_ACCESS_CPFS;
   });
 
   it("returns a generic error when cpf is not found in cycle login", async () => {
@@ -99,5 +100,22 @@ describe("auth security", () => {
       },
       effectiveRole: SystemRole.RH,
     });
+  });
+
+  it("routes allowlisted rh users straight to the developer console", () => {
+    process.env.DEVELOPER_ACCESS_CPFS = "123.456.789-01,98765432100";
+
+    expect(getRhLandingPath("12345678901")).toBe("/admin");
+    expect(getRhLandingPath("987.654.321-00")).toBe("/admin");
+    expect(getRhLandingPath("11122233344")).toBe("/rh");
+  });
+
+  it("prioritizes the admin console over role-based destinations for allowlisted cpfs", () => {
+    process.env.DEVELOPER_ACCESS_CPFS = "12345678901";
+
+    expect(getPostLoginPath({ cpf: "12345678901", role: SystemRole.EMPLOYEE, year: 2026 })).toBe("/admin");
+    expect(getPostLoginPath({ cpf: "12345678901", role: SystemRole.MANAGER, year: 2026 })).toBe("/admin");
+    expect(getPostLoginPath({ cpf: "12345678901", role: SystemRole.RH })).toBe("/admin");
+    expect(getPostLoginPath({ cpf: "99999999999", role: SystemRole.MANAGER, year: 2026 })).toBe("/2026/chefia");
   });
 });

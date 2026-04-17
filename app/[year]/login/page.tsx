@@ -1,7 +1,7 @@
 import { redirect } from "next/navigation";
 
 import { LoginForm } from "@/components/login-form";
-import { getSessionContext } from "@/lib/auth";
+import { getPostLoginPath, getSessionContext } from "@/lib/auth";
 import { prisma } from "@/lib/prisma";
 
 export const dynamic = "force-dynamic";
@@ -24,12 +24,14 @@ export default async function LoginPage({
   });
   const session = await getSessionContext();
 
-  if (session?.effectiveRole === "RH") {
-    redirect("/rh");
-  }
-
-  if (session?.cycle && session.cycle.year === cycleYear) {
-    redirect(`/${cycleYear}/${session.effectiveRole === "MANAGER" ? "chefia" : "servidor"}`);
+  if (session) {
+    redirect(
+      getPostLoginPath({
+        cpf: session.user.cpf,
+        role: session.effectiveRole,
+        year: session.cycle?.year ?? cycleYear,
+      }),
+    );
   }
 
   return (

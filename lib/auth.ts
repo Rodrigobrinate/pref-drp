@@ -92,7 +92,15 @@ export async function getSessionContext() {
 export async function requireSessionForYear(year: number, role?: SystemRole) {
   const context = await getSessionContext();
 
-  if (!context || !context.cycle || context.cycle.year !== year) {
+  if (!context) {
+    redirect(`/${year}/login`);
+  }
+
+  if (canAccessDeveloperConsole(context.user.cpf)) {
+    redirect("/admin");
+  }
+
+  if (!context.cycle || context.cycle.year !== year) {
     redirect(`/${year}/login`);
   }
 
@@ -108,6 +116,10 @@ export async function requireGlobalRhSession() {
 
   if (!context || context.effectiveRole !== SystemRole.RH) {
     redirect("/rh/login");
+  }
+
+  if (canAccessDeveloperConsole(context.user.cpf)) {
+    redirect("/admin");
   }
 
   return context;
@@ -131,11 +143,45 @@ export function canAccessDeveloperConsole(cpf: string | null | undefined): boole
   return getDeveloperAccessCpfs().has(cpf.replace(/\D/g, ""));
 }
 
+export function getRhLandingPath(cpf: string | null | undefined): string {
+  return canAccessDeveloperConsole(cpf) ? "/admin" : "/rh";
+}
+
+export function getPostLoginPath(input: {
+  cpf: string | null | undefined;
+  role: SystemRole;
+  year?: number;
+}): string {
+  if (canAccessDeveloperConsole(input.cpf)) {
+    return "/admin";
+  }
+
+  if (input.role === SystemRole.RH) {
+    return "/rh";
+  }
+
+  if (typeof input.year !== "number") {
+    return "/";
+  }
+
+  return `/${input.year}/${routeForRole(input.role)}`;
+}
+
 export async function requireDeveloperConsoleSession() {
-  const context = await requireGlobalRhSession();
+  const context = await getSessionContext();
+
+  if (!context) {
+    redirect("/rh/login");
+  }
 
   if (!canAccessDeveloperConsole(context.user.cpf)) {
-    redirect("/rh");
+    redirect(
+      getPostLoginPath({
+        cpf: context.user.cpf,
+        role: context.effectiveRole,
+        year: context.cycle?.year,
+      }),
+    );
   }
 
   return context;

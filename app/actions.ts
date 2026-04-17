@@ -20,7 +20,7 @@ import {
   canAccessDeveloperConsole,
   createSession,
   getSessionContext,
-  routeForRole,
+  getPostLoginPath,
   verifyCredentials,
   verifyGlobalRhCredentials,
 } from "@/lib/auth";
@@ -77,11 +77,22 @@ export async function loginAction(_prevState: { error?: string } | undefined, fo
 
   if (result.effectiveRole === SystemRole.RH) {
     await createSession(result.user.id, null);
-    redirect("/rh");
+    redirect(
+      getPostLoginPath({
+        cpf: result.user.cpf,
+        role: result.effectiveRole,
+      }),
+    );
   }
 
   await createSession(result.user.id, result.cycle.id);
-  redirect(`/${parsed.data.year}/${routeForRole(result.effectiveRole)}`);
+  redirect(
+    getPostLoginPath({
+      cpf: result.user.cpf,
+      role: result.effectiveRole,
+      year: parsed.data.year,
+    }),
+  );
 }
 
 const globalLoginSchema = z.object({
@@ -116,7 +127,20 @@ export async function rhLoginAction(_prevState: { error?: string } | undefined, 
 
   await clearAttempts(parsed.data.cpf);
   await createSession(result.user.id, null);
-  redirect("/rh");
+  redirect(
+    getPostLoginPath({
+      cpf: result.user.cpf,
+      role: result.effectiveRole,
+    }),
+  );
+}
+
+function getDeveloperConsoleUnauthorizedMessage(sessionContext: Awaited<ReturnType<typeof getSessionContext>>) {
+  if (!sessionContext) {
+    return "Nao autorizado.";
+  }
+
+  return "Acesso restrito ao console de desenvolvimento.";
 }
 
 export async function logoutAction(year?: number, redirectTo?: string) {
@@ -843,12 +867,8 @@ export async function adminImportPreviewAction(
 ) {
   const sessionContext = await getSessionContext();
 
-  if (!sessionContext || sessionContext.user.globalRole !== SystemRole.RH) {
-    return { error: "Nao autorizado." };
-  }
-
-  if (!canAccessDeveloperConsole(sessionContext.user.cpf)) {
-    return { error: "Acesso restrito ao console de desenvolvimento." };
+  if (!sessionContext || !canAccessDeveloperConsole(sessionContext.user.cpf)) {
+    return { error: getDeveloperConsoleUnauthorizedMessage(sessionContext) };
   }
 
   const file = formData.get("file");

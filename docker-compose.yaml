@@ -10,6 +10,7 @@ services:
       NODE_ENV: production
       PORT: 3000
       RUN_SEED_ON_START: ${RUN_SEED_ON_START:-false}
+      DEVELOPER_ACCESS_CPFS: ${DEVELOPER_ACCESS_CPFS:-}
       DATABASE_URL: postgresql://nomos:nomos@postgres:5432/nomos?schema=public
       GOOGLE_DRIVE_CREDENTIALS_JSON: ${GOOGLE_DRIVE_CREDENTIALS_JSON}
       GOOGLE_DRIVE_ROOT_FOLDER_ID: ${GOOGLE_DRIVE_ROOT_FOLDER_ID:-}

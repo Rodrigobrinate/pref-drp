@@ -1,9 +1,10 @@
 import Link from "next/link";
 import { CycleStatus } from "@prisma/client";
+import { redirect } from "next/navigation";
 
 import { AppShell } from "@/components/app-shell";
 import { CompleteCycleButton } from "@/components/complete-cycle-button";
-import { CycleCreateForm, DeveloperConsoleCard } from "@/components/rh-forms";
+import { CycleCreateForm } from "@/components/rh-forms";
 import { LogoutButton } from "@/components/logout-button";
 import { canAccessDeveloperConsole, requireGlobalRhSession } from "@/lib/auth";
 import { prisma } from "@/lib/prisma";
@@ -26,6 +27,10 @@ export default async function GlobalRhPage() {
   const openCycle = cycles.find((cycle) => cycle.status === CycleStatus.OPEN) ?? null;
   const nextYear = (cycles[0]?.year ?? new Date().getFullYear()) + 1;
   const hasDeveloperConsoleAccess = canAccessDeveloperConsole(context.user.cpf);
+
+  if (hasDeveloperConsoleAccess) {
+    redirect("/admin");
+  }
 
   return (
     <AppShell
@@ -54,7 +59,6 @@ export default async function GlobalRhPage() {
               </div>
             )}
           </section>
-          {hasDeveloperConsoleAccess ? <DeveloperConsoleCard /> : null}
         </div>
 
         <section className="institutional-card p-8">

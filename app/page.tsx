@@ -1,6 +1,6 @@
 import { redirect } from "next/navigation";
 
-import { getSessionContext } from "@/lib/auth";
+import { getPostLoginPath, getSessionContext } from "@/lib/auth";
 import { prisma } from "@/lib/prisma";
 
 export const dynamic = "force-dynamic";
@@ -8,8 +8,14 @@ export const dynamic = "force-dynamic";
 export default async function HomePage() {
   const session = await getSessionContext();
 
-  if (session?.effectiveRole === "RH") {
-    redirect("/rh");
+  if (session) {
+    redirect(
+      getPostLoginPath({
+        cpf: session.user.cpf,
+        role: session.effectiveRole,
+        year: session.cycle?.year,
+      }),
+    );
   }
 
   const activeCycle = await prisma.cycle.findFirst({
