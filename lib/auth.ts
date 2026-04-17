@@ -5,6 +5,7 @@ import { redirect } from "next/navigation";
 import { randomUUID } from "crypto";
 
 import { prisma } from "@/lib/prisma";
+import { ADMIN_IMPORT_ALLOWED_CPFS_ENV } from "@/lib/admin-import-config";
 
 const SESSION_COOKIE = "nomos_session";
 
@@ -107,6 +108,34 @@ export async function requireGlobalRhSession() {
 
   if (!context || context.effectiveRole !== SystemRole.RH) {
     redirect("/rh/login");
+  }
+
+  return context;
+}
+
+function getDeveloperAccessCpfs(): Set<string> {
+  const raw = process.env[ADMIN_IMPORT_ALLOWED_CPFS_ENV] ?? "";
+  return new Set(
+    raw
+      .split(",")
+      .map((value) => value.replace(/\D/g, ""))
+      .filter(Boolean),
+  );
+}
+
+export function canAccessDeveloperConsole(cpf: string | null | undefined): boolean {
+  if (!cpf) {
+    return false;
+  }
+
+  return getDeveloperAccessCpfs().has(cpf.replace(/\D/g, ""));
+}
+
+export async function requireDeveloperConsoleSession() {
+  const context = await requireGlobalRhSession();
+
+  if (!canAccessDeveloperConsole(context.user.cpf)) {
+    redirect("/rh");
   }
 
   return context;

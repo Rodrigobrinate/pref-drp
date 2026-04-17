@@ -1,8 +1,6 @@
 services:
   app:
-    build:
-      context: .
-      dockerfile: Dockerfile
+    image: ghcr.io/rodrigobrinate/pref-drp:${APP_IMAGE_TAG:-latest}
     container_name: nomos_app
     restart: unless-stopped
     depends_on:
@@ -11,6 +9,7 @@ services:
     environment:
       NODE_ENV: production
       PORT: 3000
+      RUN_SEED_ON_START: ${RUN_SEED_ON_START:-false}
       DATABASE_URL: postgresql://nomos:nomos@postgres:5432/nomos?schema=public
       GOOGLE_DRIVE_CREDENTIALS_JSON: ${GOOGLE_DRIVE_CREDENTIALS_JSON}
       GOOGLE_DRIVE_ROOT_FOLDER_ID: ${GOOGLE_DRIVE_ROOT_FOLDER_ID:-}

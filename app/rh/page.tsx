@@ -3,9 +3,9 @@ import { CycleStatus } from "@prisma/client";
 
 import { AppShell } from "@/components/app-shell";
 import { CompleteCycleButton } from "@/components/complete-cycle-button";
-import { CycleCreateForm } from "@/components/rh-forms";
+import { CycleCreateForm, DeveloperConsoleCard } from "@/components/rh-forms";
 import { LogoutButton } from "@/components/logout-button";
-import { requireGlobalRhSession } from "@/lib/auth";
+import { canAccessDeveloperConsole, requireGlobalRhSession } from "@/lib/auth";
 import { prisma } from "@/lib/prisma";
 
 export const dynamic = "force-dynamic";
@@ -25,6 +25,7 @@ export default async function GlobalRhPage() {
 
   const openCycle = cycles.find((cycle) => cycle.status === CycleStatus.OPEN) ?? null;
   const nextYear = (cycles[0]?.year ?? new Date().getFullYear()) + 1;
+  const hasDeveloperConsoleAccess = canAccessDeveloperConsole(context.user.cpf);
 
   return (
     <AppShell
@@ -37,21 +38,24 @@ export default async function GlobalRhPage() {
       userName={context.user.name}
     >
       <div className="grid gap-8 lg:grid-cols-[360px_1fr]">
-        <section className="institutional-card p-8">
-          <h2 className="font-headline text-2xl font-bold text-primary">Novo projeto</h2>
-          <p className="mt-2 text-sm text-on-surface-variant">
-            O RH só pode abrir um novo projeto quando o ciclo anterior estiver finalizado.
-          </p>
-          {openCycle ? (
-            <div className="mt-6 rounded-xl bg-tertiary-fixed px-4 py-4 text-sm text-on-error-container">
-              Projeto {openCycle.year} ainda está aberto. Finalize esse ciclo antes de criar o próximo.
-            </div>
-          ) : (
-            <div className="mt-6">
-              <CycleCreateForm suggestedYear={nextYear} />
-            </div>
-          )}
-        </section>
+        <div className="space-y-8">
+          <section className="institutional-card p-8">
+            <h2 className="font-headline text-2xl font-bold text-primary">Novo projeto</h2>
+            <p className="mt-2 text-sm text-on-surface-variant">
+              O RH só pode abrir um novo projeto quando o ciclo anterior estiver finalizado.
+            </p>
+            {openCycle ? (
+              <div className="mt-6 rounded-xl bg-tertiary-fixed px-4 py-4 text-sm text-on-error-container">
+                Projeto {openCycle.year} ainda está aberto. Finalize esse ciclo antes de criar o próximo.
+              </div>
+            ) : (
+              <div className="mt-6">
+                <CycleCreateForm suggestedYear={nextYear} />
+              </div>
+            )}
+          </section>
+          {hasDeveloperConsoleAccess ? <DeveloperConsoleCard /> : null}
+        </div>
 
         <section className="institutional-card p-8">
           <div className="flex items-center justify-between gap-4">

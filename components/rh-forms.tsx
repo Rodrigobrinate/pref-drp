@@ -49,3 +49,21 @@ export function XmlImportForm({ cycleId }: { cycleId: string }) {
     </form>
   );
 }
+
+export function DeveloperConsoleCard() {
+  return (
+    <div className="rounded-xl bg-surface-container-low p-6">
+      <p className="text-xs font-bold uppercase tracking-[0.24em] text-on-surface-variant">Developer Console</p>
+      <h3 className="mt-2 font-headline text-2xl font-bold text-primary">Importação avançada</h3>
+      <p className="mt-2 text-sm text-on-surface-variant">
+        Área reservada para preparar importação por XML/CSV com mapeamento customizável.
+      </p>
+      <a
+        className="mt-5 inline-flex rounded-lg bg-primary px-4 py-2 text-sm font-bold text-on-primary"
+        href="/rh/admin/importacao"
+      >
+        Abrir console
+      </a>
+    </div>
+  );
+}

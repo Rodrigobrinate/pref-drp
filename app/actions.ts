@@ -17,12 +17,14 @@ import { z } from "zod";
 
 import {
   clearSession,
+  canAccessDeveloperConsole,
   createSession,
   getSessionContext,
   routeForRole,
   verifyCredentials,
   verifyGlobalRhCredentials,
 } from "@/lib/auth";
+import { parseAdminImportFile } from "@/lib/admin-import";
 import {
   calculateScore,
   canAutosave,
@@ -817,4 +819,55 @@ export async function completeCycleAction(cycleId: string) {
   revalidatePath(`/${cycle.year}/rh`);
 
   return { ok: true as const, message: `Projeto ${cycle.year} finalizado.` };
+}
+
+export async function adminImportPreviewAction(
+  _prevState:
+    | {
+        error?: string;
+        success?: string;
+        format?: string;
+        total?: number;
+        preview?: Array<{
+          cpf: string;
+          nome: string;
+          matricula: string;
+          vinculo: string;
+          secretaria: string;
+          cargo: string;
+          chefiaCpf?: string;
+        }>;
+      }
+    | undefined,
+  formData: FormData,
+) {
+  const sessionContext = await getSessionContext();
+
+  if (!sessionContext || sessionContext.user.globalRole !== SystemRole.RH) {
+    return { error: "Nao autorizado." };
+  }
+
+  if (!canAccessDeveloperConsole(sessionContext.user.cpf)) {
+    return { error: "Acesso restrito ao console de desenvolvimento." };
+  }
+
+  const file = formData.get("file");
+
+  if (!(file instanceof File)) {
+    return { error: "Envie um arquivo XML ou CSV." };
+  }
+
+  const content = await file.text();
+  const parsed = parseAdminImportFile(file.name, content);
+
+  if (!parsed.ok) {
+    return { error: parsed.message };
+  }
+
+  return {
+    success: "Arquivo validado com sucesso. Nenhuma alteração foi persistida.",
+    format: parsed.format,
+    total: parsed.total,
+    preview: parsed.preview,
+  };
 }
