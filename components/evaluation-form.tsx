@@ -119,7 +119,7 @@ export function EvaluationForm({
       }
 
       setDocuments((current) => [...response.documents, ...current]);
-      setUploadMessage(`${response.documents.length} documento(s) enviado(s) ao GED local.`);
+      setUploadMessage(`${response.documents.length} documento(s) enviado(s) ao Supabase Storage.`);
       router.refresh();
     });
   }

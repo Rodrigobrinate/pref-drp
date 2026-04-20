@@ -8,6 +8,8 @@ import { requireSessionForYear } from "@/lib/auth";
 import { decimalToNumber, getEvaluationWithRelations } from "@/lib/evaluations-data";
 import { canManagerEvaluate, getQuestionTypeByEmploymentType, isReadOnly, SCORE_BY_TYPE } from "@/lib/evaluation";
 import { prisma } from "@/lib/prisma";
+import { resolveDocumentAccessUrls } from "@/lib/storage";
+import { parseYearParam } from "@/lib/year-route";
 
 export const dynamic = "force-dynamic";
 
@@ -17,7 +19,12 @@ export default async function ManagerEvaluationPage({
   params: Promise<{ year: string; evaluationId: string }>;
 }) {
   const { year, evaluationId } = await params;
-  const cycleYear = Number(year);
+  const cycleYear = parseYearParam(year);
+
+  if (cycleYear === null) {
+    notFound();
+  }
+
   const context = await requireSessionForYear(cycleYear, SystemRole.MANAGER);
 
   if (!context.userCycle) {
@@ -57,6 +64,7 @@ export default async function ManagerEvaluationPage({
       .filter((answer) => answer.phase === EvaluationPhase.MANAGER)
       .map((answer) => [answer.questionId, answer.selectedOptionId]),
   );
+  const documents = await resolveDocumentAccessUrls(evaluation.documents);
 
   return (
     <AppShell
@@ -74,7 +82,7 @@ export default async function ManagerEvaluationPage({
         employmentType={evaluation.evaluated.employmentType ?? EmploymentType.EFETIVO}
         evaluationId={evaluation.id}
         initialAnswers={initialAnswers}
-        initialDocuments={evaluation.documents.map((document) => ({
+        initialDocuments={documents.map((document) => ({
           id: document.id,
           name: document.name,
           size: document.size,

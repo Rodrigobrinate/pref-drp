@@ -1,9 +1,15 @@
 import { SystemRole } from "@prisma/client";
 import { beforeEach, describe, expect, it, vi } from "vitest";
+import { cookies } from "next/headers";
 
 const prismaMock = vi.hoisted(() => ({
+  $transaction: vi.fn(),
   cycle: {
     findUnique: vi.fn(),
+  },
+  session: {
+    deleteMany: vi.fn(),
+    create: vi.fn(),
   },
   user: {
     findUnique: vi.fn(),
@@ -33,12 +39,13 @@ vi.mock("bcryptjs", () => ({
   },
 }));
 
-import { getPostLoginPath, getRhLandingPath, verifyCredentials, verifyGlobalRhCredentials } from "@/lib/auth";
+import { createSession, getPostLoginPath, getRhLandingPath, verifyCredentials, verifyGlobalRhCredentials } from "@/lib/auth";
 
 describe("auth security", () => {
   beforeEach(() => {
     vi.clearAllMocks();
     delete process.env.DEVELOPER_ACCESS_CPFS;
+    prismaMock.$transaction.mockImplementation(async (callback: (tx: typeof prismaMock) => Promise<unknown>) => callback(prismaMock));
   });
 
   it("returns a generic error when cpf is not found in cycle login", async () => {
@@ -117,5 +124,33 @@ describe("auth security", () => {
     expect(getPostLoginPath({ cpf: "12345678901", role: SystemRole.MANAGER, year: 2026 })).toBe("/admin");
     expect(getPostLoginPath({ cpf: "12345678901", role: SystemRole.RH })).toBe("/admin");
     expect(getPostLoginPath({ cpf: "99999999999", role: SystemRole.MANAGER, year: 2026 })).toBe("/2026/chefia");
+  });
+
+  it("revokes previous sessions before creating a new one", async () => {
+    const cookieStore = {
+      set: vi.fn(),
+    };
+
+    vi.mocked(cookies).mockResolvedValue(cookieStore as never);
+    prismaMock.session.deleteMany.mockResolvedValue({ count: 2 });
+    prismaMock.session.create.mockResolvedValue({
+      id: "session-1",
+      token: "token",
+    });
+
+    await createSession("user-1", "cycle-1");
+
+    expect(prismaMock.session.deleteMany).toHaveBeenCalledWith({
+      where: {
+        userId: "user-1",
+      },
+    });
+    expect(prismaMock.session.create).toHaveBeenCalledWith({
+      data: expect.objectContaining({
+        userId: "user-1",
+        cycleId: "cycle-1",
+      }),
+    });
+    expect(cookieStore.set).toHaveBeenCalled();
   });
 });

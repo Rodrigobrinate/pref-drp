@@ -9,6 +9,7 @@ import { XmlImportForm } from "@/components/rh-forms";
 import { StatusBadge } from "@/components/status-badge";
 import { requireGlobalRhSession } from "@/lib/auth";
 import { prisma } from "@/lib/prisma";
+import { parseYearParam } from "@/lib/year-route";
 
 export const dynamic = "force-dynamic";
 
@@ -18,7 +19,12 @@ export default async function RhPage({
   params: Promise<{ year: string }>;
 }) {
   const { year } = await params;
-  const cycleYear = Number(year);
+  const cycleYear = parseYearParam(year);
+
+  if (cycleYear === null) {
+    notFound();
+  }
+
   const context = await requireGlobalRhSession();
   const cycle = await prisma.cycle.findUnique({
     where: { year: cycleYear },

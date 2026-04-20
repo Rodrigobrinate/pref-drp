@@ -21,7 +21,6 @@ export async function checkRateLimit(cpf: string, ip: string) {
   const attempts = await prisma.loginAttempt.count({
     where: {
       cpf,
-      ip,
       createdAt: {
         gte: getWindowStart(),
       },

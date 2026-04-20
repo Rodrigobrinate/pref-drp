@@ -9,6 +9,8 @@ import { getSessionContext, requireSessionForYear } from "@/lib/auth";
 import { decimalToNumber, ensureCurrentEvaluation } from "@/lib/evaluations-data";
 import { getClassification, getQuestionTypeByEmploymentType, isReadOnly, SCORE_BY_TYPE } from "@/lib/evaluation";
 import { prisma } from "@/lib/prisma";
+import { resolveDocumentAccessUrls } from "@/lib/storage";
+import { parseYearParam } from "@/lib/year-route";
 
 export const dynamic = "force-dynamic";
 
@@ -18,7 +20,12 @@ export default async function ServidorPage({
   params: Promise<{ year: string }>;
 }) {
   const { year } = await params;
-  const cycleYear = Number(year);
+  const cycleYear = parseYearParam(year);
+
+  if (cycleYear === null) {
+    notFound();
+  }
+
   const context = await requireSessionForYear(cycleYear, SystemRole.EMPLOYEE);
 
   if (!context.userCycle) {
@@ -89,6 +96,7 @@ export default async function ServidorPage({
     fullEvaluation.answers.map((answer) => [answer.questionId, answer.selectedOptionId]),
   );
   const selfScore = decimalToNumber(fullEvaluation.selfScore);
+  const documents = await resolveDocumentAccessUrls(fullEvaluation.documents);
 
   const session = await getSessionContext();
 
@@ -121,7 +129,7 @@ export default async function ServidorPage({
         employmentType={context.userCycle.employmentType ?? EmploymentType.EFETIVO}
         evaluationId={fullEvaluation.id}
         initialAnswers={initialAnswers}
-        initialDocuments={fullEvaluation.documents.map((document) => ({
+        initialDocuments={documents.map((document) => ({
           id: document.id,
           name: document.name,
           size: document.size,

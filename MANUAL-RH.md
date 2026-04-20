@@ -12,7 +12,7 @@ Hoje o módulo RH permite:
 - importar a base de servidores por XML
 - acompanhar o status geral das avaliações
 - solicitar reavaliação de um servidor
-- trabalhar com upload de comprovantes gravados no Google Drive
+- trabalhar com upload de comprovantes gravados no Supabase Storage
 
 ## Acesso ao Sistema
 O RH agora utiliza um acesso global:
@@ -185,28 +185,25 @@ Os comprovantes são enviados no formulário do servidor e ficam vinculados à a
 - até 10 MB por arquivo
 
 ### Onde os arquivos são gravados
-Os arquivos são enviados para o **Google Drive** usando a service account configurada no projeto.
+Os arquivos são enviados para o **Supabase Storage** em bucket privado.
 
-### Estrutura de pastas
-O sistema cria automaticamente:
-1. pasta do ciclo
-2. subpasta do servidor com nome e matrícula
-3. arquivos PDF dentro dessa subpasta
+### Estrutura lógica
+O sistema grava os PDFs com organização por:
+1. ciclo
+2. pasta lógica do servidor com nome e matrícula
+3. arquivo PDF com timestamp no nome
 
-## Configuração do Google Drive
+## Configuração do Supabase Storage
 Para o RH ou responsável técnico validar o destino dos arquivos, estas variáveis são usadas:
 
 ```env
-GOOGLE_DRIVE_CREDENTIALS_FILE
-GOOGLE_DRIVE_ROOT_FOLDER_ID
-GOOGLE_DRIVE_SHARED_DRIVE_ID
-GOOGLE_DRIVE_CYCLE_PREFIX
+SUPABASE_URL
+SUPABASE_SERVICE_ROLE_KEY
+SUPABASE_STORAGE_BUCKET
 ```
 
 ### Observação importante
-Os arquivos não aparecem automaticamente na conta pessoal do usuário RH, a menos que:
-- a pasta raiz esteja compartilhada com essa conta
-- ou a gravação ocorra em um Shared Drive ao qual essa conta tenha acesso
+Os comprovantes ficam em bucket privado e o sistema gera links assinados para acesso controlado nas telas da avaliação.
 
 ## Boas Práticas Operacionais
 - sempre crie o projeto no hub global antes da importação do XML
@@ -214,7 +211,7 @@ Os arquivos não aparecem automaticamente na conta pessoal do usuário RH, a men
 - valide o ano do ciclo antes de distribuir o link
 - confirme se o XML contém a chefia imediata corretamente
 - teste um acesso RH, um acesso de chefia e um acesso de servidor no início do ciclo
-- confirme o destino do Google Drive antes de liberar o uso oficial
+- confirme o bucket do Supabase Storage antes de liberar o uso oficial
 
 ## Erros Comuns e Como Resolver
 
@@ -285,4 +282,4 @@ o próprio CPF
 7. Acompanhar os status no painel do projeto.
 8. Solicitar reavaliação quando necessário.
 9. Finalizar o projeto quando tudo estiver concluído.
-10. Confirmar que os comprovantes estão chegando no Google Drive.
+10. Confirmar que os comprovantes estão chegando no Supabase Storage.

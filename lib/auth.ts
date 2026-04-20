@@ -6,6 +6,7 @@ import { randomUUID } from "crypto";
 
 import { prisma } from "@/lib/prisma";
 import { ADMIN_IMPORT_ALLOWED_CPFS_ENV } from "@/lib/admin-import-config";
+import { buildDeveloperUserBlueprint } from "@/lib/dev-console";
 
 const SESSION_COOKIE = "nomos_session";
 
@@ -13,13 +14,21 @@ export async function createSession(userId: string, cycleId?: string | null): Pr
   const token = randomUUID();
   const expiresAt = new Date(Date.now() + 1000 * 60 * 60 * 12);
 
-  await prisma.session.create({
-    data: {
-      token,
-      userId,
-      cycleId: cycleId ?? null,
-      expiresAt,
-    },
+  await prisma.$transaction(async (tx) => {
+    await tx.session.deleteMany({
+      where: {
+        userId,
+      },
+    });
+
+    await tx.session.create({
+      data: {
+        token,
+        userId,
+        cycleId: cycleId ?? null,
+        expiresAt,
+      },
+    });
   });
 
   const cookieStore = await cookies();
@@ -135,12 +144,44 @@ function getDeveloperAccessCpfs(): Set<string> {
   );
 }
 
+export function listDeveloperAccessCpfs(): string[] {
+  return Array.from(getDeveloperAccessCpfs());
+}
+
 export function canAccessDeveloperConsole(cpf: string | null | undefined): boolean {
   if (!cpf) {
     return false;
   }
 
   return getDeveloperAccessCpfs().has(cpf.replace(/\D/g, ""));
+}
+
+export async function provisionDeveloperAccessUser(cpf: string) {
+  const normalizedCpf = cpf.replace(/\D/g, "");
+
+  if (!canAccessDeveloperConsole(normalizedCpf)) {
+    throw new Error("CPF fora da allowlist do console de desenvolvimento.");
+  }
+
+  const passwordHash = await bcrypt.hash(normalizedCpf, 10);
+  const blueprint = buildDeveloperUserBlueprint(normalizedCpf);
+
+  return prisma.user.upsert({
+    where: { cpf: normalizedCpf },
+    create: {
+      cpf: blueprint.cpf,
+      name: blueprint.name,
+      registration: blueprint.registration,
+      passwordHash,
+      globalRole: SystemRole.RH,
+    },
+    update: {
+      name: blueprint.name,
+      registration: blueprint.registration,
+      passwordHash,
+      globalRole: SystemRole.RH,
+    },
+  });
 }
 
 export function getRhLandingPath(cpf: string | null | undefined): string {

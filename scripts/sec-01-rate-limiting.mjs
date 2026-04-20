@@ -12,7 +12,7 @@ No projeto em /mnt/c/Users/PC/Documents/projeto-pref-drp, implemente proteção 
 
 CONTEXTO:
 - As funções loginAction e rhLoginAction em app/actions.ts não têm rate limiting.
-- O projeto usa Prisma com SQLite (prisma/schema.prisma). Não há Redis disponível.
+- O projeto usa Prisma com PostgreSQL (prisma/schema.prisma). Não há Redis disponível.
 - Use a tabela do banco para registrar tentativas falhas — crie um novo model Prisma.
 
 PASSO 1 — Adicionar model LoginAttempt em prisma/schema.prisma:
@@ -40,7 +40,7 @@ PASSO 3 — Aplicar em app/actions.ts:
 - Em loginAction: antes de verifyCredentials, chamar checkRateLimit. Se blocked, retornar { error: "Conta temporariamente bloqueada. Tente novamente em 30 minutos." }. Após falha, chamar recordFailedAttempt. Após sucesso, chamar clearAttempts.
 - Mesma lógica em rhLoginAction.
 
-PASSO 4 — Rodar: npx prisma migrate dev --name add_login_attempts
+PASSO 4 — Rodar: npx prisma db push
 
 Não adicione comentários. Não altere outros arquivos.
 `;

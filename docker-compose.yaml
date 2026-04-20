@@ -3,37 +3,16 @@ services:
     image: ghcr.io/rodrigobrinate/pref-drp:${APP_IMAGE_TAG:-latest}
     container_name: nomos_app
     restart: unless-stopped
-    depends_on:
-      postgres:
-        condition: service_healthy
     environment:
       NODE_ENV: production
       PORT: 3000
+      PRISMA_DB_PUSH_ON_START: ${PRISMA_DB_PUSH_ON_START:-false}
       RUN_SEED_ON_START: ${RUN_SEED_ON_START:-false}
       DEVELOPER_ACCESS_CPFS: ${DEVELOPER_ACCESS_CPFS:-}
-      DATABASE_URL: postgresql://nomos:nomos@postgres:5432/nomos?schema=public
-      GOOGLE_DRIVE_CREDENTIALS_JSON: ${GOOGLE_DRIVE_CREDENTIALS_JSON}
-      GOOGLE_DRIVE_ROOT_FOLDER_ID: ${GOOGLE_DRIVE_ROOT_FOLDER_ID:-}
-      GOOGLE_DRIVE_SHARED_DRIVE_ID: ${GOOGLE_DRIVE_SHARED_DRIVE_ID:-}
-      GOOGLE_DRIVE_CYCLE_PREFIX: ${GOOGLE_DRIVE_CYCLE_PREFIX:-Avaliacao}
+      DATABASE_URL: ${DATABASE_URL}
+      DIRECT_URL: ${DIRECT_URL}
+      SUPABASE_URL: ${SUPABASE_URL}
+      SUPABASE_SERVICE_ROLE_KEY: ${SUPABASE_SERVICE_ROLE_KEY}
+      SUPABASE_STORAGE_BUCKET: ${SUPABASE_STORAGE_BUCKET:-documents}
     expose:
       - "3000"
-
-  postgres:
-    image: postgres:16-alpine
-    container_name: nomos_postgres
-    restart: unless-stopped
-    environment:
-      POSTGRES_DB: nomos
-      POSTGRES_USER: nomos
-      POSTGRES_PASSWORD: nomos
-    healthcheck:
-      test: ["CMD-SHELL", "pg_isready -U nomos -d nomos"]
-      interval: 10s
-      timeout: 5s
-      retries: 10
-    volumes:
-      - postgres_data:/var/lib/postgresql/data
-
-volumes:
-  postgres_data:

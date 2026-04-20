@@ -1,5 +1,4 @@
-import { Readable } from "stream";
-import { google } from "googleapis";
+import { createClient, type SupabaseClient } from "@supabase/supabase-js";
 
 type UploadInput = {
   buffer: Buffer;
@@ -8,152 +7,177 @@ type UploadInput = {
   userFolder: string;
 };
 
-type ServiceAccountCredentials = {
-  client_email: string;
-  private_key: string;
+type StoredDocument = {
+  storageKey: string;
+  url: string;
 };
 
-const FOLDER_MIME_TYPE = "application/vnd.google-apps.folder";
-const DRIVE_SCOPES = ["https://www.googleapis.com/auth/drive.file"];
-let cachedDrive: ReturnType<typeof google.drive> | null = null;
+type PersistedDocument = {
+  storageKey: string;
+  url: string;
+};
 
-function escapeDriveQueryValue(value: string): string {
-  return value.replace(/\\/g, "\\\\").replace(/'/g, "\\'");
-}
+const DEFAULT_STORAGE_BUCKET = "documents";
+const SIGNED_URL_TTL_SECONDS = 60 * 60;
 
-async function getDriveCredentials(): Promise<ServiceAccountCredentials> {
-  const raw = process.env.GOOGLE_DRIVE_CREDENTIALS_JSON;
+let cachedSupabase: SupabaseClient | null = null;
+let ensuredBucketName: string | null = null;
 
-  if (!raw) {
-    throw new Error("GOOGLE_DRIVE_CREDENTIALS_JSON nao definida");
+function getSupabaseUrl(): string {
+  const url = process.env.SUPABASE_URL?.trim();
+
+  if (!url) {
+    throw new Error("SUPABASE_URL nao definida.");
   }
 
-  const parsed = JSON.parse(raw) as Partial<ServiceAccountCredentials>;
+  return url;
+}
 
-  if (!parsed.client_email || !parsed.private_key) {
-    throw new Error("Arquivo de credenciais do Google Drive inválido.");
+function getSupabaseServiceRoleKey(): string {
+  const key =
+    process.env.SUPABASE_SERVICE_ROLE_KEY?.trim() ??
+    process.env.SUPABASE_SECRET?.trim();
+
+  if (!key) {
+    throw new Error("SUPABASE_SERVICE_ROLE_KEY nao definida.");
+  }
+
+  return key;
+}
+
+function getStorageBucketName(): string {
+  return process.env.SUPABASE_STORAGE_BUCKET?.trim() || DEFAULT_STORAGE_BUCKET;
+}
+
+function sanitizeStorageSegment(value: string): string {
+  return (
+    value
+      .normalize("NFKD")
+      .replace(/[^\x00-\x7F]/g, "")
+      .replace(/[^A-Za-z0-9._-]+/g, "-")
+      .replace(/-{2,}/g, "-")
+      .replace(/^-+|-+$/g, "")
+      .toLowerCase() || "arquivo"
+  );
+}
+
+function buildStoragePath(input: UploadInput): string {
+  const now = new Date();
+  const stamp = [
+    now.getUTCFullYear(),
+    String(now.getUTCMonth() + 1).padStart(2, "0"),
+    String(now.getUTCDate()).padStart(2, "0"),
+    String(now.getUTCHours()).padStart(2, "0"),
+    String(now.getUTCMinutes()).padStart(2, "0"),
+    String(now.getUTCSeconds()).padStart(2, "0"),
+  ].join("");
+
+  return [
+    `ciclo-${input.cycleYear}`,
+    sanitizeStorageSegment(input.userFolder),
+    `${stamp}-${sanitizeStorageSegment(input.fileName)}`,
+  ].join("/");
+}
+
+function isLegacyExternalUrl(url: string, storageKey: string): boolean {
+  return /^https?:\/\//i.test(url) && !storageKey.includes("/");
+}
+
+function getSupabaseAdminClient(): SupabaseClient {
+  if (cachedSupabase) {
+    return cachedSupabase;
+  }
+
+  cachedSupabase = createClient(getSupabaseUrl(), getSupabaseServiceRoleKey(), {
+    auth: {
+      autoRefreshToken: false,
+      persistSession: false,
+    },
+  });
+
+  return cachedSupabase;
+}
+
+async function ensureStorageBucket() {
+  const bucket = getStorageBucketName();
+
+  if (ensuredBucketName === bucket) {
+    return bucket;
+  }
+
+  const client = getSupabaseAdminClient();
+  const { data, error } = await client.storage.getBucket(bucket);
+
+  if (error && !error.message.toLowerCase().includes("not found")) {
+    throw new Error(`Falha ao consultar bucket do Supabase Storage: ${error.message}`);
+  }
+
+  if (!data) {
+    const { error: createError } = await client.storage.createBucket(bucket, {
+      public: false,
+      fileSizeLimit: "10MB",
+      allowedMimeTypes: ["application/pdf"],
+    });
+
+    if (createError && !createError.message.toLowerCase().includes("already exists")) {
+      throw new Error(`Falha ao criar bucket do Supabase Storage: ${createError.message}`);
+    }
+  }
+
+  ensuredBucketName = bucket;
+  return bucket;
+}
+
+async function createSignedDocumentUrl(storageKey: string) {
+  const client = getSupabaseAdminClient();
+  const bucket = await ensureStorageBucket();
+  const { data, error } = await client.storage
+    .from(bucket)
+    .createSignedUrl(storageKey, SIGNED_URL_TTL_SECONDS);
+
+  if (error || !data?.signedUrl) {
+    throw new Error(`Falha ao criar URL assinada do documento: ${error?.message ?? "sem resposta"}`);
+  }
+
+  return data.signedUrl;
+}
+
+export async function storeDocument(input: UploadInput): Promise<StoredDocument> {
+  const client = getSupabaseAdminClient();
+  const bucket = await ensureStorageBucket();
+  const path = buildStoragePath(input);
+  const { error } = await client.storage
+    .from(bucket)
+    .upload(path, input.buffer, {
+      contentType: "application/pdf",
+      upsert: false,
+    });
+
+  if (error) {
+    throw new Error(`Upload para o Supabase Storage falhou: ${error.message}`);
   }
 
   return {
-    client_email: parsed.client_email,
-    private_key: parsed.private_key,
+    storageKey: path,
+    url: await createSignedDocumentUrl(path),
   };
 }
 
-async function getDriveClient() {
-  if (cachedDrive) {
-    return cachedDrive;
+export async function resolveDocumentAccessUrl(document: PersistedDocument) {
+  if (isLegacyExternalUrl(document.url, document.storageKey)) {
+    return document.url;
   }
 
-  const credentials = await getDriveCredentials();
-  const auth = new google.auth.JWT({
-    email: credentials.client_email,
-    key: credentials.private_key,
-    scopes: DRIVE_SCOPES,
-  });
-
-  cachedDrive = google.drive({
-    version: "v3",
-    auth,
-  });
-
-  return cachedDrive;
+  return createSignedDocumentUrl(document.storageKey);
 }
 
-function getDriveFlags() {
-  const sharedDriveId = process.env.GOOGLE_DRIVE_SHARED_DRIVE_ID;
-
-  if (!sharedDriveId) {
-    return {};
-  }
-
-  return {
-    supportsAllDrives: true,
-    includeItemsFromAllDrives: true,
-    driveId: sharedDriveId,
-    corpora: "drive" as const,
-  };
+export async function resolveDocumentAccessUrls<T extends PersistedDocument>(documents: T[]) {
+  return Promise.all(
+    documents.map(async (document) => ({
+      ...document,
+      url: await resolveDocumentAccessUrl(document),
+    })),
+  );
 }
 
-async function findOrCreateFolder(name: string, parentId: string) {
-  const drive = await getDriveClient();
-  const flags = getDriveFlags();
-  const query = [
-    `name = '${escapeDriveQueryValue(name)}'`,
-    `mimeType = '${FOLDER_MIME_TYPE}'`,
-    "trashed = false",
-    `'${escapeDriveQueryValue(parentId)}' in parents`,
-  ].join(" and ");
-
-  const existing = await drive.files.list({
-    ...flags,
-    q: query,
-    fields: "files(id, name)",
-    pageSize: 1,
-  });
-
-  const folderId = existing.data.files?.[0]?.id;
-
-  if (folderId) {
-    return folderId;
-  }
-
-  const created = await drive.files.create({
-    ...flags,
-    requestBody: {
-      name,
-      mimeType: FOLDER_MIME_TYPE,
-      parents: [parentId],
-    },
-    fields: "id",
-  });
-
-  if (!created.data.id) {
-    throw new Error(`Não foi possível criar a pasta '${name}' no Google Drive.`);
-  }
-
-  return created.data.id;
-}
-
-function getRootFolderId(): string {
-  const configured = process.env.GOOGLE_DRIVE_ROOT_FOLDER_ID?.trim();
-  return configured ? configured : "root";
-}
-
-function getCycleFolderName(cycleYear: number): string {
-  const prefix = process.env.GOOGLE_DRIVE_CYCLE_PREFIX?.trim();
-  return prefix
-    ? `${prefix} ${cycleYear}`
-    : `Avaliação ${cycleYear}`;
-}
-
-export async function storeDocumentInDrive(input: UploadInput) {
-  const drive = await getDriveClient();
-  const flags = getDriveFlags();
-  const cycleFolderId = await findOrCreateFolder(getCycleFolderName(input.cycleYear), getRootFolderId());
-  const userFolderId = await findOrCreateFolder(input.userFolder, cycleFolderId);
-
-  const upload = await drive.files.create({
-    ...flags,
-    requestBody: {
-      name: input.fileName,
-      parents: [userFolderId],
-    },
-    media: {
-      mimeType: "application/pdf",
-      body: Readable.from(input.buffer),
-    },
-    fields: "id, webViewLink, webContentLink, name",
-  });
-
-  const fileId = upload.data.id;
-
-  if (!fileId) {
-    throw new Error("Upload para o Google Drive falhou.");
-  }
-
-  return {
-    storageKey: fileId,
-    url: upload.data.webViewLink ?? upload.data.webContentLink ?? `https://drive.google.com/file/d/${fileId}/view`,
-  };
-}
+export { buildStoragePath, isLegacyExternalUrl };

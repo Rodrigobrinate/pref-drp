@@ -2,10 +2,13 @@ import Link from "next/link";
 import { CycleStatus, DocumentStatus, EmploymentType, EvaluationStatus, SystemRole } from "@prisma/client";
 
 import { AdminImportForm } from "@/components/admin-import-form";
+import { AdminRhImportForm } from "@/components/admin-rh-import-form";
 import { AppShell } from "@/components/app-shell";
+import { DevConsoleTools } from "@/components/dev-console-tools";
 import { LogoutButton } from "@/components/logout-button";
 import { StatusBadge } from "@/components/status-badge";
 import { ADMIN_IMPORT_ALLOWED_CPFS_ENV, ADMIN_IMPORT_SUPPORTED_FORMATS } from "@/lib/admin-import-config";
+import { buildDevTestCycleName, buildDeveloperUserBlueprint, buildDevTestUsers } from "@/lib/dev-console";
 import { requireDeveloperConsoleSession } from "@/lib/auth";
 import { prisma } from "@/lib/prisma";
 
@@ -38,6 +41,9 @@ function byLabel<T extends string>(rows: Array<{ _count: { _all: number } } & Re
 export default async function AdminPage() {
   const context = await requireDeveloperConsoleSession();
   const now = new Date();
+  const developerIdentity = buildDeveloperUserBlueprint(context.user.cpf);
+  const developerTestCycleName = buildDevTestCycleName(context.user.cpf);
+  const developerTestUsers = buildDevTestUsers(context.user.cpf);
   const fifteenMinutesAgo = new Date(now.getTime() - 15 * 60 * 1000);
   const oneDayAgo = new Date(now.getTime() - 24 * 60 * 60 * 1000);
 
@@ -58,6 +64,8 @@ export default async function AdminPage() {
     employmentGroups,
     latestCycles,
     recentDocuments,
+    developerUser,
+    developerTestCycle,
   ] = await Promise.all([
     prisma.cycle.count(),
     prisma.cycle.count({
@@ -215,6 +223,33 @@ export default async function AdminPage() {
         },
       },
     }),
+    prisma.user.findUnique({
+      where: {
+        cpf: developerIdentity.cpf,
+      },
+      select: {
+        cpf: true,
+        registration: true,
+        globalRole: true,
+        updatedAt: true,
+      },
+    }),
+    prisma.cycle.findFirst({
+      where: {
+        name: developerTestCycleName,
+      },
+      select: {
+        id: true,
+        year: true,
+        status: true,
+        _count: {
+          select: {
+            userCycles: true,
+            evaluations: true,
+          },
+        },
+      },
+    }),
   ]);
 
   const activeCycleEvaluationTotal = activeCycle?._count.evaluations ?? 0;
@@ -323,6 +358,87 @@ export default async function AdminPage() {
           <p className="mt-2 text-xs text-on-surface-variant">
             {pendingEvaluations} pendentes puras · {draftEvaluations} rascunhos
           </p>
+        </article>
+      </section>
+
+      <section className="mt-8 grid gap-6 xl:grid-cols-[1.1fr_0.9fr]">
+        <article className="institutional-card p-8">
+          <p className="text-xs font-bold uppercase tracking-[0.24em] text-on-surface-variant">Console de desenvolvimento</p>
+          <h2 className="mt-2 font-headline text-2xl font-bold text-primary">Bootstrap e ambiente sintético</h2>
+          <p className="mt-3 text-sm text-on-surface-variant">
+            O CPF da allowlist pode ser provisionado como RH global e manter um projeto de teste isolado para validar o fluxo completo.
+          </p>
+          <div className="mt-6 grid gap-4 md:grid-cols-2">
+            <div className="rounded-xl bg-surface-container-low p-5">
+              <p className="text-xs font-bold uppercase tracking-[0.2em] text-on-surface-variant">Meu usuário dev</p>
+              <p className="mt-3 text-sm text-on-surface-variant">CPF: {developerIdentity.cpf}</p>
+              <p className="mt-2 text-sm text-on-surface-variant">
+                Matrícula: {developerUser?.registration ?? developerIdentity.registration}
+              </p>
+              <p className="mt-2 text-sm text-on-surface-variant">Role global: {developerUser?.globalRole ?? "não provisionado"}</p>
+              <p className="mt-2 text-sm text-on-surface-variant">
+                Última atualização: {formatDateTime(developerUser?.updatedAt)}
+              </p>
+            </div>
+            <div className="rounded-xl bg-surface-container-low p-5">
+              <p className="text-xs font-bold uppercase tracking-[0.2em] text-on-surface-variant">Projeto de teste</p>
+              <p className="mt-3 text-sm text-on-surface-variant">Nome: {developerTestCycleName}</p>
+              <p className="mt-2 text-sm text-on-surface-variant">Ano: {developerTestCycle?.year ?? "não criado"}</p>
+              <p className="mt-2 text-sm text-on-surface-variant">Status: {developerTestCycle?.status ?? "não criado"}</p>
+              <p className="mt-2 text-sm text-on-surface-variant">
+                Pessoas: {developerTestCycle?._count.userCycles ?? 0} · Avaliações: {developerTestCycle?._count.evaluations ?? 0}
+              </p>
+            </div>
+          </div>
+          <div className="mt-6">
+            <DevConsoleTools />
+          </div>
+          <div className="mt-6 overflow-x-auto">
+            <table className="w-full min-w-[620px] text-left">
+              <thead className="text-xs uppercase tracking-[0.24em] text-on-surface-variant">
+                <tr>
+                  <th className="pb-3">Perfil</th>
+                  <th className="pb-3">CPF</th>
+                  <th className="pb-3">Senha</th>
+                  <th className="pb-3">Acesso</th>
+                </tr>
+              </thead>
+              <tbody>
+                {developerTestUsers.map((testUser) => {
+                  const accessPath =
+                    testUser.kind === "rh"
+                      ? "/rh/login"
+                      : developerTestCycle
+                        ? `/${developerTestCycle.year}/login`
+                        : "/rh/login";
+
+                  return (
+                    <tr className="border-t border-outline-variant/10" key={testUser.kind}>
+                      <td className="py-4 text-sm font-semibold text-on-surface">{testUser.name}</td>
+                      <td className="py-4 text-sm text-on-surface-variant">{testUser.cpf}</td>
+                      <td className="py-4 text-sm text-on-surface-variant">{testUser.cpf}</td>
+                      <td className="py-4 text-sm text-on-surface-variant">
+                        <Link className="font-semibold text-primary underline-offset-4 hover:underline" href={accessPath}>
+                          {accessPath}
+                        </Link>
+                      </td>
+                    </tr>
+                  );
+                })}
+              </tbody>
+            </table>
+          </div>
+        </article>
+
+        <article className="institutional-card p-8">
+          <p className="text-xs font-bold uppercase tracking-[0.24em] text-on-surface-variant">Importação de RH</p>
+          <h2 className="mt-2 font-headline text-2xl font-bold text-primary">Persistir usuários globais de RH</h2>
+          <p className="mt-3 text-sm text-on-surface-variant">
+            Use esta área para carregar a lista administrativa de RH. A importação do quadro funcional por ciclo continua sendo feita no hub RH.
+          </p>
+          <div className="mt-6">
+            <AdminRhImportForm />
+          </div>
         </article>
       </section>
 
@@ -553,7 +669,7 @@ export default async function AdminPage() {
           <p className="text-xs font-bold uppercase tracking-[0.24em] text-on-surface-variant">Importação avançada</p>
           <h2 className="mt-2 font-headline text-2xl font-bold text-primary">Validação de XML e CSV</h2>
           <p className="mt-3 text-sm text-on-surface-variant">
-            Use esta área para validar estrutura, aliases e prévia dos dados antes de ligar a persistência definitiva.
+            Use esta área para validar estrutura, aliases e prévia dos dados antes de importar chefias e servidores no fluxo do RH.
           </p>
           <div className="mt-6">
             <AdminImportForm />

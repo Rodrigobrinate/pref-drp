@@ -199,6 +199,7 @@ export function parseAdminImportFile(fileName: string, content: string) {
   return {
     ok: true as const,
     format,
+    records,
     total: records.length,
     preview: records.slice(0, ADMIN_IMPORT_PREVIEW_LIMIT),
   };

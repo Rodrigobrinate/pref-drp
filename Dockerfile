@@ -5,13 +5,11 @@ RUN apt-get update -y && apt-get install -y openssl && rm -rf /var/lib/apt/lists
 FROM base AS deps
 COPY package.json package-lock.json ./
 COPY prisma ./prisma
-RUN cp prisma/schema.postgres.prisma prisma/schema.prisma
 RUN npm ci
 
 FROM deps AS builder
 ENV NEXT_TELEMETRY_DISABLED=1
 COPY . .
-RUN cp prisma/schema.postgres.prisma prisma/schema.prisma
 RUN  npm run build
 
 FROM base AS runner

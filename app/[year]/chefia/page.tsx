@@ -9,6 +9,7 @@ import { requireSessionForYear } from "@/lib/auth";
 import { decimalToNumber } from "@/lib/evaluations-data";
 import { canManagerEvaluate, getDeadline, getRemainingDays } from "@/lib/evaluation";
 import { prisma } from "@/lib/prisma";
+import { parseYearParam } from "@/lib/year-route";
 
 export const dynamic = "force-dynamic";
 
@@ -18,7 +19,12 @@ export default async function ChefiaPage({
   params: Promise<{ year: string }>;
 }) {
   const { year } = await params;
-  const cycleYear = Number(year);
+  const cycleYear = parseYearParam(year);
+
+  if (cycleYear === null) {
+    notFound();
+  }
+
   const context = await requireSessionForYear(cycleYear, SystemRole.MANAGER);
 
   if (!context.userCycle) {

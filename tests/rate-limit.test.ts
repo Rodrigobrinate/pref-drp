@@ -38,7 +38,6 @@ describe("rate limit", () => {
     expect(prismaMock.loginAttempt.count).toHaveBeenCalledWith({
       where: {
         cpf: "12345678901",
-        ip: "10.0.0.1",
         createdAt: {
           gte: expect.any(Date),
         },

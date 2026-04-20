@@ -1,8 +1,9 @@
-import { redirect } from "next/navigation";
+import { notFound, redirect } from "next/navigation";
 
 import { LoginForm } from "@/components/login-form";
 import { getPostLoginPath, getSessionContext } from "@/lib/auth";
 import { prisma } from "@/lib/prisma";
+import { parseYearParam } from "@/lib/year-route";
 
 export const dynamic = "force-dynamic";
 
@@ -12,7 +13,12 @@ export default async function LoginPage({
   params: Promise<{ year: string }>;
 }) {
   const { year } = await params;
-  const cycleYear = Number(year);
+  const cycleYear = parseYearParam(year);
+
+  if (cycleYear === null) {
+    notFound();
+  }
+
   const cycle = await prisma.cycle.findUnique({
     where: { year: cycleYear },
     select: {
