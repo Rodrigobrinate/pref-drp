@@ -14,6 +14,7 @@ Este cofre documenta o sistema `projeto-pref-drp`, chamado na interface de **Nom
 - [[08 - Ambiente e Operação]]
 - [[09 - Testes e Qualidade]]
 - [[10 - Divergências e Débito Técnico]]
+- [[11 - Documentação Executiva]]
 
 ## Leitura rápida
 

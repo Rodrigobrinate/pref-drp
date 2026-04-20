@@ -451,7 +451,7 @@ export default async function AdminPage() {
               </p>
               <h2 className="mt-2 font-headline text-2xl font-bold text-primary">Distribuição por status</h2>
             </div>
-            {activeCycle ? <StatusBadge status={activeCycle.status} /> : null}
+            {activeCycle ? <StatusBadge kind="cycle" status={activeCycle.status} /> : null}
           </div>
 
           <div className="mt-6 grid gap-4 md:grid-cols-2 xl:grid-cols-3">
@@ -651,7 +651,7 @@ export default async function AdminPage() {
                       {cycle.active ? " · ativo" : ""}
                     </td>
                     <td className="py-4">
-                      <StatusBadge status={cycle.status} />
+                      <StatusBadge kind="cycle" status={cycle.status} />
                     </td>
                     <td className="py-4 text-sm text-on-surface-variant">{cycle._count.userCycles}</td>
                     <td className="py-4 text-sm text-on-surface-variant">{cycle._count.evaluations}</td>
