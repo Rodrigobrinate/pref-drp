@@ -46,11 +46,30 @@ export default async function AdminPage() {
   const developerTestUsers = buildDevTestUsers(context.user.cpf);
   const fifteenMinutesAgo = new Date(now.getTime() - 15 * 60 * 1000);
   const oneDayAgo = new Date(now.getTime() - 24 * 60 * 60 * 1000);
+  const activeCycle = await prisma.cycle.findFirst({
+    where: { active: true },
+    orderBy: { year: "desc" },
+    select: {
+      id: true,
+      year: true,
+      name: true,
+      status: true,
+      startDate: true,
+      endDate: true,
+      completedAt: true,
+      _count: {
+        select: {
+          userCycles: true,
+          evaluations: true,
+          questions: true,
+        },
+      },
+    },
+  });
 
   const [
     cycleCount,
     openCycleCount,
-    activeCycle,
     userCount,
     activeSessionCount,
     loginAttempts15m,
@@ -70,26 +89,6 @@ export default async function AdminPage() {
     prisma.cycle.count(),
     prisma.cycle.count({
       where: { status: CycleStatus.OPEN },
-    }),
-    prisma.cycle.findFirst({
-      where: { active: true },
-      orderBy: { year: "desc" },
-      select: {
-        id: true,
-        year: true,
-        name: true,
-        status: true,
-        startDate: true,
-        endDate: true,
-        completedAt: true,
-        _count: {
-          select: {
-            userCycles: true,
-            evaluations: true,
-            questions: true,
-          },
-        },
-      },
     }),
     prisma.user.count(),
     prisma.session.count({
