@@ -8,6 +8,162 @@ datasource db {
   directUrl = env("DIRECT_URL")
 }
 
+model User {
+  id           String      @id @default(cuid())
+  cpf          String      @unique
+  name         String
+  registration String      @unique
+  passwordHash String
+  globalRole   SystemRole?
+  createdAt    DateTime    @default(now())
+  updatedAt    DateTime    @updatedAt
+  sessions     Session[]
+  userCycles   UserCycle[]
+}
+
+model Cycle {
+  id          String       @id @default(cuid())
+  year        Int          @unique
+  name        String
+  startDate   DateTime
+  endDate     DateTime
+  status      CycleStatus  @default(OPEN)
+  active      Boolean      @default(false)
+  completedAt DateTime?
+  createdAt   DateTime     @default(now())
+  updatedAt   DateTime     @updatedAt
+  evaluations Evaluation[]
+  questions   Question[]
+  sessions    Session[]
+  userCycles  UserCycle[]
+}
+
+model Session {
+  id        String   @id @default(cuid())
+  token     String   @unique
+  expiresAt DateTime
+  createdAt DateTime @default(now())
+  userId    String
+  cycleId   String?
+  cycle     Cycle?   @relation(fields: [cycleId], references: [id], onDelete: Cascade)
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+}
+
+model LoginAttempt {
+  id        String   @id @default(cuid())
+  cpf       String
+  ip        String   @default("unknown")
+  createdAt DateTime @default(now())
+
+  @@index([cpf, createdAt])
+}
+
+model UserCycle {
+  id             String          @id @default(cuid())
+  userId         String
+  cycleId        String
+  role           SystemRole
+  employmentType EmploymentType?
+  department     String
+  jobTitle       String
+  managerId      String?
+  createdAt      DateTime        @default(now())
+  updatedAt      DateTime        @updatedAt
+  evaluations    Evaluation[]    @relation("EvaluatedUser")
+  managerReviews Evaluation[]    @relation("ManagerUser")
+  cycle          Cycle           @relation(fields: [cycleId], references: [id], onDelete: Cascade)
+  manager        UserCycle?      @relation("Management", fields: [managerId], references: [id])
+  subordinates   UserCycle[]     @relation("Management")
+  user           User            @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([userId, cycleId])
+  @@index([cycleId, managerId, role])
+}
+
+model Question {
+  id          String             @id @default(cuid())
+  cycleId     String
+  type        QuestionType
+  title       String
+  description String
+  sortOrder   Int
+  answers     EvaluationAnswer[]
+  options     Option[]
+  cycle       Cycle              @relation(fields: [cycleId], references: [id], onDelete: Cascade)
+
+  @@index([cycleId, type, sortOrder])
+}
+
+model Option {
+  id          String             @id @default(cuid())
+  questionId  String
+  label       String
+  description String
+  score       Decimal
+  sortOrder   Int
+  answers     EvaluationAnswer[]
+  question    Question           @relation(fields: [questionId], references: [id], onDelete: Cascade)
+
+  @@index([questionId, sortOrder])
+}
+
+model Evaluation {
+  id                 String             @id @default(cuid())
+  cycleId            String
+  evaluatedId        String
+  managerId          String?
+  status             EvaluationStatus   @default(PENDING)
+  selfScore          Decimal?           @default(0)
+  managerScore       Decimal?           @default(0)
+  finalScore         Decimal?           @default(0)
+  version            Int                @default(1)
+  current            Boolean            @default(true)
+  autoSubmittedAt    DateTime?
+  managerSubmittedAt DateTime?
+  archivedAt         DateTime?
+  reopenedAt         DateTime?
+  createdAt          DateTime           @default(now())
+  updatedAt          DateTime           @updatedAt
+  documents          Document[]
+  cycle              Cycle              @relation(fields: [cycleId], references: [id], onDelete: Cascade)
+  evaluated          UserCycle          @relation("EvaluatedUser", fields: [evaluatedId], references: [id], onDelete: Cascade)
+  manager            UserCycle?         @relation("ManagerUser", fields: [managerId], references: [id])
+  answers            EvaluationAnswer[]
+
+  @@index([cycleId, evaluatedId, current])
+  @@index([cycleId, current, status])
+}
+
+model EvaluationAnswer {
+  id               String          @id @default(cuid())
+  evaluationId     String
+  questionId       String
+  selectedOptionId String
+  phase            EvaluationPhase
+  createdAt        DateTime        @default(now())
+  updatedAt        DateTime        @updatedAt
+  evaluation       Evaluation      @relation(fields: [evaluationId], references: [id], onDelete: Cascade)
+  question         Question        @relation(fields: [questionId], references: [id], onDelete: Cascade)
+  selectedOption   Option          @relation(fields: [selectedOptionId], references: [id], onDelete: Cascade)
+
+  @@unique([evaluationId, questionId, phase])
+}
+
+model Document {
+  id           String         @id @default(cuid())
+  evaluationId String
+  name         String
+  mimeType     String
+  size         Int
+  storageKey   String
+  url          String
+  status       DocumentStatus @default(UPLOADED)
+  createdAt    DateTime       @default(now())
+  evaluation   Evaluation     @relation(fields: [evaluationId], references: [id], onDelete: Cascade)
+
+  @@index([evaluationId, createdAt])
+}
+
 enum SystemRole {
   RH
   MANAGER
@@ -47,160 +203,4 @@ enum DocumentStatus {
 enum CycleStatus {
   OPEN
   COMPLETED
-}
-
-model User {
-  id           String      @id @default(cuid())
-  cpf          String      @unique
-  name         String
-  registration String      @unique
-  passwordHash String
-  globalRole   SystemRole?
-  createdAt    DateTime    @default(now())
-  updatedAt    DateTime    @updatedAt
-  userCycles   UserCycle[]
-  sessions     Session[]
-}
-
-model Cycle {
-  id          String       @id @default(cuid())
-  year        Int          @unique
-  name        String
-  startDate   DateTime
-  endDate     DateTime
-  status      CycleStatus  @default(OPEN)
-  active      Boolean      @default(false)
-  completedAt DateTime?
-  createdAt   DateTime     @default(now())
-  updatedAt   DateTime     @updatedAt
-  userCycles  UserCycle[]
-  questions   Question[]
-  evaluations Evaluation[]
-  sessions    Session[]
-}
-
-model Session {
-  id        String   @id @default(cuid())
-  token     String   @unique
-  expiresAt DateTime
-  createdAt DateTime @default(now())
-  userId    String
-  cycleId   String?
-  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
-  cycle     Cycle?   @relation(fields: [cycleId], references: [id], onDelete: Cascade)
-}
-
-model LoginAttempt {
-  id        String   @id @default(cuid())
-  cpf       String
-  ip        String   @default("unknown")
-  createdAt DateTime @default(now())
-
-  @@index([cpf, createdAt])
-}
-
-model UserCycle {
-  id             String         @id @default(cuid())
-  userId         String
-  cycleId        String
-  role           SystemRole
-  employmentType EmploymentType?
-  department     String
-  jobTitle       String
-  managerId      String?
-  createdAt      DateTime       @default(now())
-  updatedAt      DateTime       @updatedAt
-  user           User           @relation(fields: [userId], references: [id], onDelete: Cascade)
-  cycle          Cycle          @relation(fields: [cycleId], references: [id], onDelete: Cascade)
-  manager        UserCycle?     @relation("Management", fields: [managerId], references: [id], onDelete: SetNull)
-  subordinates   UserCycle[]    @relation("Management")
-  evaluations    Evaluation[]   @relation("EvaluatedUser")
-  managerReviews Evaluation[]   @relation("ManagerUser")
-
-  @@unique([userId, cycleId])
-  @@index([cycleId, managerId, role])
-}
-
-model Question {
-  id          String       @id @default(cuid())
-  cycleId      String
-  type        QuestionType
-  title       String
-  description String
-  sortOrder   Int
-  cycle       Cycle        @relation(fields: [cycleId], references: [id], onDelete: Cascade)
-  options     Option[]
-  answers     EvaluationAnswer[]
-
-  @@index([cycleId, type, sortOrder])
-}
-
-model Option {
-  id          String             @id @default(cuid())
-  questionId  String
-  label       String
-  description String
-  score       Decimal
-  sortOrder   Int
-  question    Question           @relation(fields: [questionId], references: [id], onDelete: Cascade)
-  answers     EvaluationAnswer[]
-
-  @@index([questionId, sortOrder])
-}
-
-model Evaluation {
-  id                String             @id @default(cuid())
-  cycleId           String
-  evaluatedId       String
-  managerId         String?
-  status            EvaluationStatus   @default(PENDING)
-  selfScore         Decimal?           @default(0)
-  managerScore      Decimal?           @default(0)
-  finalScore        Decimal?           @default(0)
-  version           Int                @default(1)
-  current           Boolean            @default(true)
-  autoSubmittedAt   DateTime?
-  managerSubmittedAt DateTime?
-  archivedAt        DateTime?
-  reopenedAt        DateTime?
-  createdAt         DateTime           @default(now())
-  updatedAt         DateTime           @updatedAt
-  cycle             Cycle              @relation(fields: [cycleId], references: [id], onDelete: Cascade)
-  evaluated         UserCycle          @relation("EvaluatedUser", fields: [evaluatedId], references: [id], onDelete: Cascade)
-  manager           UserCycle?         @relation("ManagerUser", fields: [managerId], references: [id], onDelete: SetNull)
-  answers           EvaluationAnswer[]
-  documents         Document[]
-
-  @@index([cycleId, evaluatedId, current])
-  @@index([cycleId, current, status])
-}
-
-model EvaluationAnswer {
-  id               String          @id @default(cuid())
-  evaluationId     String
-  questionId       String
-  selectedOptionId String
-  phase            EvaluationPhase
-  createdAt        DateTime        @default(now())
-  updatedAt        DateTime        @updatedAt
-  evaluation       Evaluation      @relation(fields: [evaluationId], references: [id], onDelete: Cascade)
-  question         Question        @relation(fields: [questionId], references: [id], onDelete: Cascade)
-  selectedOption   Option          @relation(fields: [selectedOptionId], references: [id], onDelete: Cascade)
-
-  @@unique([evaluationId, questionId, phase])
-}
-
-model Document {
-  id           String         @id @default(cuid())
-  evaluationId String
-  name         String
-  mimeType     String
-  size         Int
-  storageKey   String
-  url          String
-  status       DocumentStatus @default(UPLOADED)
-  createdAt    DateTime       @default(now())
-  evaluation   Evaluation     @relation(fields: [evaluationId], references: [id], onDelete: Cascade)
-
-  @@index([evaluationId, createdAt])
 }

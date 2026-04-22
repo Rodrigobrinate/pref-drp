@@ -1,7 +1,7 @@
 export const DEV_USER_NAME_PREFIX = "[DEV]";
 export const DEV_TEST_PREFIX = "[DEV TESTE]";
 
-export type DevTestUserKind = "rh" | "manager" | "employee";
+export type DevTestUserKind = "rh" | "manager" | "employee" | "probatorio";
 
 type DevTestUserBlueprint = {
   kind: DevTestUserKind;
@@ -57,6 +57,13 @@ export function buildDevTestUsers(cpf: string): DevTestUserBlueprint[] {
       cpf: `993${suffix}`,
       name: `${DEV_TEST_PREFIX} Servidor`,
       registration: `TSTSV-${suffix.slice(-6)}`,
+      roleLabel: "EMPLOYEE",
+    },
+    {
+      kind: "probatorio",
+      cpf: `994${suffix}`,
+      name: `${DEV_TEST_PREFIX} Probatorio`,
+      registration: `TSTPB-${suffix.slice(-6)}`,
       roleLabel: "EMPLOYEE",
     },
   ];

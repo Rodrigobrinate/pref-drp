@@ -1049,7 +1049,19 @@ export async function createDeveloperTestAction() {
         role: SystemRole.EMPLOYEE,
         employmentType: EmploymentType.EFETIVO,
         department: "Ambiente de teste",
-        jobTitle: "Servidor de teste",
+        jobTitle: "Servidor efetivo de teste",
+        managerId: managerCycle.id,
+      },
+    });
+
+    const probatorioCycle = await tx.userCycle.create({
+      data: {
+        userId: createdUsers.get("probatorio")!.id,
+        cycleId: cycle.id,
+        role: SystemRole.EMPLOYEE,
+        employmentType: EmploymentType.PROBATORIO,
+        department: "Ambiente de teste",
+        jobTitle: "Servidor probatório de teste",
         managerId: managerCycle.id,
       },
     });
@@ -1058,6 +1070,15 @@ export async function createDeveloperTestAction() {
       data: {
         cycleId: cycle.id,
         evaluatedId: employeeCycle.id,
+        managerId: managerCycle.id,
+        status: EvaluationStatus.PENDING,
+      },
+    });
+
+    await tx.evaluation.create({
+      data: {
+        cycleId: cycle.id,
+        evaluatedId: probatorioCycle.id,
         managerId: managerCycle.id,
         status: EvaluationStatus.PENDING,
       },
