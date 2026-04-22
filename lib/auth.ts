@@ -123,15 +123,11 @@ export async function requireSessionForYear(year: number, role?: SystemRole) {
 export async function requireGlobalRhSession() {
   const context = await getSessionContext();
 
-  console.log("[requireGlobalRhSession] context:", context ? { effectiveRole: context.effectiveRole, cpf: context.user.cpf, cycleId: context.session.cycleId } : null);
-
   if (!context || context.effectiveRole !== SystemRole.RH) {
-    console.log("[requireGlobalRhSession] redirecting to /rh/login — no context or wrong role");
     redirect("/rh/login");
   }
 
   if (canAccessDeveloperConsole(context.user.cpf)) {
-    console.log("[requireGlobalRhSession] redirecting to /admin — developer console");
     redirect("/admin");
   }
 
