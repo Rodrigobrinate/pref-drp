@@ -115,7 +115,7 @@ async function ensureStorageBucket() {
   if (!data) {
     const { error: createError } = await client.storage.createBucket(bucket, {
       public: false,
-      fileSizeLimit: "10MB",
+      fileSizeLimit: "20MB",
       allowedMimeTypes: ["application/pdf"],
     });
 

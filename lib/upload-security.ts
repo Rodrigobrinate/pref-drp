@@ -1,5 +1,5 @@
 const PDF_SIGNATURE = "%PDF-";
-export const MAX_DOCUMENT_SIZE_BYTES = 10 * 1024 * 1024;
+export const MAX_DOCUMENT_SIZE_BYTES = 20 * 1024 * 1024;
 
 export function sanitizeDocumentFileName(fileName: string): string {
   return (
@@ -31,7 +31,7 @@ export function validatePdfUpload(input: {
   }
 
   if (input.size > MAX_DOCUMENT_SIZE_BYTES) {
-    return { ok: false, message: "Cada PDF deve ter no máximo 10MB." };
+    return { ok: false, message: "Cada PDF deve ter no máximo 20MB." };
   }
 
   if (!isPdfBuffer(input.buffer)) {

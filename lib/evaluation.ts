@@ -1,5 +1,14 @@
 import { EmploymentType, EvaluationStatus, QuestionType } from "@prisma/client";
-import { addDays, differenceInCalendarDays, isAfter, startOfDay } from "date-fns";
+import { addDays, differenceInCalendarDays, isAfter } from "date-fns";
+
+const GMT_MINUS_3_OFFSET_MS = 3 * 60 * 60 * 1000;
+
+function startOfDayGmt3(date: Date): Date {
+  const localMs = date.getTime() - GMT_MINUS_3_OFFSET_MS;
+  const d = new Date(localMs);
+  d.setUTCHours(0, 0, 0, 0);
+  return new Date(d.getTime() + GMT_MINUS_3_OFFSET_MS);
+}
 
 export const SCORE_BY_TYPE = {
   [QuestionType.BASE_50]: {
@@ -87,15 +96,15 @@ export function validateAnswerPayload(
 }
 
 export function getDeadline(startDate: Date, kind: "self" | "manager"): Date {
-  return addDays(startOfDay(startDate), getDeadlineDays(kind));
+  return addDays(startOfDayGmt3(startDate), getDeadlineDays(kind));
 }
 
 export function getRemainingDays(deadline: Date, now = new Date()): number {
-  return Math.max(differenceInCalendarDays(startOfDay(deadline), startOfDay(now)), 0);
+  return Math.max(differenceInCalendarDays(startOfDayGmt3(deadline), startOfDayGmt3(now)), 0);
 }
 
 export function isDeadlineExpired(deadline: Date, now = new Date()): boolean {
-  return isAfter(startOfDay(now), startOfDay(deadline));
+  return isAfter(startOfDayGmt3(now), startOfDayGmt3(deadline));
 }
 
 export function canAutosave(status: EvaluationStatus, deadline: Date, now = new Date()): boolean {
@@ -118,6 +127,10 @@ export function canManagerEvaluate(
   }
 
   return status === EvaluationStatus.AUTO_DONE;
+}
+
+export function canManagerSubmit(status: EvaluationStatus, deadline: Date, now = new Date()): boolean {
+  return canManagerEvaluate(status) && !isDeadlineExpired(deadline, now);
 }
 
 export function isReadOnly(status: EvaluationStatus, phase: "self" | "manager"): boolean {

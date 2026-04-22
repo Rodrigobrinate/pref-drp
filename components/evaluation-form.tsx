@@ -86,13 +86,20 @@ export function EvaluationForm({
     }
 
     saveTimeout.current = setTimeout(async () => {
-      const response = await saveDraftAction({
-        evaluationId,
-        answers,
-      });
+      try {
+        const response = await saveDraftAction({
+          evaluationId,
+          answers,
+        });
 
-      setSaveMessage(response.message);
-      router.refresh();
+        setSaveMessage(response.message);
+
+        if (response.ok) {
+          router.refresh();
+        }
+      } catch {
+        setSaveMessage("Erro ao salvar rascunho. Tente novamente.");
+      }
     }, 900);
 
     return () => {
@@ -108,19 +115,22 @@ export function EvaluationForm({
     }
 
     startUpload(async () => {
-      const formData = new FormData();
-      formData.append("evaluationId", evaluationId);
-      Array.from(files).forEach((file) => formData.append("files", file));
-      const response = await uploadDocumentsAction(formData);
+      try {
+        const formData = new FormData();
+        formData.append("evaluationId", evaluationId);
+        Array.from(files).forEach((file) => formData.append("files", file));
+        const response = await uploadDocumentsAction(formData);
 
-      if (!response.ok) {
-        setUploadMessage(response.message);
-        return;
+        if (!response.ok) {
+          setUploadMessage(response.message);
+          return;
+        }
+
+        setDocuments((current) => [...response.documents, ...current]);
+        setUploadMessage(`${response.documents.length} documento(s) enviado(s) ao Supabase Storage.`);
+      } catch {
+        setUploadMessage("Erro ao enviar documento. Tente novamente.");
       }
-
-      setDocuments((current) => [...response.documents, ...current]);
-      setUploadMessage(`${response.documents.length} documento(s) enviado(s) ao Supabase Storage.`);
-      router.refresh();
     });
   }
 

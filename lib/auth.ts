@@ -10,14 +10,17 @@ import { buildDeveloperUserBlueprint } from "@/lib/dev-console";
 
 const SESSION_COOKIE = "nomos_session";
 
+const SESSION_TTL_MS = 1000 * 60 * 60 * 24 * 7;
+
 export async function createSession(userId: string, cycleId?: string | null): Promise<void> {
   const token = randomUUID();
-  const expiresAt = new Date(Date.now() + 1000 * 60 * 60 * 12);
+  const expiresAt = new Date(Date.now() + SESSION_TTL_MS);
 
   await prisma.$transaction(async (tx) => {
     await tx.session.deleteMany({
       where: {
         userId,
+        expiresAt: { lt: new Date() },
       },
     });
 

@@ -31,6 +31,7 @@ import { buildDevTestCycleName, buildDevTestUsers, pickDevTestYear } from "@/lib
 import {
   calculateScore,
   canAutosave,
+  canManagerSubmit,
   getDeadline,
   getQuestionTypeByEmploymentType,
   resolveFinalStatus,
@@ -85,7 +86,7 @@ export async function loginAction(_prevState: { error?: string } | undefined, fo
 
   await clearAttempts(parsed.data.cpf);
 
-  if (result.effectiveRole === SystemRole.RH) {
+  if (result.user.globalRole === SystemRole.RH) {
     await createSession(result.user.id, null);
     redirect(
       getPostLoginPath({
@@ -393,6 +394,13 @@ export async function submitEvaluationAction(input: z.infer<typeof submitSchema>
 
   if (!isSelf && evaluation.managerId !== actorUserCycle.id) {
     return { ok: false as const, message: "Operação não autorizada." };
+  }
+
+  if (!isSelf) {
+    const managerDeadline = getDeadline(evaluation.cycle.startDate, "manager");
+    if (!canManagerSubmit(evaluation.status, managerDeadline)) {
+      return { ok: false as const, message: "Prazo encerrado para avaliação da chefia." };
+    }
   }
 
   const questions = await prisma.question.findMany({
