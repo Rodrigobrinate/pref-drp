@@ -5,7 +5,7 @@ import Link from "next/link";
 import { AppShell } from "@/components/app-shell";
 import { LogoutButton } from "@/components/logout-button";
 import { ReevaluationButton } from "@/components/reevaluation-button";
-import { XmlImportForm } from "@/components/rh-forms";
+import { RollbackImportButton, XmlImportForm } from "@/components/rh-forms";
 import { StatusBadge } from "@/components/status-badge";
 import { requireGlobalRhSession } from "@/lib/auth";
 import { prisma } from "@/lib/prisma";
@@ -115,6 +115,10 @@ export default async function RhPage({
           <p className="mt-2 text-sm text-on-surface-variant">A importação faz upsert de usuários, retrata o organograma do ano e gera avaliações pendentes automaticamente.</p>
           <div className="mt-6">
             <XmlImportForm cycleId={cycle.id} />
+          </div>
+          <div className="mt-6 border-t border-outline-variant pt-6">
+            <p className="mb-3 text-xs text-on-surface-variant">Reverter apaga todos os servidores e avaliações pendentes. Bloqueado se alguma avaliação já foi iniciada.</p>
+            <RollbackImportButton cycleId={cycle.id} />
           </div>
         </div>
       </div>

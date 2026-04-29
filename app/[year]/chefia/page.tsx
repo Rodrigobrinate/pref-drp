@@ -206,14 +206,9 @@ export default async function ChefiaPage({
                           Avaliar agora
                         </Link>
                       ) : (
-                        <div className="inline-flex flex-col items-end gap-1">
-                          <span className="inline-flex rounded-lg bg-surface-container px-4 py-2 text-xs font-bold text-on-surface-variant">
-                            Bloqueado
-                          </span>
-                          <span className="text-[11px] text-on-surface-variant">
-                            Aguardando autoavaliação
-                          </span>
-                        </div>
+                        <span className="inline-flex rounded-lg bg-surface-container px-4 py-2 text-xs font-bold text-on-surface-variant">
+                          Concluído
+                        </span>
                       )}
                     </td>
                   </tr>

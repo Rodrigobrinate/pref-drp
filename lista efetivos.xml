@@ -1,0 +1,2012 @@
+<?xml version='1.0' encoding='utf-8'?>
+<servidores>
+  <servidor>
+    <cpf>03140608713</cpf>
+    <nome>GEORGEA DE FREITAS AVILA</nome>
+    <matricula>03140608713</matricula>
+    <vinculo>EFETIVO</vinculo>
+    <secretaria>FUNDO MUNICIPAL DE ASSISTENCIA SOCIAL</secretaria>
+    <cargo>ASSISTENTE SOCIAL</cargo>
+  </servidor>
+  <servidor>
+    <cpf>12425947795</cpf>
+    <nome>TUILA GOULART REZENDE</nome>
+    <matricula>12425947795</matricula>
+    <vinculo>EFETIVO</vinculo>
+    <secretaria>FUNDO MUNICIPAL DE ASSISTENCIA SOCIAL</secretaria>
+    <cargo>COORDENADORA DO CREAS</cargo>
+  </servidor>
+  <servidor>
+    <cpf>07708011612</cpf>
+    <nome>MARIA IZABEL DE SOUZA</nome>
+    <matricula>07708011612</matricula>
+    <vinculo>EFETIVO</vinculo>
+    <secretaria>FUNDO MUNICIPAL DE ASSISTENCIA SOCIAL</secretaria>
+    <cargo>SECRETÁRIO MUNICIPAL DE ASSISTÊNCIA SOCIAL</cargo>
+  </servidor>
+  <servidor>
+    <cpf>11869436709</cpf>
+    <nome>ADRIANA CASSIANO FAGUNDES</nome>
+    <matricula>11869436709</matricula>
+    <vinculo>EFETIVO</vinculo>
+    <secretaria>FUNDO MUNICIPAL DE ASSISTENCIA SOCIAL</secretaria>
+    <cargo>AUXILIAR DE SERVIÇOS DE LIMPEZA E CONSERVAÇÃO</cargo>
+  </servidor>
+  <servidor>
+    <cpf>19278706744</cpf>
+    <nome>KAROL BARD MOREIRA</nome>
+    <matricula>19278706744</matricula>
+    <vinculo>PROBATORIO</vinculo>
+    <secretaria>FUNDO MUNICIPAL DE ASSISTENCIA SOCIAL</secretaria>
+    <cargo>PSICOLOGO</cargo>
+  </servidor>
+  <servidor>
+    <cpf>16218702782</cpf>
+    <nome>POLIANA BRINATI SILVA MACEDO</nome>
+    <matricula>16218702782</matricula>
+    <vinculo>PROBATORIO</vinculo>
+    <secretaria>FUNDO MUNICIPAL DE ASSISTENCIA SOCIAL</secretaria>
+    <cargo>ESCRITURARIO</cargo>
+  </servidor>
+  <servidor>
+    <cpf>11979708789</cpf>
+    <nome>KEILA CRISTINA DE SOUSA SILVA</nome>
+    <matricula>11979708789</matricula>
+    <vinculo>PROBATORIO</vinculo>
+    <secretaria>FUNDO MUNICIPAL DE ASSISTENCIA SOCIAL</secretaria>
+    <cargo>AGENTE DE ATENDIMENTO AO  PUBLICO</cargo>
+  </servidor>
+  <servidor>
+    <cpf>14797173718</cpf>
+    <nome>NIVEA AMARAL OLIVEIRA BAZANI</nome>
+    <matricula>14797173718</matricula>
+    <vinculo>PROBATORIO</vinculo>
+    <secretaria>FUNDO MUNICIPAL DE ASSISTENCIA SOCIAL</secretaria>
+    <cargo>ASSISTENTE SOCIAL</cargo>
+  </servidor>
+  <servidor>
+    <cpf>13089672766</cpf>
+    <nome>THAYSE DE OLIVEIRA AMARAL</nome>
+    <matricula>13089672766</matricula>
+    <vinculo>PROBATORIO</vinculo>
+    <secretaria>FUNDO MUNICIPAL DE ASSISTENCIA SOCIAL</secretaria>
+    <cargo>ASSISTENTE SOCIAL</cargo>
+  </servidor>
+  <servidor>
+    <cpf>16147543733</cpf>
+    <nome>RAIZA SILVA DA COSTA DETONIS</nome>
+    <matricula>16147543733</matricula>
+    <vinculo>PROBATORIO</vinculo>
+    <secretaria>FUNDO MUNICIPAL DE ASSISTENCIA SOCIAL</secretaria>
+    <cargo>AUXILIAR DE SERVIÇOS DE LIMPEZA E CONSERVAÇÃO</cargo>
+  </servidor>
+  <servidor>
+    <cpf>07792969746</cpf>
+    <nome>MANOEL JOSE MOREIRA ORNELAS</nome>
+    <matricula>07792969746</matricula>
+    <vinculo>EFETIVO</vinculo>
+    <secretaria>FUNDO MUNICIPAL DE SAUDE</secretaria>
+    <cargo>FISCAL DE SAUDE</cargo>
+  </servidor>
+  <servidor>
+    <cpf>09002463758</cpf>
+    <nome>KATICIENE RODRIGUES SOUZA BORGES</nome>
+    <matricula>09002463758</matricula>
+    <vinculo>EFETIVO</vinculo>
+    <secretaria>FUNDO MUNICIPAL DE SAUDE</secretaria>
+    <cargo>AUXILIAR DE SERVIÇOS DE LIMPEZA E CONSERVAÇÃO</cargo>
+  </servidor>
+  <servidor>
+    <cpf>03092840747</cpf>
+    <nome>ROBERTA SCHWARTZ FITARONI DE OLIVEIRA</nome>
+    <matricula>03092840747</matricula>
+    <vinculo>EFETIVO</vinculo>
+    <secretaria>FUNDO MUNICIPAL DE SAUDE</secretaria>
+    <cargo>ODONTOLOGO</cargo>
+  </servidor>
+  <servidor>
+    <cpf>67052274604</cpf>
+    <nome>PAULO CESAR SALVADOR</nome>
+    <matricula>67052274604</matricula>
+    <vinculo>EFETIVO</vinculo>
+    <secretaria>FUNDO MUNICIPAL DE SAUDE</secretaria>
+    <cargo>TECNICO DE ENFERMAGEM</cargo>
+  </servidor>
+  <servidor>
+    <cpf>09398299755</cpf>
+    <nome>GRAZIANO MOREIRA ORNELAS</nome>
+    <matricula>09398299755</matricula>
+    <vinculo>EFETIVO</vinculo>
+    <secretaria>FUNDO MUNICIPAL DE SAUDE</secretaria>
+    <cargo>ATENDENTE DE LABORATÓRIO</cargo>
+  </servidor>
+  <servidor>
+    <cpf>00537029729</cpf>
+    <nome>AMILTON ANTONIO MACHADO</nome>
+    <matricula>00537029729</matricula>
+    <vinculo>EFETIVO</vinculo>
+    <secretaria>FUNDO MUNICIPAL DE SAUDE</secretaria>
+    <cargo>MOTORISTA PROFISSIONAL</cargo>
+  </servidor>
+  <servidor>
+    <cpf>05126773607</cpf>
+    <nome>BRUNO LACERDA DE SOUZA</nome>
+    <matricula>05126773607</matricula>
+    <vinculo>EFETIVO</vinculo>
+    <secretaria>FUNDO MUNICIPAL DE SAUDE</secretaria>
+    <cargo>MOTORISTA PROFISSIONAL</cargo>
+  </servidor>
+  <servidor>
+    <cpf>09015146756</cpf>
+    <nome>ALESSANDRA RODRIGUES CARVALHO</nome>
+    <matricula>09015146756</matricula>
+    <vinculo>EFETIVO</vinculo>
+    <secretaria>FUNDO MUNICIPAL DE SAUDE</secretaria>
+    <cargo>AUXILIAR DE SERVIÇOS DE LIMPEZA E CONSERVAÇÃO</cargo>
+  </servidor>
+  <servidor>
+    <cpf>04346415610</cpf>
+    <nome>FABIANO DONADIO</nome>
+    <matricula>04346415610</matricula>
+    <vinculo>EFETIVO</vinculo>
+    <secretaria>FUNDO MUNICIPAL DE SAUDE</secretaria>
+    <cargo>MOTORISTA PROFISSIONAL</cargo>
+  </servidor>
+  <servidor>
+    <cpf>85381268734</cpf>
+    <nome>DOUGLAS CYSNEIROS MANSUR</nome>
+    <matricula>85381268734</matricula>
+    <vinculo>EFETIVO</vinculo>
+    <secretaria>FUNDO MUNICIPAL DE SAUDE</secretaria>
+    <cargo>ODONTOLOGO</cargo>
+  </servidor>
+  <servidor>
+    <cpf>64218511691</cpf>
+    <nome>ROBERTO PEREIRA SALLES</nome>
+    <matricula>64218511691</matricula>
+    <vinculo>EFETIVO</vinculo>
+    <secretaria>FUNDO MUNICIPAL DE SAUDE</secretaria>
+    <cargo>ODONTOLOGO</cargo>
+  </servidor>
+  <servidor>
+    <cpf>07592106752</cpf>
+    <nome>MARCIO LOURENCO DE SOUZA</nome>
+    <matricula>07592106752</matricula>
+    <vinculo>EFETIVO</vinculo>
+    <secretaria>FUNDO MUNICIPAL DE SAUDE</secretaria>
+    <cargo>MOTORISTA PROFISSIONAL</cargo>
+  </servidor>
+  <servidor>
+    <cpf>89057945649</cpf>
+    <nome>LUCIANO LOPES DE SOUZA</nome>
+    <matricula>89057945649</matricula>
+    <vinculo>EFETIVO</vinculo>
+    <secretaria>FUNDO MUNICIPAL DE SAUDE</secretaria>
+    <cargo>MOTORISTA PROFISSIONAL</cargo>
+  </servidor>
+  <servidor>
+    <cpf>08559922717</cpf>
+    <nome>EDSON CONRADO DA SILVA</nome>
+    <matricula>08559922717</matricula>
+    <vinculo>EFETIVO</vinculo>
+    <secretaria>FUNDO MUNICIPAL DE SAUDE</secretaria>
+    <cargo>MOTORISTA PROFISSIONAL</cargo>
+  </servidor>
+  <servidor>
+    <cpf>11179991737</cpf>
+    <nome>BRUNO ANDRE GOMES</nome>
+    <matricula>11179991737</matricula>
+    <vinculo>EFETIVO</vinculo>
+    <secretaria>FUNDO MUNICIPAL DE SAUDE</secretaria>
+    <cargo>MOTORISTA PROFISSIONAL</cargo>
+  </servidor>
+  <servidor>
+    <cpf>09540712718</cpf>
+    <nome>ADALBERTO MARQUES DE ALMEIDA</nome>
+    <matricula>09540712718</matricula>
+    <vinculo>EFETIVO</vinculo>
+    <secretaria>FUNDO MUNICIPAL DE SAUDE</secretaria>
+    <cargo>VIGIA</cargo>
+  </servidor>
+  <servidor>
+    <cpf>09669411793</cpf>
+    <nome>MICHELE MONTEIRO FERREIRA</nome>
+    <matricula>09669411793</matricula>
+    <vinculo>EFETIVO</vinculo>
+    <secretaria>FUNDO MUNICIPAL DE SAUDE</secretaria>
+    <cargo>FONOAUDIÓLOGA</cargo>
+  </servidor>
+  <servidor>
+    <cpf>89623983700</cpf>
+    <nome>GISLENE NOVAES LUCINDO</nome>
+    <matricula>89623983700</matricula>
+    <vinculo>EFETIVO</vinculo>
+    <secretaria>FUNDO MUNICIPAL DE SAUDE</secretaria>
+    <cargo>PSICOLOGO</cargo>
+  </servidor>
+  <servidor>
+    <cpf>09515527759</cpf>
+    <nome>FLAVIA DOYLE MAIA TULIO MOREIRA</nome>
+    <matricula>09515527759</matricula>
+    <vinculo>EFETIVO</vinculo>
+    <secretaria>FUNDO MUNICIPAL DE SAUDE</secretaria>
+    <cargo>FARMACEUTICO</cargo>
+  </servidor>
+  <servidor>
+    <cpf>05146865612</cpf>
+    <nome>RENATA DE SOUZA BRAGA TEIXEIRA</nome>
+    <matricula>05146865612</matricula>
+    <vinculo>EFETIVO</vinculo>
+    <secretaria>FUNDO MUNICIPAL DE SAUDE</secretaria>
+    <cargo>AUXILIAR DE FARMÁCIA</cargo>
+  </servidor>
+  <servidor>
+    <cpf>11739093704</cpf>
+    <nome>LIANA BASTOS MARINHO SILVA</nome>
+    <matricula>11739093704</matricula>
+    <vinculo>EFETIVO</vinculo>
+    <secretaria>FUNDO MUNICIPAL DE SAUDE</secretaria>
+    <cargo>COORDENADOR DA ATENCAO PRIMARIA</cargo>
+  </servidor>
+  <servidor>
+    <cpf>07807387726</cpf>
+    <nome>NEUSA MARIA MORELLI VALADAO</nome>
+    <matricula>07807387726</matricula>
+    <vinculo>EFETIVO</vinculo>
+    <secretaria>FUNDO MUNICIPAL DE SAUDE</secretaria>
+    <cargo>AUXILIAR DE SERVIÇOS DE LIMPEZA E CONSERVAÇÃO</cargo>
+  </servidor>
+  <servidor>
+    <cpf>06741018638</cpf>
+    <nome>JULIO CEZAR MEDEIROS LACERDA</nome>
+    <matricula>06741018638</matricula>
+    <vinculo>EFETIVO</vinculo>
+    <secretaria>FUNDO MUNICIPAL DE SAUDE</secretaria>
+    <cargo>MOTORISTA PROFISSIONAL</cargo>
+  </servidor>
+  <servidor>
+    <cpf>08885922724</cpf>
+    <nome>PEDRO LUCIO TEIXEIRA</nome>
+    <matricula>08885922724</matricula>
+    <vinculo>EFETIVO</vinculo>
+    <secretaria>FUNDO MUNICIPAL DE SAUDE</secretaria>
+    <cargo>VIGIA</cargo>
+  </servidor>
+  <servidor>
+    <cpf>11007868724</cpf>
+    <nome>BALTHAZAR RODRIGUES DE SOUZA</nome>
+    <matricula>11007868724</matricula>
+    <vinculo>EFETIVO</vinculo>
+    <secretaria>FUNDO MUNICIPAL DE SAUDE</secretaria>
+    <cargo>MOTORISTA PROFISSIONAL</cargo>
+  </servidor>
+  <servidor>
+    <cpf>13100191692</cpf>
+    <nome>LEYDIANE APARECIDA LOPES CORREIA DE OLIVEIRA</nome>
+    <matricula>13100191692</matricula>
+    <vinculo>PROBATORIO</vinculo>
+    <secretaria>FUNDO MUNICIPAL DE SAUDE</secretaria>
+    <cargo>AUXILIAR DE SERVIÇOS DE LIMPEZA E CONSERVAÇÃO</cargo>
+  </servidor>
+  <servidor>
+    <cpf>13070314635</cpf>
+    <nome>DENISE BRUM DOS REIS</nome>
+    <matricula>13070314635</matricula>
+    <vinculo>PROBATORIO</vinculo>
+    <secretaria>FUNDO MUNICIPAL DE SAUDE</secretaria>
+    <cargo>TECNICO EM SAUDE BUCAL</cargo>
+  </servidor>
+  <servidor>
+    <cpf>08345521673</cpf>
+    <nome>JULIANO SILVA DE SOUZA</nome>
+    <matricula>08345521673</matricula>
+    <vinculo>PROBATORIO</vinculo>
+    <secretaria>FUNDO MUNICIPAL DE SAUDE</secretaria>
+    <cargo>MOTORISTA PROFISSIONAL</cargo>
+  </servidor>
+  <servidor>
+    <cpf>04648107608</cpf>
+    <nome>EDER CARLOS LAZZARONI</nome>
+    <matricula>04648107608</matricula>
+    <vinculo>PROBATORIO</vinculo>
+    <secretaria>FUNDO MUNICIPAL DE SAUDE</secretaria>
+    <cargo>MOTORISTA PROFISSIONAL</cargo>
+  </servidor>
+  <servidor>
+    <cpf>14586072750</cpf>
+    <nome>CHARLISTON LOURENCO CARDOZO</nome>
+    <matricula>14586072750</matricula>
+    <vinculo>PROBATORIO</vinculo>
+    <secretaria>FUNDO MUNICIPAL DE SAUDE</secretaria>
+    <cargo>MOTORISTA PROFISSIONAL</cargo>
+  </servidor>
+  <servidor>
+    <cpf>12143915675</cpf>
+    <nome>JHANYNE LUZ PEREIRA</nome>
+    <matricula>12143915675</matricula>
+    <vinculo>PROBATORIO</vinculo>
+    <secretaria>FUNDO MUNICIPAL DE SAUDE</secretaria>
+    <cargo>FISIOTERAPEUTA</cargo>
+  </servidor>
+  <servidor>
+    <cpf>17328987740</cpf>
+    <nome>ADARLAINE BITTENCOURT GOMES</nome>
+    <matricula>17328987740</matricula>
+    <vinculo>PROBATORIO</vinculo>
+    <secretaria>FUNDO MUNICIPAL DE SAUDE</secretaria>
+    <cargo>TECNICO DE ENFERMAGEM</cargo>
+  </servidor>
+  <servidor>
+    <cpf>13326956711</cpf>
+    <nome>SIMONE SOARES DE MOURA</nome>
+    <matricula>13326956711</matricula>
+    <vinculo>PROBATORIO</vinculo>
+    <secretaria>FUNDO MUNICIPAL DE SAUDE</secretaria>
+    <cargo>TECNICO DE ENFERMAGEM</cargo>
+  </servidor>
+  <servidor>
+    <cpf>10572183755</cpf>
+    <nome>CRISTIANE ALVES TAVARES</nome>
+    <matricula>10572183755</matricula>
+    <vinculo>PROBATORIO</vinculo>
+    <secretaria>FUNDO MUNICIPAL DE SAUDE</secretaria>
+    <cargo>TECNICO DE ENFERMAGEM</cargo>
+  </servidor>
+  <servidor>
+    <cpf>14989104676</cpf>
+    <nome>ANTONIO HENRIQUE FERREIRA DAMICA</nome>
+    <matricula>14989104676</matricula>
+    <vinculo>PROBATORIO</vinculo>
+    <secretaria>FUNDO MUNICIPAL DE SAUDE</secretaria>
+    <cargo>TECNICO DE ENFERMAGEM</cargo>
+  </servidor>
+  <servidor>
+    <cpf>14741804771</cpf>
+    <nome>CIRLENE MENDES DIAS</nome>
+    <matricula>14741804771</matricula>
+    <vinculo>PROBATORIO</vinculo>
+    <secretaria>FUNDO MUNICIPAL DE SAUDE</secretaria>
+    <cargo>TECNICO DE ENFERMAGEM</cargo>
+  </servidor>
+  <servidor>
+    <cpf>07063123688</cpf>
+    <nome>LUCAS SILVEIRA SOUZA</nome>
+    <matricula>07063123688</matricula>
+    <vinculo>PROBATORIO</vinculo>
+    <secretaria>FUNDO MUNICIPAL DE SAUDE</secretaria>
+    <cargo>FISIOTERAPEUTA</cargo>
+  </servidor>
+  <servidor>
+    <cpf>03626061701</cpf>
+    <nome>PABLO RAMOS CABRAL DE SOUZA</nome>
+    <matricula>03626061701</matricula>
+    <vinculo>PROBATORIO</vinculo>
+    <secretaria>FUNDO MUNICIPAL DE SAUDE</secretaria>
+    <cargo>AGENTE ADMINISTRATIVO</cargo>
+  </servidor>
+  <servidor>
+    <cpf>05590247624</cpf>
+    <nome>CLAUDIA REGINA AUGUSTO</nome>
+    <matricula>05590247624</matricula>
+    <vinculo>PROBATORIO</vinculo>
+    <secretaria>FUNDO MUNICIPAL DE SAUDE</secretaria>
+    <cargo>ESCRITURARIO</cargo>
+  </servidor>
+  <servidor>
+    <cpf>07122637646</cpf>
+    <nome>DEBORA MOREIRA VALENTE</nome>
+    <matricula>07122637646</matricula>
+    <vinculo>PROBATORIO</vinculo>
+    <secretaria>FUNDO MUNICIPAL DE SAUDE</secretaria>
+    <cargo>ASSISTENTE SOCIAL</cargo>
+  </servidor>
+  <servidor>
+    <cpf>15588584740</cpf>
+    <nome>CRISTHIANE ANDREZA MARTINS</nome>
+    <matricula>15588584740</matricula>
+    <vinculo>PROBATORIO</vinculo>
+    <secretaria>FUNDO MUNICIPAL DE SAUDE</secretaria>
+    <cargo>PSICOLOGO</cargo>
+  </servidor>
+  <servidor>
+    <cpf>12011249724</cpf>
+    <nome>CAMILA LUCIA ALMEIDA DE PAULA DE SOUSA</nome>
+    <matricula>12011249724</matricula>
+    <vinculo>PROBATORIO</vinculo>
+    <secretaria>FUNDO MUNICIPAL DE SAUDE</secretaria>
+    <cargo>FARMACEUTICO</cargo>
+  </servidor>
+  <servidor>
+    <cpf>18260190737</cpf>
+    <nome>JOAO VICTOR GOMES FERREIRA</nome>
+    <matricula>18260190737</matricula>
+    <vinculo>PROBATORIO</vinculo>
+    <secretaria>FUNDO MUNICIPAL DE SAUDE</secretaria>
+    <cargo>FISIOTERAPEUTA</cargo>
+  </servidor>
+  <servidor>
+    <cpf>03177561761</cpf>
+    <nome>GILZA CRISTINA ZINI DAMICA</nome>
+    <matricula>03177561761</matricula>
+    <vinculo>PROBATORIO</vinculo>
+    <secretaria>FUNDO MUNICIPAL DE SAUDE</secretaria>
+    <cargo>TECNICO DE ENFERMAGEM</cargo>
+  </servidor>
+  <servidor>
+    <cpf>07468952752</cpf>
+    <nome>SILVANA DA COSTA DE OLIVEIRA</nome>
+    <matricula>07468952752</matricula>
+    <vinculo>PROBATORIO</vinculo>
+    <secretaria>FUNDO MUNICIPAL DE SAUDE</secretaria>
+    <cargo>PSICOLOGO</cargo>
+  </servidor>
+  <servidor>
+    <cpf>07560213758</cpf>
+    <nome>ANGELO JARDIM DE CARVALHO</nome>
+    <matricula>07560213758</matricula>
+    <vinculo>EFETIVO</vinculo>
+    <secretaria>GABINETE DO PREFEITO</secretaria>
+    <cargo>PROCURADOR MUNICIPAL</cargo>
+  </servidor>
+  <servidor>
+    <cpf>13209500789</cpf>
+    <nome>SANDRA PATRICIO DA SILVA</nome>
+    <matricula>13209500789</matricula>
+    <vinculo>EFETIVO</vinculo>
+    <secretaria>GABINETE DO PREFEITO</secretaria>
+    <cargo>ESCRITURARIO</cargo>
+  </servidor>
+  <servidor>
+    <cpf>08543027780</cpf>
+    <nome>CHRISTIANE RIOS PIMENTEL</nome>
+    <matricula>08543027780</matricula>
+    <vinculo>EFETIVO</vinculo>
+    <secretaria>GABINETE DO PREFEITO</secretaria>
+    <cargo>PROCURADOR MUNICIPAL</cargo>
+  </servidor>
+  <servidor>
+    <cpf>91031737715</cpf>
+    <nome>RINALDO DE OLIVEIRA SOARES</nome>
+    <matricula>91031737715</matricula>
+    <vinculo>EFETIVO</vinculo>
+    <secretaria>SECRETARIA MUNICIPAL DE ADMINISTRAÇÃO E FINANÇAS</secretaria>
+    <cargo>ESCRITURARIO</cargo>
+    <chefiaCpf>67307213753</chefiaCpf>
+  </servidor>
+  <servidor>
+    <cpf>88198774734</cpf>
+    <nome>RONEI RENAN COSTA</nome>
+    <matricula>88198774734</matricula>
+    <vinculo>EFETIVO</vinculo>
+    <secretaria>SECRETARIA MUNICIPAL DE ADMINISTRAÇÃO E FINANÇAS</secretaria>
+    <cargo>ESCRITURARIO</cargo>
+    <chefiaCpf>67307213753</chefiaCpf>
+  </servidor>
+  <servidor>
+    <cpf>79376061772</cpf>
+    <nome>EDER POLIDO AGUIAR</nome>
+    <matricula>79376061772</matricula>
+    <vinculo>EFETIVO</vinculo>
+    <secretaria>SECRETARIA MUNICIPAL DE ADMINISTRAÇÃO E FINANÇAS</secretaria>
+    <cargo>AGENTE ADMINISTRATIVO</cargo>
+    <chefiaCpf>67307213753</chefiaCpf>
+  </servidor>
+  <servidor>
+    <cpf>03177434735</cpf>
+    <nome>VALERIA ORNELAS MARTINS</nome>
+    <matricula>03177434735</matricula>
+    <vinculo>EFETIVO</vinculo>
+    <secretaria>SECRETARIA MUNICIPAL DE ADMINISTRAÇÃO E FINANÇAS</secretaria>
+    <cargo>AGENTE DE SERVICOS EDUCACIONAIS</cargo>
+    <chefiaCpf>67307213753</chefiaCpf>
+  </servidor>
+  <servidor>
+    <cpf>67307213753</cpf>
+    <nome>FRANCISCO DE ASSIS CALIXTO</nome>
+    <matricula>67307213753</matricula>
+    <vinculo>EFETIVO</vinculo>
+    <secretaria>SECRETARIA MUNICIPAL DE ADMINISTRAÇÃO E FINANÇAS</secretaria>
+    <cargo>CHEFE DE DIVISÃO DE TRIBUTAÇÃO</cargo>
+  </servidor>
+  <servidor>
+    <cpf>97003689715</cpf>
+    <nome>MARCO ANTONIO MARTINS PEDRO</nome>
+    <matricula>97003689715</matricula>
+    <vinculo>EFETIVO</vinculo>
+    <secretaria>SECRETARIA MUNICIPAL DE ADMINISTRAÇÃO E FINANÇAS</secretaria>
+    <cargo>AGENTE ADMINISTRATIVO</cargo>
+    <chefiaCpf>67307213753</chefiaCpf>
+  </servidor>
+  <servidor>
+    <cpf>01356746705</cpf>
+    <nome>IZABEL CRISTINA PERIARD TEIXEIRA</nome>
+    <matricula>01356746705</matricula>
+    <vinculo>EFETIVO</vinculo>
+    <secretaria>SECRETARIA MUNICIPAL DE ADMINISTRAÇÃO E FINANÇAS</secretaria>
+    <cargo>ESCRITURARIO</cargo>
+    <chefiaCpf>67307213753</chefiaCpf>
+  </servidor>
+  <servidor>
+    <cpf>07315330704</cpf>
+    <nome>ROSIANE DE AZEVEDO NOVAIS</nome>
+    <matricula>07315330704</matricula>
+    <vinculo>EFETIVO</vinculo>
+    <secretaria>SECRETARIA MUNICIPAL DE ADMINISTRAÇÃO E FINANÇAS</secretaria>
+    <cargo>AUXILIAR DE SERVIÇOS DE LIMPEZA E CONSERVAÇÃO</cargo>
+    <chefiaCpf>67307213753</chefiaCpf>
+  </servidor>
+  <servidor>
+    <cpf>04564813706</cpf>
+    <nome>HELDER CARELLI DO COUTO</nome>
+    <matricula>04564813706</matricula>
+    <vinculo>EFETIVO</vinculo>
+    <secretaria>SECRETARIA MUNICIPAL DE ADMINISTRAÇÃO E FINANÇAS</secretaria>
+    <cargo>AGENTE ADMINISTRATIVO</cargo>
+    <chefiaCpf>67307213753</chefiaCpf>
+  </servidor>
+  <servidor>
+    <cpf>08858467701</cpf>
+    <nome>ANDRE DE SOUZA GONCALVES</nome>
+    <matricula>08858467701</matricula>
+    <vinculo>EFETIVO</vinculo>
+    <secretaria>SECRETARIA MUNICIPAL DE ADMINISTRAÇÃO E FINANÇAS</secretaria>
+    <cargo>CHEFE DE DIVISÃO DE COMPRAS</cargo>
+    <chefiaCpf>67307213753</chefiaCpf>
+  </servidor>
+  <servidor>
+    <cpf>08539403714</cpf>
+    <nome>EDSON PERIARD AGUIAR</nome>
+    <matricula>08539403714</matricula>
+    <vinculo>EFETIVO</vinculo>
+    <secretaria>SECRETARIA MUNICIPAL DE ADMINISTRAÇÃO E FINANÇAS</secretaria>
+    <cargo>VIGIA</cargo>
+    <chefiaCpf>67307213753</chefiaCpf>
+  </servidor>
+  <servidor>
+    <cpf>09225926758</cpf>
+    <nome>LILIAN PATRÍCIA BARBOSA BUCALÊTO CARELLI DO COUTO</nome>
+    <matricula>09225926758</matricula>
+    <vinculo>EFETIVO</vinculo>
+    <secretaria>SECRETARIA MUNICIPAL DE ADMINISTRAÇÃO E FINANÇAS</secretaria>
+    <cargo>TECNICO EM CONTABILIDADE</cargo>
+    <chefiaCpf>67307213753</chefiaCpf>
+  </servidor>
+  <servidor>
+    <cpf>01703640705</cpf>
+    <nome>CLAUDIA KLOTZ BRAGA NUNES</nome>
+    <matricula>01703640705</matricula>
+    <vinculo>EFETIVO</vinculo>
+    <secretaria>SECRETARIA MUNICIPAL DE ADMINISTRAÇÃO E FINANÇAS</secretaria>
+    <cargo>TECNICO EM CONTABILIDADE</cargo>
+    <chefiaCpf>67307213753</chefiaCpf>
+  </servidor>
+  <servidor>
+    <cpf>05885891796</cpf>
+    <nome>DALMO COSTA BEBER</nome>
+    <matricula>05885891796</matricula>
+    <vinculo>EFETIVO</vinculo>
+    <secretaria>SECRETARIA MUNICIPAL DE ADMINISTRAÇÃO E FINANÇAS</secretaria>
+    <cargo>CONTADOR</cargo>
+    <chefiaCpf>67307213753</chefiaCpf>
+  </servidor>
+  <servidor>
+    <cpf>14394083788</cpf>
+    <nome>ELIELTON FERREIRA CARLOS</nome>
+    <matricula>14394083788</matricula>
+    <vinculo>EFETIVO</vinculo>
+    <secretaria>SECRETARIA MUNICIPAL DE ADMINISTRAÇÃO E FINANÇAS</secretaria>
+    <cargo>VIGIA</cargo>
+    <chefiaCpf>67307213753</chefiaCpf>
+  </servidor>
+  <servidor>
+    <cpf>09578703708</cpf>
+    <nome>ALVARO LUCIANO AZEVEDO</nome>
+    <matricula>09578703708</matricula>
+    <vinculo>EFETIVO</vinculo>
+    <secretaria>SECRETARIA MUNICIPAL DE ADMINISTRAÇÃO E FINANÇAS</secretaria>
+    <cargo>TECNICO EM CONTABILIDADE</cargo>
+    <chefiaCpf>67307213753</chefiaCpf>
+  </servidor>
+  <servidor>
+    <cpf>12214378790</cpf>
+    <nome>FABIOLA LOPES DA SILVA</nome>
+    <matricula>12214378790</matricula>
+    <vinculo>PROBATORIO</vinculo>
+    <secretaria>SECRETARIA MUNICIPAL DE ADMINISTRAÇÃO E FINANÇAS</secretaria>
+    <cargo>AUXILIAR DE SERVIÇOS DE LIMPEZA E CONSERVAÇÃO</cargo>
+    <chefiaCpf>67307213753</chefiaCpf>
+  </servidor>
+  <servidor>
+    <cpf>11067787747</cpf>
+    <nome>HUGO RODRIGUES REIS</nome>
+    <matricula>11067787747</matricula>
+    <vinculo>PROBATORIO</vinculo>
+    <secretaria>SECRETARIA MUNICIPAL DE ADMINISTRAÇÃO E FINANÇAS</secretaria>
+    <cargo>AGENTE DE ATENDIMENTO AO  PUBLICO</cargo>
+    <chefiaCpf>67307213753</chefiaCpf>
+  </servidor>
+  <servidor>
+    <cpf>17884889706</cpf>
+    <nome>GUILHERME MAGRO CHAMBELA</nome>
+    <matricula>17884889706</matricula>
+    <vinculo>PROBATORIO</vinculo>
+    <secretaria>SECRETARIA MUNICIPAL DE ADMINISTRAÇÃO E FINANÇAS</secretaria>
+    <cargo>AGENTE ADMINISTRATIVO</cargo>
+    <chefiaCpf>67307213753</chefiaCpf>
+  </servidor>
+  <servidor>
+    <cpf>09550869652</cpf>
+    <nome>IGOR JOSE DE OLIVEIRA GALO</nome>
+    <matricula>09550869652</matricula>
+    <vinculo>PROBATORIO</vinculo>
+    <secretaria>SECRETARIA MUNICIPAL DE ADMINISTRAÇÃO E FINANÇAS</secretaria>
+    <cargo>TECNICO EM INFORMATICA</cargo>
+    <chefiaCpf>67307213753</chefiaCpf>
+  </servidor>
+  <servidor>
+    <cpf>03624253700</cpf>
+    <nome>ROGERIO SOARES DA SILVA</nome>
+    <matricula>03624253700</matricula>
+    <vinculo>EFETIVO</vinculo>
+    <secretaria>SECRETARIA MUNICIPAL DE AGRICULTURA</secretaria>
+    <cargo>EXTENSIONISTA AGRICOLA</cargo>
+  </servidor>
+  <servidor>
+    <cpf>26486708824</cpf>
+    <nome>MARCIO DE SOUZA MOREIRA</nome>
+    <matricula>26486708824</matricula>
+    <vinculo>EFETIVO</vinculo>
+    <secretaria>SECRETARIA MUNICIPAL DE AGRICULTURA</secretaria>
+    <cargo>EXTENSIONISTA AGRICOLA</cargo>
+  </servidor>
+  <servidor>
+    <cpf>09701113713</cpf>
+    <nome>KAROLLINE ESPOSTE BARNABE MENIN</nome>
+    <matricula>09701113713</matricula>
+    <vinculo>EFETIVO</vinculo>
+    <secretaria>SECRETARIA MUNICIPAL DE AGRICULTURA</secretaria>
+    <cargo>MEDICO VETERINARIO</cargo>
+  </servidor>
+  <servidor>
+    <cpf>08226756766</cpf>
+    <nome>CLAUDIO MOREIRA DA SILVA</nome>
+    <matricula>08226756766</matricula>
+    <vinculo>PROBATORIO</vinculo>
+    <secretaria>SECRETARIA MUNICIPAL DE AGRICULTURA</secretaria>
+    <cargo>OPERADOR MAQUINA</cargo>
+  </servidor>
+  <servidor>
+    <cpf>13674449773</cpf>
+    <nome>CARLOS EDUARDO DE OLIVEIRA ROBERTO</nome>
+    <matricula>13674449773</matricula>
+    <vinculo>PROBATORIO</vinculo>
+    <secretaria>SECRETARIA MUNICIPAL DE AGRICULTURA</secretaria>
+    <cargo>ENGENHEIRO AGRONOMO</cargo>
+  </servidor>
+  <servidor>
+    <cpf>16806843700</cpf>
+    <nome>KENEDY CIRILO DA SILVA</nome>
+    <matricula>16806843700</matricula>
+    <vinculo>PROBATORIO</vinculo>
+    <secretaria>SECRETARIA MUNICIPAL DE AGRICULTURA</secretaria>
+    <cargo>MOTORISTA PROFISSIONAL</cargo>
+  </servidor>
+  <servidor>
+    <cpf>14723024786</cpf>
+    <nome>THIAGO ADRIANO RIBEIRO TATAGIBA</nome>
+    <matricula>14723024786</matricula>
+    <vinculo>PROBATORIO</vinculo>
+    <secretaria>SECRETARIA MUNICIPAL DE AGRICULTURA</secretaria>
+    <cargo>INSEMINADOR DE ANIMAIS</cargo>
+  </servidor>
+  <servidor>
+    <cpf>11315870657</cpf>
+    <nome>FELIPE MARCELINO FERREIRA</nome>
+    <matricula>11315870657</matricula>
+    <vinculo>PROBATORIO</vinculo>
+    <secretaria>SECRETARIA MUNICIPAL DE AGRICULTURA</secretaria>
+    <cargo>ESCRITURARIO</cargo>
+  </servidor>
+  <servidor>
+    <cpf>47946393768</cpf>
+    <nome>MARIA MUNISIA</nome>
+    <matricula>47946393768</matricula>
+    <vinculo>EFETIVO</vinculo>
+    <secretaria>SECRETARIA MUNICIPAL DE CULTURA E TURISMO</secretaria>
+    <cargo>TECNICO TESOURARIA</cargo>
+  </servidor>
+  <servidor>
+    <cpf>09221519708</cpf>
+    <nome>JEANE NUNES PEREIRA</nome>
+    <matricula>09221519708</matricula>
+    <vinculo>EFETIVO</vinculo>
+    <secretaria>SECRETARIA MUNICIPAL DE CULTURA E TURISMO</secretaria>
+    <cargo>AUXILIAR DE SERVIÇOS DE LIMPEZA E CONSERVAÇÃO</cargo>
+  </servidor>
+  <servidor>
+    <cpf>17141446745</cpf>
+    <nome>PAMELA CARLOS VIANA NICACIO</nome>
+    <matricula>17141446745</matricula>
+    <vinculo>PROBATORIO</vinculo>
+    <secretaria>SECRETARIA MUNICIPAL DE CULTURA E TURISMO</secretaria>
+    <cargo>AUXILIAR DE SERVIÇOS DE LIMPEZA E CONSERVAÇÃO</cargo>
+  </servidor>
+  <servidor>
+    <cpf>91031940782</cpf>
+    <nome>SEBASTIAO SOARES ROCHA</nome>
+    <matricula>91031940782</matricula>
+    <vinculo>EFETIVO</vinculo>
+    <secretaria>SECRETARIA MUNICIPAL DE EDUCAÇÃO</secretaria>
+    <cargo>AUXILIAR DE SERVIÇOS DE LIMPEZA E CONSERVAÇÃO</cargo>
+  </servidor>
+  <servidor>
+    <cpf>81699425787</cpf>
+    <nome>JOSE MIGUEL MOREIRA</nome>
+    <matricula>81699425787</matricula>
+    <vinculo>EFETIVO</vinculo>
+    <secretaria>SECRETARIA MUNICIPAL DE EDUCAÇÃO</secretaria>
+    <cargo>MOTORISTA PROFISSIONAL</cargo>
+  </servidor>
+  <servidor>
+    <cpf>07049901725</cpf>
+    <nome>EDIANA TEREZINHA MARIANO</nome>
+    <matricula>07049901725</matricula>
+    <vinculo>EFETIVO</vinculo>
+    <secretaria>SECRETARIA MUNICIPAL DE EDUCAÇÃO</secretaria>
+    <cargo>AUXILIAR DE SERVIÇOS DE LIMPEZA E CONSERVAÇÃO</cargo>
+  </servidor>
+  <servidor>
+    <cpf>08027734789</cpf>
+    <nome>EILANE EVARISTO DE FARIA LACERDA</nome>
+    <matricula>08027734789</matricula>
+    <vinculo>EFETIVO</vinculo>
+    <secretaria>SECRETARIA MUNICIPAL DE EDUCAÇÃO</secretaria>
+    <cargo>AUXILIAR DE SERVIÇOS DE LIMPEZA E CONSERVAÇÃO</cargo>
+  </servidor>
+  <servidor>
+    <cpf>03177532745</cpf>
+    <nome>JOVANA APARECIDA DE SOUZA REIS</nome>
+    <matricula>03177532745</matricula>
+    <vinculo>EFETIVO</vinculo>
+    <secretaria>SECRETARIA MUNICIPAL DE EDUCAÇÃO</secretaria>
+    <cargo>PROFESSOR MaPA</cargo>
+  </servidor>
+  <servidor>
+    <cpf>01703620780</cpf>
+    <nome>MAXWEL DO CARMO RIVA</nome>
+    <matricula>01703620780</matricula>
+    <vinculo>EFETIVO</vinculo>
+    <secretaria>SECRETARIA MUNICIPAL DE EDUCAÇÃO</secretaria>
+    <cargo>PROFESSOR MaPB</cargo>
+  </servidor>
+  <servidor>
+    <cpf>07139927782</cpf>
+    <nome>MAXILENE APARECIDA DO CARMO RIVA BORGES</nome>
+    <matricula>07139927782</matricula>
+    <vinculo>EFETIVO</vinculo>
+    <secretaria>SECRETARIA MUNICIPAL DE EDUCAÇÃO</secretaria>
+    <cargo>PROFESSOR MaPB</cargo>
+  </servidor>
+  <servidor>
+    <cpf>89125207687</cpf>
+    <nome>SILVANIA DOMINGOS DA LUZ MOREIRA</nome>
+    <matricula>89125207687</matricula>
+    <vinculo>EFETIVO</vinculo>
+    <secretaria>SECRETARIA MUNICIPAL DE EDUCAÇÃO</secretaria>
+    <cargo>PROFESSOR MaPA</cargo>
+  </servidor>
+  <servidor>
+    <cpf>07023523731</cpf>
+    <nome>ROSINEIDE SIMIQUELI DA SILVA</nome>
+    <matricula>07023523731</matricula>
+    <vinculo>EFETIVO</vinculo>
+    <secretaria>SECRETARIA MUNICIPAL DE EDUCAÇÃO</secretaria>
+    <cargo>PROFESSOR MaPA</cargo>
+  </servidor>
+  <servidor>
+    <cpf>07937639750</cpf>
+    <nome>CLEIDE APARECIDA MEDEIROS LACERDA BORGES</nome>
+    <matricula>07937639750</matricula>
+    <vinculo>EFETIVO</vinculo>
+    <secretaria>SECRETARIA MUNICIPAL DE EDUCAÇÃO</secretaria>
+    <cargo>PROFESSOR MaPA</cargo>
+  </servidor>
+  <servidor>
+    <cpf>05617451707</cpf>
+    <nome>MARINEZ MEDEIROS</nome>
+    <matricula>05617451707</matricula>
+    <vinculo>EFETIVO</vinculo>
+    <secretaria>SECRETARIA MUNICIPAL DE EDUCAÇÃO</secretaria>
+    <cargo>PROFESSOR MaPA</cargo>
+  </servidor>
+  <servidor>
+    <cpf>09427550732</cpf>
+    <nome>RUTH TAVARES CRETON OLIVEIRA</nome>
+    <matricula>09427550732</matricula>
+    <vinculo>EFETIVO</vinculo>
+    <secretaria>SECRETARIA MUNICIPAL DE EDUCAÇÃO</secretaria>
+    <cargo>AUXILIAR DE SERVIÇOS DE LIMPEZA E CONSERVAÇÃO</cargo>
+  </servidor>
+  <servidor>
+    <cpf>60042338700</cpf>
+    <nome>JOSE ANTONIO GONCALVES BORGES</nome>
+    <matricula>60042338700</matricula>
+    <vinculo>EFETIVO</vinculo>
+    <secretaria>SECRETARIA MUNICIPAL DE EDUCAÇÃO</secretaria>
+    <cargo>MOTORISTA PROFISSIONAL</cargo>
+  </servidor>
+  <servidor>
+    <cpf>97003549700</cpf>
+    <nome>LUCELENA GUALANDI SILVA</nome>
+    <matricula>97003549700</matricula>
+    <vinculo>EFETIVO</vinculo>
+    <secretaria>SECRETARIA MUNICIPAL DE EDUCAÇÃO</secretaria>
+    <cargo>PROFESSOR MaPA</cargo>
+  </servidor>
+  <servidor>
+    <cpf>07168238701</cpf>
+    <nome>ADERGLES RODRIGUES CARVALHO</nome>
+    <matricula>07168238701</matricula>
+    <vinculo>EFETIVO</vinculo>
+    <secretaria>SECRETARIA MUNICIPAL DE EDUCAÇÃO</secretaria>
+    <cargo>SECRETARIO ESCOLAR</cargo>
+  </servidor>
+  <servidor>
+    <cpf>08563163779</cpf>
+    <nome>LUCIVANE DE SOUZA BERNARDO</nome>
+    <matricula>08563163779</matricula>
+    <vinculo>EFETIVO</vinculo>
+    <secretaria>SECRETARIA MUNICIPAL DE EDUCAÇÃO</secretaria>
+    <cargo>AUXILIAR DE SERVIÇOS DE LIMPEZA E CONSERVAÇÃO</cargo>
+  </servidor>
+  <servidor>
+    <cpf>02313393720</cpf>
+    <nome>ADEILSON DOS SANTOS</nome>
+    <matricula>02313393720</matricula>
+    <vinculo>EFETIVO</vinculo>
+    <secretaria>SECRETARIA MUNICIPAL DE EDUCAÇÃO</secretaria>
+    <cargo>MOTORISTA PROFISSIONAL</cargo>
+  </servidor>
+  <servidor>
+    <cpf>57460981753</cpf>
+    <nome>NERILDA LUIZA DE SOUZA FERREIRA</nome>
+    <matricula>57460981753</matricula>
+    <vinculo>EFETIVO</vinculo>
+    <secretaria>SECRETARIA MUNICIPAL DE EDUCAÇÃO</secretaria>
+    <cargo>SECRETARIO ESCOLAR</cargo>
+  </servidor>
+  <servidor>
+    <cpf>07104767797</cpf>
+    <nome>BETANIA SILVA COSTA</nome>
+    <matricula>07104767797</matricula>
+    <vinculo>EFETIVO</vinculo>
+    <secretaria>SECRETARIA MUNICIPAL DE EDUCAÇÃO</secretaria>
+    <cargo>PROFESSOR MaPA</cargo>
+  </servidor>
+  <servidor>
+    <cpf>00376014741</cpf>
+    <nome>MARLETE TEIXEIRA LESSA</nome>
+    <matricula>00376014741</matricula>
+    <vinculo>EFETIVO</vinculo>
+    <secretaria>SECRETARIA MUNICIPAL DE EDUCAÇÃO</secretaria>
+    <cargo>PROFESSOR MaPA</cargo>
+  </servidor>
+  <servidor>
+    <cpf>06977436751</cpf>
+    <nome>FLAVIA MOREIRA VIANA</nome>
+    <matricula>06977436751</matricula>
+    <vinculo>EFETIVO</vinculo>
+    <secretaria>SECRETARIA MUNICIPAL DE EDUCAÇÃO</secretaria>
+    <cargo>PROFESSOR MaPB</cargo>
+  </servidor>
+  <servidor>
+    <cpf>00781308755</cpf>
+    <nome>MARIA APARECIDA VILAS BOAS</nome>
+    <matricula>00781308755</matricula>
+    <vinculo>EFETIVO</vinculo>
+    <secretaria>SECRETARIA MUNICIPAL DE EDUCAÇÃO</secretaria>
+    <cargo>PROFESSOR MaPA</cargo>
+  </servidor>
+  <servidor>
+    <cpf>09225134738</cpf>
+    <nome>GINERIA BRAZ MOREZ POLASTRELI</nome>
+    <matricula>09225134738</matricula>
+    <vinculo>EFETIVO</vinculo>
+    <secretaria>SECRETARIA MUNICIPAL DE EDUCAÇÃO</secretaria>
+    <cargo>AUXILIAR DE SERVIÇOS DE LIMPEZA E CONSERVAÇÃO</cargo>
+  </servidor>
+  <servidor>
+    <cpf>03608391770</cpf>
+    <nome>MARLI FURTADO TEIXEIRA</nome>
+    <matricula>03608391770</matricula>
+    <vinculo>EFETIVO</vinculo>
+    <secretaria>SECRETARIA MUNICIPAL DE EDUCAÇÃO</secretaria>
+    <cargo>PROFESSOR MaPA</cargo>
+  </servidor>
+  <servidor>
+    <cpf>04235408747</cpf>
+    <nome>ELIZABETH GOMES CARLOS</nome>
+    <matricula>04235408747</matricula>
+    <vinculo>EFETIVO</vinculo>
+    <secretaria>SECRETARIA MUNICIPAL DE EDUCAÇÃO</secretaria>
+    <cargo>PROFESSOR PEDAGOGO MaPP</cargo>
+  </servidor>
+  <servidor>
+    <cpf>09020858750</cpf>
+    <nome>LUCIMAR DESSI DA SILVA</nome>
+    <matricula>09020858750</matricula>
+    <vinculo>EFETIVO</vinculo>
+    <secretaria>SECRETARIA MUNICIPAL DE EDUCAÇÃO</secretaria>
+    <cargo>AUXILIAR DE SERVIÇOS DE LIMPEZA E CONSERVAÇÃO</cargo>
+  </servidor>
+  <servidor>
+    <cpf>07313447744</cpf>
+    <nome>LUCIA HELENA RIBEIRO DE OLIVEIRA</nome>
+    <matricula>07313447744</matricula>
+    <vinculo>EFETIVO</vinculo>
+    <secretaria>SECRETARIA MUNICIPAL DE EDUCAÇÃO</secretaria>
+    <cargo>AUXILIAR DE SERVIÇOS DE LIMPEZA E CONSERVAÇÃO</cargo>
+  </servidor>
+  <servidor>
+    <cpf>10736355707</cpf>
+    <nome>AUREA TEREZINHA DE OLIVEIRA LACERDA FERREIRA</nome>
+    <matricula>10736355707</matricula>
+    <vinculo>EFETIVO</vinculo>
+    <secretaria>SECRETARIA MUNICIPAL DE EDUCAÇÃO</secretaria>
+    <cargo>AUXILIAR DE SERVIÇOS DE LIMPEZA E CONSERVAÇÃO</cargo>
+  </servidor>
+  <servidor>
+    <cpf>09683396704</cpf>
+    <nome>FERNANDA DE OLIVEIRA ROZEMBARQUE</nome>
+    <matricula>09683396704</matricula>
+    <vinculo>EFETIVO</vinculo>
+    <secretaria>SECRETARIA MUNICIPAL DE EDUCAÇÃO</secretaria>
+    <cargo>AUXILIAR DE SERVIÇOS DE LIMPEZA E CONSERVAÇÃO</cargo>
+  </servidor>
+  <servidor>
+    <cpf>13481397739</cpf>
+    <nome>BARBARA LUANA LOURENCO CARDOZO SINIS</nome>
+    <matricula>13481397739</matricula>
+    <vinculo>EFETIVO</vinculo>
+    <secretaria>SECRETARIA MUNICIPAL DE EDUCAÇÃO</secretaria>
+    <cargo>AUXILIAR DE SERVIÇOS DE LIMPEZA E CONSERVAÇÃO</cargo>
+  </servidor>
+  <servidor>
+    <cpf>13429769752</cpf>
+    <nome>ROSE APARECIDA FERREIRA DA SILVA</nome>
+    <matricula>13429769752</matricula>
+    <vinculo>EFETIVO</vinculo>
+    <secretaria>SECRETARIA MUNICIPAL DE EDUCAÇÃO</secretaria>
+    <cargo>AGENTE DE SERVICOS EDUCACIONAIS</cargo>
+  </servidor>
+  <servidor>
+    <cpf>12116204763</cpf>
+    <nome>LIDIANE DA SILVA MOREIRA</nome>
+    <matricula>12116204763</matricula>
+    <vinculo>EFETIVO</vinculo>
+    <secretaria>SECRETARIA MUNICIPAL DE EDUCAÇÃO</secretaria>
+    <cargo>AUXILIAR DE SERVIÇOS DE LIMPEZA E CONSERVAÇÃO</cargo>
+  </servidor>
+  <servidor>
+    <cpf>04947937670</cpf>
+    <nome>IRONI ANDRADE</nome>
+    <matricula>04947937670</matricula>
+    <vinculo>EFETIVO</vinculo>
+    <secretaria>SECRETARIA MUNICIPAL DE EDUCAÇÃO</secretaria>
+    <cargo>MOTORISTA PROFISSIONAL</cargo>
+  </servidor>
+  <servidor>
+    <cpf>00730053636</cpf>
+    <nome>MARISA DE SOUZA</nome>
+    <matricula>00730053636</matricula>
+    <vinculo>EFETIVO</vinculo>
+    <secretaria>SECRETARIA MUNICIPAL DE EDUCAÇÃO</secretaria>
+    <cargo>PROFESSOR MaPA</cargo>
+  </servidor>
+  <servidor>
+    <cpf>09854814637</cpf>
+    <nome>VANIA ABREU DE LACERDA</nome>
+    <matricula>09854814637</matricula>
+    <vinculo>EFETIVO</vinculo>
+    <secretaria>SECRETARIA MUNICIPAL DE EDUCAÇÃO</secretaria>
+    <cargo>PROFESSOR MaPA</cargo>
+  </servidor>
+  <servidor>
+    <cpf>03803184665</cpf>
+    <nome>ANA CLAUDIA PIMENTEL ESCORALIQUE</nome>
+    <matricula>03803184665</matricula>
+    <vinculo>EFETIVO</vinculo>
+    <secretaria>SECRETARIA MUNICIPAL DE EDUCAÇÃO</secretaria>
+    <cargo>PROFESSOR MaPA</cargo>
+  </servidor>
+  <servidor>
+    <cpf>05737259692</cpf>
+    <nome>FERNANDA CRISTINA SOARES LIMA</nome>
+    <matricula>05737259692</matricula>
+    <vinculo>EFETIVO</vinculo>
+    <secretaria>SECRETARIA MUNICIPAL DE EDUCAÇÃO</secretaria>
+    <cargo>PROFESSOR MaPB</cargo>
+  </servidor>
+  <servidor>
+    <cpf>04326147610</cpf>
+    <nome>MAIRA GOMES DA SILVA FERREIRA</nome>
+    <matricula>04326147610</matricula>
+    <vinculo>EFETIVO</vinculo>
+    <secretaria>SECRETARIA MUNICIPAL DE EDUCAÇÃO</secretaria>
+    <cargo>PROFESSOR MaPB</cargo>
+  </servidor>
+  <servidor>
+    <cpf>09295315740</cpf>
+    <nome>GERUSA DE CASTRO GARCIA</nome>
+    <matricula>09295315740</matricula>
+    <vinculo>EFETIVO</vinculo>
+    <secretaria>SECRETARIA MUNICIPAL DE EDUCAÇÃO</secretaria>
+    <cargo>NUTRICIONISTA</cargo>
+  </servidor>
+  <servidor>
+    <cpf>02992271624</cpf>
+    <nome>LUCIANA CLAUDIA DE SOUZA</nome>
+    <matricula>02992271624</matricula>
+    <vinculo>EFETIVO</vinculo>
+    <secretaria>SECRETARIA MUNICIPAL DE EDUCAÇÃO</secretaria>
+    <cargo>PROFESSOR MaPA</cargo>
+  </servidor>
+  <servidor>
+    <cpf>13036479740</cpf>
+    <nome>DARLINE DONADIO</nome>
+    <matricula>13036479740</matricula>
+    <vinculo>EFETIVO</vinculo>
+    <secretaria>SECRETARIA MUNICIPAL DE EDUCAÇÃO</secretaria>
+    <cargo>AUXILIAR DE SERVIÇOS DE LIMPEZA E CONSERVAÇÃO</cargo>
+  </servidor>
+  <servidor>
+    <cpf>10429055765</cpf>
+    <nome>ALINE MOREIRA DE MORAIS</nome>
+    <matricula>10429055765</matricula>
+    <vinculo>EFETIVO</vinculo>
+    <secretaria>SECRETARIA MUNICIPAL DE EDUCAÇÃO</secretaria>
+    <cargo>AUXILIAR DE SERVIÇOS DE LIMPEZA E CONSERVAÇÃO</cargo>
+  </servidor>
+  <servidor>
+    <cpf>04323392648</cpf>
+    <nome>WALKIRIA MACHADO AMORIM</nome>
+    <matricula>04323392648</matricula>
+    <vinculo>EFETIVO</vinculo>
+    <secretaria>SECRETARIA MUNICIPAL DE EDUCAÇÃO</secretaria>
+    <cargo>PROFESSOR PEDAGOGO MaPP</cargo>
+  </servidor>
+  <servidor>
+    <cpf>04656336688</cpf>
+    <nome>ELAINE ALVES GOMES MARINHO</nome>
+    <matricula>04656336688</matricula>
+    <vinculo>EFETIVO</vinculo>
+    <secretaria>SECRETARIA MUNICIPAL DE EDUCAÇÃO</secretaria>
+    <cargo>PROFESSOR PEDAGOGO MaPP</cargo>
+  </servidor>
+  <servidor>
+    <cpf>04600278755</cpf>
+    <nome>EDIMILSON LOUZADA DA SILVA</nome>
+    <matricula>04600278755</matricula>
+    <vinculo>EFETIVO</vinculo>
+    <secretaria>SECRETARIA MUNICIPAL DE EDUCAÇÃO</secretaria>
+    <cargo>MOTORISTA PROFISSIONAL</cargo>
+  </servidor>
+  <servidor>
+    <cpf>13598339780</cpf>
+    <nome>ADELIA DA SILVA RUBIO OLIVEIRA</nome>
+    <matricula>13598339780</matricula>
+    <vinculo>EFETIVO</vinculo>
+    <secretaria>SECRETARIA MUNICIPAL DE EDUCAÇÃO</secretaria>
+    <cargo>AGENTE DE SERVICOS EDUCACIONAIS</cargo>
+  </servidor>
+  <servidor>
+    <cpf>13119890723</cpf>
+    <nome>LUZIMEIRE VIMERCATI DE CARVALHO</nome>
+    <matricula>13119890723</matricula>
+    <vinculo>EFETIVO</vinculo>
+    <secretaria>SECRETARIA MUNICIPAL DE EDUCAÇÃO</secretaria>
+    <cargo>AUXILIAR DE SERVIÇOS DE LIMPEZA E CONSERVAÇÃO</cargo>
+  </servidor>
+  <servidor>
+    <cpf>03608391770</cpf>
+    <nome>MARLI FURTADO TEIXEIRA</nome>
+    <matricula>03608391770</matricula>
+    <vinculo>EFETIVO</vinculo>
+    <secretaria>SECRETARIA MUNICIPAL DE EDUCAÇÃO</secretaria>
+    <cargo>PROFESSOR MaPA</cargo>
+  </servidor>
+  <servidor>
+    <cpf>13172033724</cpf>
+    <nome>DHEINY DESSI MATOS</nome>
+    <matricula>13172033724</matricula>
+    <vinculo>EFETIVO</vinculo>
+    <secretaria>SECRETARIA MUNICIPAL DE EDUCAÇÃO</secretaria>
+    <cargo>AUXILIAR DE SERVIÇOS DE LIMPEZA E CONSERVAÇÃO</cargo>
+  </servidor>
+  <servidor>
+    <cpf>10965698769</cpf>
+    <nome>FABIENE APARECIDA PAPACENO BOLARI POLASTRELI</nome>
+    <matricula>10965698769</matricula>
+    <vinculo>EFETIVO</vinculo>
+    <secretaria>SECRETARIA MUNICIPAL DE EDUCAÇÃO</secretaria>
+    <cargo>PROFESSOR MaPA</cargo>
+  </servidor>
+  <servidor>
+    <cpf>02751035795</cpf>
+    <nome>MARIA DA PENHA DUTRA RODRIGUES</nome>
+    <matricula>02751035795</matricula>
+    <vinculo>EFETIVO</vinculo>
+    <secretaria>SECRETARIA MUNICIPAL DE EDUCAÇÃO</secretaria>
+    <cargo>PROFESSOR MaPA</cargo>
+  </servidor>
+  <servidor>
+    <cpf>03177468710</cpf>
+    <nome>MAURO LUCIO PARADIZO</nome>
+    <matricula>03177468710</matricula>
+    <vinculo>EFETIVO</vinculo>
+    <secretaria>SECRETARIA MUNICIPAL DE EDUCAÇÃO</secretaria>
+    <cargo>PROFESSOR PEDAGOGO MaPP</cargo>
+  </servidor>
+  <servidor>
+    <cpf>03093363764</cpf>
+    <nome>ROSILENE MENDEL SOARES MORAES</nome>
+    <matricula>03093363764</matricula>
+    <vinculo>EFETIVO</vinculo>
+    <secretaria>SECRETARIA MUNICIPAL DE EDUCAÇÃO</secretaria>
+    <cargo>PROFESSOR MaPA</cargo>
+  </servidor>
+  <servidor>
+    <cpf>07937639750</cpf>
+    <nome>CLEIDE APARECIDA MEDEIROS LACERDA BORGES</nome>
+    <matricula>07937639750</matricula>
+    <vinculo>EFETIVO</vinculo>
+    <secretaria>SECRETARIA MUNICIPAL DE EDUCAÇÃO</secretaria>
+    <cargo>PROFESSOR PEDAGOGO MaPP</cargo>
+  </servidor>
+  <servidor>
+    <cpf>12133111794</cpf>
+    <nome>PRISCILA GONCALVES RIBEIRO COSTA</nome>
+    <matricula>12133111794</matricula>
+    <vinculo>EFETIVO</vinculo>
+    <secretaria>SECRETARIA MUNICIPAL DE EDUCAÇÃO</secretaria>
+    <cargo>PROFESSOR MaPA</cargo>
+  </servidor>
+  <servidor>
+    <cpf>00659365669</cpf>
+    <nome>DULCIANE SUELY QUERUBIM SOUZA</nome>
+    <matricula>00659365669</matricula>
+    <vinculo>EFETIVO</vinculo>
+    <secretaria>SECRETARIA MUNICIPAL DE EDUCAÇÃO</secretaria>
+    <cargo>PROFESSOR MaPA</cargo>
+  </servidor>
+  <servidor>
+    <cpf>82753270678</cpf>
+    <nome>ROSIMEIRE DE SOUZA MONTEIRO</nome>
+    <matricula>82753270678</matricula>
+    <vinculo>EFETIVO</vinculo>
+    <secretaria>SECRETARIA MUNICIPAL DE EDUCAÇÃO</secretaria>
+    <cargo>PROFESSOR MaPA</cargo>
+  </servidor>
+  <servidor>
+    <cpf>12690143747</cpf>
+    <nome>LUCINEIA MORENO DE ASSIS</nome>
+    <matricula>12690143747</matricula>
+    <vinculo>EFETIVO</vinculo>
+    <secretaria>SECRETARIA MUNICIPAL DE EDUCAÇÃO</secretaria>
+    <cargo>AUXILIAR DE SERVIÇOS DE LIMPEZA E CONSERVAÇÃO</cargo>
+  </servidor>
+  <servidor>
+    <cpf>12200337744</cpf>
+    <nome>CLAUDIA ANTONIO DE CASTRO PAULA</nome>
+    <matricula>12200337744</matricula>
+    <vinculo>EFETIVO</vinculo>
+    <secretaria>SECRETARIA MUNICIPAL DE EDUCAÇÃO</secretaria>
+    <cargo>AUXILIAR DE SERVIÇOS DE LIMPEZA E CONSERVAÇÃO</cargo>
+  </servidor>
+  <servidor>
+    <cpf>13095215738</cpf>
+    <nome>MARIA PARECIDA SILVA ROCHA MACHADO</nome>
+    <matricula>13095215738</matricula>
+    <vinculo>PROBATORIO</vinculo>
+    <secretaria>SECRETARIA MUNICIPAL DE EDUCAÇÃO</secretaria>
+    <cargo>AUXILIAR DE SERVIÇOS DE LIMPEZA E CONSERVAÇÃO</cargo>
+  </servidor>
+  <servidor>
+    <cpf>16731227790</cpf>
+    <nome>FABIANA DA SILVA CERIACO</nome>
+    <matricula>16731227790</matricula>
+    <vinculo>PROBATORIO</vinculo>
+    <secretaria>SECRETARIA MUNICIPAL DE EDUCAÇÃO</secretaria>
+    <cargo>AUXILIAR DE SERVIÇOS DE LIMPEZA E CONSERVAÇÃO</cargo>
+  </servidor>
+  <servidor>
+    <cpf>16140562775</cpf>
+    <nome>ELIS REGINA RODRIGUES DE OLIVEIRA</nome>
+    <matricula>16140562775</matricula>
+    <vinculo>PROBATORIO</vinculo>
+    <secretaria>SECRETARIA MUNICIPAL DE EDUCAÇÃO</secretaria>
+    <cargo>AUXILIAR DE SERVIÇOS DE LIMPEZA E CONSERVAÇÃO</cargo>
+  </servidor>
+  <servidor>
+    <cpf>13919203763</cpf>
+    <nome>ELAINE OLIVEIRA COELHO</nome>
+    <matricula>13919203763</matricula>
+    <vinculo>PROBATORIO</vinculo>
+    <secretaria>SECRETARIA MUNICIPAL DE EDUCAÇÃO</secretaria>
+    <cargo>AUXILIAR DE SERVIÇOS DE LIMPEZA E CONSERVAÇÃO</cargo>
+  </servidor>
+  <servidor>
+    <cpf>15302355701</cpf>
+    <nome>ELIENAY MATIAS CRETON</nome>
+    <matricula>15302355701</matricula>
+    <vinculo>PROBATORIO</vinculo>
+    <secretaria>SECRETARIA MUNICIPAL DE EDUCAÇÃO</secretaria>
+    <cargo>AUXILIAR DE SERVIÇOS DE LIMPEZA E CONSERVAÇÃO</cargo>
+  </servidor>
+  <servidor>
+    <cpf>89124979600</cpf>
+    <nome>ROSANGELA FERREIRA DARES BATISTA</nome>
+    <matricula>89124979600</matricula>
+    <vinculo>PROBATORIO</vinculo>
+    <secretaria>SECRETARIA MUNICIPAL DE EDUCAÇÃO</secretaria>
+    <cargo>AUXILIAR DE SERVIÇOS DE LIMPEZA E CONSERVAÇÃO</cargo>
+  </servidor>
+  <servidor>
+    <cpf>13075165727</cpf>
+    <nome>LEONARDO ALVES ADAO</nome>
+    <matricula>13075165727</matricula>
+    <vinculo>PROBATORIO</vinculo>
+    <secretaria>SECRETARIA MUNICIPAL DE EDUCAÇÃO</secretaria>
+    <cargo>MOTORISTA PROFISSIONAL</cargo>
+  </servidor>
+  <servidor>
+    <cpf>09922983770</cpf>
+    <nome>JUAN RICARDO CARVALHO SENNA</nome>
+    <matricula>09922983770</matricula>
+    <vinculo>PROBATORIO</vinculo>
+    <secretaria>SECRETARIA MUNICIPAL DE EDUCAÇÃO</secretaria>
+    <cargo>PROFESSOR MaPB</cargo>
+  </servidor>
+  <servidor>
+    <cpf>18141728741</cpf>
+    <nome>LUCAS DA SILVA ANTUNES SANTOS</nome>
+    <matricula>18141728741</matricula>
+    <vinculo>PROBATORIO</vinculo>
+    <secretaria>SECRETARIA MUNICIPAL DE EDUCAÇÃO</secretaria>
+    <cargo>TECNICO EM INFORMATICA</cargo>
+  </servidor>
+  <servidor>
+    <cpf>13350723659</cpf>
+    <nome>ITALO GINDRE BARROS MARTINS</nome>
+    <matricula>13350723659</matricula>
+    <vinculo>PROBATORIO</vinculo>
+    <secretaria>SECRETARIA MUNICIPAL DE EDUCAÇÃO</secretaria>
+    <cargo>MONITOR DE TRANSPORTE ESCOLAR</cargo>
+  </servidor>
+  <servidor>
+    <cpf>11023649756</cpf>
+    <nome>ARIELE SANTOS ROSA</nome>
+    <matricula>11023649756</matricula>
+    <vinculo>PROBATORIO</vinculo>
+    <secretaria>SECRETARIA MUNICIPAL DE EDUCAÇÃO</secretaria>
+    <cargo>PROFESSOR MaPA</cargo>
+  </servidor>
+  <servidor>
+    <cpf>11766579760</cpf>
+    <nome>DAMIANA LIMA CAIADO</nome>
+    <matricula>11766579760</matricula>
+    <vinculo>PROBATORIO</vinculo>
+    <secretaria>SECRETARIA MUNICIPAL DE EDUCAÇÃO</secretaria>
+    <cargo>PROFESSOR MaPA</cargo>
+  </servidor>
+  <servidor>
+    <cpf>09420596702</cpf>
+    <nome>ANGRA APARECIDA DE SOUZA REZENDE</nome>
+    <matricula>09420596702</matricula>
+    <vinculo>PROBATORIO</vinculo>
+    <secretaria>SECRETARIA MUNICIPAL DE EDUCAÇÃO</secretaria>
+    <cargo>AGENTE DE SERVICOS EDUCACIONAIS</cargo>
+  </servidor>
+  <servidor>
+    <cpf>16767835714</cpf>
+    <nome>SAMARA RANGEL BERRO</nome>
+    <matricula>16767835714</matricula>
+    <vinculo>PROBATORIO</vinculo>
+    <secretaria>SECRETARIA MUNICIPAL DE EDUCAÇÃO</secretaria>
+    <cargo>PSICOLOGO</cargo>
+  </servidor>
+  <servidor>
+    <cpf>11483103633</cpf>
+    <nome>ERICA MARIA FIGUEIRA DA SILVA ATHAYDE</nome>
+    <matricula>11483103633</matricula>
+    <vinculo>PROBATORIO</vinculo>
+    <secretaria>SECRETARIA MUNICIPAL DE EDUCAÇÃO</secretaria>
+    <cargo>PROFESSOR PEDAGOGO MaPP</cargo>
+  </servidor>
+  <servidor>
+    <cpf>15689575720</cpf>
+    <nome>JOAO PAULO GUIDAS</nome>
+    <matricula>15689575720</matricula>
+    <vinculo>PROBATORIO</vinculo>
+    <secretaria>SECRETARIA MUNICIPAL DE EDUCAÇÃO</secretaria>
+    <cargo>PROFESSOR MaPA</cargo>
+  </servidor>
+  <servidor>
+    <cpf>11492855758</cpf>
+    <nome>ANDREA SOARES CARVALHO</nome>
+    <matricula>11492855758</matricula>
+    <vinculo>PROBATORIO</vinculo>
+    <secretaria>SECRETARIA MUNICIPAL DE EDUCAÇÃO</secretaria>
+    <cargo>NUTRICIONISTA</cargo>
+  </servidor>
+  <servidor>
+    <cpf>15641395730</cpf>
+    <nome>TAINARA GONÇALVES RIBEIRO</nome>
+    <matricula>15641395730</matricula>
+    <vinculo>PROBATORIO</vinculo>
+    <secretaria>SECRETARIA MUNICIPAL DE EDUCAÇÃO</secretaria>
+    <cargo>PROFESSOR MaPA</cargo>
+  </servidor>
+  <servidor>
+    <cpf>12418626644</cpf>
+    <nome>DAIANA BENTO PROTAZIO</nome>
+    <matricula>12418626644</matricula>
+    <vinculo>PROBATORIO</vinculo>
+    <secretaria>SECRETARIA MUNICIPAL DE EDUCAÇÃO</secretaria>
+    <cargo>PROFESSOR MaPB</cargo>
+  </servidor>
+  <servidor>
+    <cpf>17504672750</cpf>
+    <nome>LUHAN LEVINDO DE SOUZA REZENDE</nome>
+    <matricula>17504672750</matricula>
+    <vinculo>PROBATORIO</vinculo>
+    <secretaria>SECRETARIA MUNICIPAL DE EDUCAÇÃO</secretaria>
+    <cargo>AGENTE DE SERVICOS EDUCACIONAIS</cargo>
+  </servidor>
+  <servidor>
+    <cpf>11826313710</cpf>
+    <nome>KARLA GOMES DIAS</nome>
+    <matricula>11826313710</matricula>
+    <vinculo>PROBATORIO</vinculo>
+    <secretaria>SECRETARIA MUNICIPAL DE EDUCAÇÃO</secretaria>
+    <cargo>PROFESSOR MaPA</cargo>
+  </servidor>
+  <servidor>
+    <cpf>17000245743</cpf>
+    <nome>KAMILA POLIDO BODEVAN PEIXOTO</nome>
+    <matricula>17000245743</matricula>
+    <vinculo>PROBATORIO</vinculo>
+    <secretaria>SECRETARIA MUNICIPAL DE EDUCAÇÃO</secretaria>
+    <cargo>PROFESSOR MaPB</cargo>
+  </servidor>
+  <servidor>
+    <cpf>13334730603</cpf>
+    <nome>WERLLEN RUBIO MIRANDA</nome>
+    <matricula>13334730603</matricula>
+    <vinculo>PROBATORIO</vinculo>
+    <secretaria>SECRETARIA MUNICIPAL DE EDUCAÇÃO</secretaria>
+    <cargo>PROFESSOR MaPA</cargo>
+  </servidor>
+  <servidor>
+    <cpf>13370683652</cpf>
+    <nome>MARIA CLARA DAS CHAGAS SILVA</nome>
+    <matricula>13370683652</matricula>
+    <vinculo>PROBATORIO</vinculo>
+    <secretaria>SECRETARIA MUNICIPAL DE EDUCAÇÃO</secretaria>
+    <cargo>PROFESSOR MaPB</cargo>
+  </servidor>
+  <servidor>
+    <cpf>12694265677</cpf>
+    <nome>JULYANE MIRANDA SIMOES</nome>
+    <matricula>12694265677</matricula>
+    <vinculo>PROBATORIO</vinculo>
+    <secretaria>SECRETARIA MUNICIPAL DE EDUCAÇÃO</secretaria>
+    <cargo>PROFESSOR MaPB</cargo>
+  </servidor>
+  <servidor>
+    <cpf>10957647727</cpf>
+    <nome>GILMARA TURINO DA ROCHA MATOS</nome>
+    <matricula>10957647727</matricula>
+    <vinculo>PROBATORIO</vinculo>
+    <secretaria>SECRETARIA MUNICIPAL DE EDUCAÇÃO</secretaria>
+    <cargo>PROFESSOR MaPA</cargo>
+  </servidor>
+  <servidor>
+    <cpf>08317627721</cpf>
+    <nome>LAURIETE GOMES DA SILVA</nome>
+    <matricula>08317627721</matricula>
+    <vinculo>PROBATORIO</vinculo>
+    <secretaria>SECRETARIA MUNICIPAL DE EDUCAÇÃO</secretaria>
+    <cargo>PROFESSOR MaPA</cargo>
+  </servidor>
+  <servidor>
+    <cpf>89390393787</cpf>
+    <nome>RAQUEL BASTOS BEMVENUTO</nome>
+    <matricula>89390393787</matricula>
+    <vinculo>PROBATORIO</vinculo>
+    <secretaria>SECRETARIA MUNICIPAL DE EDUCAÇÃO</secretaria>
+    <cargo>PROFESSOR MaPA</cargo>
+  </servidor>
+  <servidor>
+    <cpf>17330388769</cpf>
+    <nome>GABRIELLI RAMOS VITAL TAVARES</nome>
+    <matricula>17330388769</matricula>
+    <vinculo>PROBATORIO</vinculo>
+    <secretaria>SECRETARIA MUNICIPAL DE EDUCAÇÃO</secretaria>
+    <cargo>PROFESSOR MaPA</cargo>
+  </servidor>
+  <servidor>
+    <cpf>03908960630</cpf>
+    <nome>MARINETE PERIARD DE PAULA</nome>
+    <matricula>03908960630</matricula>
+    <vinculo>PROBATORIO</vinculo>
+    <secretaria>SECRETARIA MUNICIPAL DE EDUCAÇÃO</secretaria>
+    <cargo>PROFESSOR PEDAGOGO MaPP</cargo>
+  </servidor>
+  <servidor>
+    <cpf>10699124689</cpf>
+    <nome>KEILA CHEROBIN DE OLIVEIRA FREITAS</nome>
+    <matricula>10699124689</matricula>
+    <vinculo>PROBATORIO</vinculo>
+    <secretaria>SECRETARIA MUNICIPAL DE EDUCAÇÃO</secretaria>
+    <cargo>AUXILIAR DE SERVIÇOS DE LIMPEZA E CONSERVAÇÃO</cargo>
+  </servidor>
+  <servidor>
+    <cpf>15453818794</cpf>
+    <nome>DOUGLAS TINOCO DOPP</nome>
+    <matricula>15453818794</matricula>
+    <vinculo>PROBATORIO</vinculo>
+    <secretaria>SECRETARIA MUNICIPAL DE EDUCAÇÃO</secretaria>
+    <cargo>PROFESSOR MaPB</cargo>
+  </servidor>
+  <servidor>
+    <cpf>10772586748</cpf>
+    <nome>JOELMA CONCEIÇAO BELLO DOS SANTOS</nome>
+    <matricula>10772586748</matricula>
+    <vinculo>PROBATORIO</vinculo>
+    <secretaria>SECRETARIA MUNICIPAL DE EDUCAÇÃO</secretaria>
+    <cargo>PROFESSOR MaPA</cargo>
+  </servidor>
+  <servidor>
+    <cpf>12681692776</cpf>
+    <nome>GILMARA DE SOUZA CARVALHO SOARES</nome>
+    <matricula>12681692776</matricula>
+    <vinculo>PROBATORIO</vinculo>
+    <secretaria>SECRETARIA MUNICIPAL DE EDUCAÇÃO</secretaria>
+    <cargo>PROFESSOR MaPA</cargo>
+  </servidor>
+  <servidor>
+    <cpf>05811736606</cpf>
+    <nome>MEIRE LUCIA MARTINS DE SOUSA</nome>
+    <matricula>05811736606</matricula>
+    <vinculo>PROBATORIO</vinculo>
+    <secretaria>SECRETARIA MUNICIPAL DE EDUCAÇÃO</secretaria>
+    <cargo>PROFESSOR MaPA</cargo>
+  </servidor>
+  <servidor>
+    <cpf>11433506696</cpf>
+    <nome>DANIELLY DE OLIVEIRA BIONDINI</nome>
+    <matricula>11433506696</matricula>
+    <vinculo>PROBATORIO</vinculo>
+    <secretaria>SECRETARIA MUNICIPAL DE EDUCAÇÃO</secretaria>
+    <cargo>PROFESSOR MaPB</cargo>
+  </servidor>
+  <servidor>
+    <cpf>08269296724</cpf>
+    <nome>ADRIANA RAMOS DE AMORIM</nome>
+    <matricula>08269296724</matricula>
+    <vinculo>PROBATORIO</vinculo>
+    <secretaria>SECRETARIA MUNICIPAL DE EDUCAÇÃO</secretaria>
+    <cargo>AUXILIAR DE SERVIÇOS DE LIMPEZA E CONSERVAÇÃO</cargo>
+  </servidor>
+  <servidor>
+    <cpf>11937891682</cpf>
+    <nome>DANIELA AGUIAR ARAUJO PROTAZIO</nome>
+    <matricula>11937891682</matricula>
+    <vinculo>PROBATORIO</vinculo>
+    <secretaria>SECRETARIA MUNICIPAL DE EDUCAÇÃO</secretaria>
+    <cargo>AUXILIAR DE SERVIÇOS DE LIMPEZA E CONSERVAÇÃO</cargo>
+  </servidor>
+  <servidor>
+    <cpf>09073223792</cpf>
+    <nome>ROSANA APARECIDA OLIVEIRA BATISTA ALVES</nome>
+    <matricula>09073223792</matricula>
+    <vinculo>PROBATORIO</vinculo>
+    <secretaria>SECRETARIA MUNICIPAL DE EDUCAÇÃO</secretaria>
+    <cargo>AUXILIAR DE SERVIÇOS DE LIMPEZA E CONSERVAÇÃO</cargo>
+  </servidor>
+  <servidor>
+    <cpf>11788885767</cpf>
+    <nome>VIVIANE GUALTIERI SPERANDINO</nome>
+    <matricula>11788885767</matricula>
+    <vinculo>PROBATORIO</vinculo>
+    <secretaria>SECRETARIA MUNICIPAL DE EDUCAÇÃO</secretaria>
+    <cargo>AUXILIAR DE SERVIÇOS DE LIMPEZA E CONSERVAÇÃO</cargo>
+  </servidor>
+  <servidor>
+    <cpf>04528588609</cpf>
+    <nome>ELIANE APARECIDA MATIAS CRETON DO CARMO</nome>
+    <matricula>04528588609</matricula>
+    <vinculo>PROBATORIO</vinculo>
+    <secretaria>SECRETARIA MUNICIPAL DE EDUCAÇÃO</secretaria>
+    <cargo>AUXILIAR DE SERVIÇOS DE LIMPEZA E CONSERVAÇÃO</cargo>
+  </servidor>
+  <servidor>
+    <cpf>14490756739</cpf>
+    <nome>POLIANA LOPES DIAS CORREA</nome>
+    <matricula>14490756739</matricula>
+    <vinculo>PROBATORIO</vinculo>
+    <secretaria>SECRETARIA MUNICIPAL DE EDUCAÇÃO</secretaria>
+    <cargo>AUXILIAR DE SERVIÇOS DE LIMPEZA E CONSERVAÇÃO</cargo>
+  </servidor>
+  <servidor>
+    <cpf>15227953759</cpf>
+    <nome>VANESSA VIEIRA DA SILVA</nome>
+    <matricula>15227953759</matricula>
+    <vinculo>PROBATORIO</vinculo>
+    <secretaria>SECRETARIA MUNICIPAL DE EDUCAÇÃO</secretaria>
+    <cargo>AUXILIAR DE SERVIÇOS DE LIMPEZA E CONSERVAÇÃO</cargo>
+  </servidor>
+  <servidor>
+    <cpf>06734674657</cpf>
+    <nome>DILCEIA MUNDINHO BARBOSA</nome>
+    <matricula>06734674657</matricula>
+    <vinculo>PROBATORIO</vinculo>
+    <secretaria>SECRETARIA MUNICIPAL DE EDUCAÇÃO</secretaria>
+    <cargo>AUXILIAR DE SERVIÇOS DE LIMPEZA E CONSERVAÇÃO</cargo>
+  </servidor>
+  <servidor>
+    <cpf>07883655680</cpf>
+    <nome>NADIR GONÇALVES DE OLIVEIRA SILVA</nome>
+    <matricula>07883655680</matricula>
+    <vinculo>PROBATORIO</vinculo>
+    <secretaria>SECRETARIA MUNICIPAL DE EDUCAÇÃO</secretaria>
+    <cargo>AUXILIAR DE SERVIÇOS DE LIMPEZA E CONSERVAÇÃO</cargo>
+  </servidor>
+  <servidor>
+    <cpf>08481815659</cpf>
+    <nome>PEDRO PAULO BARBOSA ROCHA</nome>
+    <matricula>08481815659</matricula>
+    <vinculo>PROBATORIO</vinculo>
+    <secretaria>SECRETARIA MUNICIPAL DE EDUCAÇÃO</secretaria>
+    <cargo>AGENTE ADMINISTRATIVO</cargo>
+  </servidor>
+  <servidor>
+    <cpf>13599908605</cpf>
+    <nome>CAROLINE DE FATIMA JEVEAUX COELHO</nome>
+    <matricula>13599908605</matricula>
+    <vinculo>PROBATORIO</vinculo>
+    <secretaria>SECRETARIA MUNICIPAL DE EDUCAÇÃO</secretaria>
+    <cargo>AUXILIAR DE SERVIÇOS DE LIMPEZA E CONSERVAÇÃO</cargo>
+  </servidor>
+  <servidor>
+    <cpf>08275818745</cpf>
+    <nome>SEBASTIANA DO CARMO PEREIRA DA SILVA MARIANO</nome>
+    <matricula>08275818745</matricula>
+    <vinculo>PROBATORIO</vinculo>
+    <secretaria>SECRETARIA MUNICIPAL DE EDUCAÇÃO</secretaria>
+    <cargo>AUXILIAR DE SERVIÇOS DE LIMPEZA E CONSERVAÇÃO</cargo>
+  </servidor>
+  <servidor>
+    <cpf>09519101756</cpf>
+    <nome>LUCELIA POSSATTI DA SILVA</nome>
+    <matricula>09519101756</matricula>
+    <vinculo>PROBATORIO</vinculo>
+    <secretaria>SECRETARIA MUNICIPAL DE MEIO AMBIENTE</secretaria>
+    <cargo>FISCAL AMBIENTAL</cargo>
+  </servidor>
+  <servidor>
+    <cpf>06753889612</cpf>
+    <nome>NUBIANA GOMES DE OLIVEIRA</nome>
+    <matricula>06753889612</matricula>
+    <vinculo>PROBATORIO</vinculo>
+    <secretaria>SECRETARIA MUNICIPAL DE MEIO AMBIENTE</secretaria>
+    <cargo>BIOLOGO</cargo>
+  </servidor>
+  <servidor>
+    <cpf>11164749722</cpf>
+    <nome>LUIZ CARLOS MENDONCA ASSIS</nome>
+    <matricula>11164749722</matricula>
+    <vinculo>EFETIVO</vinculo>
+    <secretaria>SECRETARIA MUNICIPAL DE OBRAS E SANEAMENTO</secretaria>
+    <cargo>ENGENHEIRO CIVIL</cargo>
+  </servidor>
+  <servidor>
+    <cpf>12523813793</cpf>
+    <nome>JANE VELOSO BERNARDES</nome>
+    <matricula>12523813793</matricula>
+    <vinculo>PROBATORIO</vinculo>
+    <secretaria>SECRETARIA MUNICIPAL DE OBRAS E SANEAMENTO</secretaria>
+    <cargo>AUXILIAR DE SERVIÇOS DE LIMPEZA E CONSERVAÇÃO</cargo>
+  </servidor>
+  <servidor>
+    <cpf>16296129793</cpf>
+    <nome>ANTONIO VITOR MACHADO SILVA</nome>
+    <matricula>16296129793</matricula>
+    <vinculo>PROBATORIO</vinculo>
+    <secretaria>SECRETARIA MUNICIPAL DE OBRAS E SANEAMENTO</secretaria>
+    <cargo>AGENTE ADMINISTRATIVO</cargo>
+  </servidor>
+  <servidor>
+    <cpf>06108832754</cpf>
+    <nome>TAIS QUERES DE CASTRO</nome>
+    <matricula>06108832754</matricula>
+    <vinculo>PROBATORIO</vinculo>
+    <secretaria>SECRETARIA MUNICIPAL DE OBRAS E SANEAMENTO</secretaria>
+    <cargo>ARQUITETO</cargo>
+  </servidor>
+  <servidor>
+    <cpf>89300734768</cpf>
+    <nome>MAURICIO SOUZA DE ARAUJO</nome>
+    <matricula>89300734768</matricula>
+    <vinculo>PROBATORIO</vinculo>
+    <secretaria>SECRETARIA MUNICIPAL DE OBRAS E SANEAMENTO</secretaria>
+    <cargo>TECNICO EM EDIFICACOES</cargo>
+  </servidor>
+  <servidor>
+    <cpf>13300588600</cpf>
+    <nome>RAFAEL VIANA ANGELO</nome>
+    <matricula>13300588600</matricula>
+    <vinculo>PROBATORIO</vinculo>
+    <secretaria>SECRETARIA MUNICIPAL DE OBRAS E SANEAMENTO</secretaria>
+    <cargo>ENGENHEIRO CIVIL</cargo>
+  </servidor>
+  <servidor>
+    <cpf>49386620782</cpf>
+    <nome>MARCIO FARIA GUALANDI</nome>
+    <matricula>49386620782</matricula>
+    <vinculo>EFETIVO</vinculo>
+    <secretaria>SECRETARIA MUNICIPAL DE TRANSPORTE E SERVIÇOS URB</secretaria>
+    <cargo>ESCRITURARIO</cargo>
+    <chefiaCpf>11293244783</chefiaCpf>
+  </servidor>
+  <servidor>
+    <cpf>09252884700</cpf>
+    <nome>ADAILTON PEREIRA ALVES</nome>
+    <matricula>09252884700</matricula>
+    <vinculo>EFETIVO</vinculo>
+    <secretaria>SECRETARIA MUNICIPAL DE TRANSPORTE E SERVIÇOS URB</secretaria>
+    <cargo>VIGIA</cargo>
+    <chefiaCpf>11293244783</chefiaCpf>
+  </servidor>
+  <servidor>
+    <cpf>07918397703</cpf>
+    <nome>OZIEL SOARES DE OLIVEIRA</nome>
+    <matricula>07918397703</matricula>
+    <vinculo>EFETIVO</vinculo>
+    <secretaria>SECRETARIA MUNICIPAL DE TRANSPORTE E SERVIÇOS URB</secretaria>
+    <cargo>AUXILIAR DE SERVIÇOS DE LIMPEZA E CONSERVAÇÃO</cargo>
+    <chefiaCpf>11293244783</chefiaCpf>
+  </servidor>
+  <servidor>
+    <cpf>04461611604</cpf>
+    <nome>MARCIO GLEIDE LOPES SIQUEIRA</nome>
+    <matricula>04461611604</matricula>
+    <vinculo>EFETIVO</vinculo>
+    <secretaria>SECRETARIA MUNICIPAL DE TRANSPORTE E SERVIÇOS URB</secretaria>
+    <cargo>AUXILIAR DE SERVIÇOS DE LIMPEZA E CONSERVAÇÃO</cargo>
+    <chefiaCpf>11293244783</chefiaCpf>
+  </servidor>
+  <servidor>
+    <cpf>01696856752</cpf>
+    <nome>MIGUEL LOURENCO LUCIANO</nome>
+    <matricula>01696856752</matricula>
+    <vinculo>EFETIVO</vinculo>
+    <secretaria>SECRETARIA MUNICIPAL DE TRANSPORTE E SERVIÇOS URB</secretaria>
+    <cargo>AUXILIAR DE SERVIÇOS DE LIMPEZA E CONSERVAÇÃO</cargo>
+    <chefiaCpf>11293244783</chefiaCpf>
+  </servidor>
+  <servidor>
+    <cpf>13197420764</cpf>
+    <nome>LUCAS BITENCOURT DA MOTA</nome>
+    <matricula>13197420764</matricula>
+    <vinculo>EFETIVO</vinculo>
+    <secretaria>SECRETARIA MUNICIPAL DE TRANSPORTE E SERVIÇOS URB</secretaria>
+    <cargo>AUXILIAR DE SERVIÇOS DE LIMPEZA E CONSERVAÇÃO</cargo>
+    <chefiaCpf>11293244783</chefiaCpf>
+  </servidor>
+  <servidor>
+    <cpf>11134622724</cpf>
+    <nome>JOARLE DOMINGOS DA SILVA</nome>
+    <matricula>11134622724</matricula>
+    <vinculo>EFETIVO</vinculo>
+    <secretaria>SECRETARIA MUNICIPAL DE TRANSPORTE E SERVIÇOS URB</secretaria>
+    <cargo>CALCETEIRO</cargo>
+    <chefiaCpf>11293244783</chefiaCpf>
+  </servidor>
+  <servidor>
+    <cpf>11293244783</cpf>
+    <nome>JOAO PAULO GONCALVES RIBEIRO</nome>
+    <matricula>11293244783</matricula>
+    <vinculo>EFETIVO</vinculo>
+    <secretaria>SECRETARIA MUNICIPAL DE TRANSPORTE E SERVIÇOS URB</secretaria>
+    <cargo>CHEFE DE DIVISAO DE SERVIÇOS URBANOS</cargo>
+  </servidor>
+  <servidor>
+    <cpf>02020095726</cpf>
+    <nome>MARCO ANTONIO PEREIRA ARAUJO</nome>
+    <matricula>02020095726</matricula>
+    <vinculo>EFETIVO</vinculo>
+    <secretaria>SECRETARIA MUNICIPAL DE TRANSPORTE E SERVIÇOS URB</secretaria>
+    <cargo>MECANICO</cargo>
+    <chefiaCpf>11293244783</chefiaCpf>
+  </servidor>
+  <servidor>
+    <cpf>00794568718</cpf>
+    <nome>ALEX FABIANO ZANARD DO CANTO</nome>
+    <matricula>00794568718</matricula>
+    <vinculo>EFETIVO</vinculo>
+    <secretaria>SECRETARIA MUNICIPAL DE TRANSPORTE E SERVIÇOS URB</secretaria>
+    <cargo>VIGIA</cargo>
+    <chefiaCpf>11293244783</chefiaCpf>
+  </servidor>
+  <servidor>
+    <cpf>13515378731</cpf>
+    <nome>CARLOS ANDRE ALVES MACHADO</nome>
+    <matricula>13515378731</matricula>
+    <vinculo>EFETIVO</vinculo>
+    <secretaria>SECRETARIA MUNICIPAL DE TRANSPORTE E SERVIÇOS URB</secretaria>
+    <cargo>AUXILIAR DE SERVIÇOS DE LIMPEZA E CONSERVAÇÃO</cargo>
+    <chefiaCpf>11293244783</chefiaCpf>
+  </servidor>
+  <servidor>
+    <cpf>86217674653</cpf>
+    <nome>CHRISTIANO GOMES SOUZA</nome>
+    <matricula>86217674653</matricula>
+    <vinculo>EFETIVO</vinculo>
+    <secretaria>SECRETARIA MUNICIPAL DE TRANSPORTE E SERVIÇOS URB</secretaria>
+    <cargo>VIGIA</cargo>
+    <chefiaCpf>11293244783</chefiaCpf>
+  </servidor>
+  <servidor>
+    <cpf>08961612778</cpf>
+    <nome>ELIZANGELA APARECIDA MENDES DIAS</nome>
+    <matricula>08961612778</matricula>
+    <vinculo>EFETIVO</vinculo>
+    <secretaria>SECRETARIA MUNICIPAL DE TRANSPORTE E SERVIÇOS URB</secretaria>
+    <cargo>AUXILIAR DE SERVIÇOS DE LIMPEZA E CONSERVAÇÃO</cargo>
+    <chefiaCpf>11293244783</chefiaCpf>
+  </servidor>
+  <servidor>
+    <cpf>04193448614</cpf>
+    <nome>DIVINO FERREIRA</nome>
+    <matricula>04193448614</matricula>
+    <vinculo>EFETIVO</vinculo>
+    <secretaria>SECRETARIA MUNICIPAL DE TRANSPORTE E SERVIÇOS URB</secretaria>
+    <cargo>AUXILIAR DE SERVIÇOS DE LIMPEZA E CONSERVAÇÃO</cargo>
+    <chefiaCpf>11293244783</chefiaCpf>
+  </servidor>
+  <servidor>
+    <cpf>08615131775</cpf>
+    <nome>FABRICIO ARAUJO MARQUES</nome>
+    <matricula>08615131775</matricula>
+    <vinculo>EFETIVO</vinculo>
+    <secretaria>SECRETARIA MUNICIPAL DE TRANSPORTE E SERVIÇOS URB</secretaria>
+    <cargo>AUXILIAR DE SERVIÇOS DE LIMPEZA E CONSERVAÇÃO</cargo>
+    <chefiaCpf>11293244783</chefiaCpf>
+  </servidor>
+  <servidor>
+    <cpf>12823802738</cpf>
+    <nome>DAVIDSON SIQUEIRA MARQUES</nome>
+    <matricula>12823802738</matricula>
+    <vinculo>PROBATORIO</vinculo>
+    <secretaria>SECRETARIA MUNICIPAL DE TRANSPORTE E SERVIÇOS URB</secretaria>
+    <cargo>AUXILIAR DE SERVIÇOS DE LIMPEZA E CONSERVAÇÃO</cargo>
+    <chefiaCpf>11293244783</chefiaCpf>
+  </servidor>
+  <servidor>
+    <cpf>13299103709</cpf>
+    <nome>FABIENE BATISTA LOBATO</nome>
+    <matricula>13299103709</matricula>
+    <vinculo>PROBATORIO</vinculo>
+    <secretaria>SECRETARIA MUNICIPAL DE TRANSPORTE E SERVIÇOS URB</secretaria>
+    <cargo>AUXILIAR DE SERVIÇOS DE LIMPEZA E CONSERVAÇÃO</cargo>
+    <chefiaCpf>11293244783</chefiaCpf>
+  </servidor>
+  <servidor>
+    <cpf>15454803707</cpf>
+    <nome>EDUARDO MENDES GONÇALVES</nome>
+    <matricula>15454803707</matricula>
+    <vinculo>PROBATORIO</vinculo>
+    <secretaria>SECRETARIA MUNICIPAL DE TRANSPORTE E SERVIÇOS URB</secretaria>
+    <cargo>AUXILIAR DE SERVIÇOS DE LIMPEZA E CONSERVAÇÃO</cargo>
+    <chefiaCpf>11293244783</chefiaCpf>
+  </servidor>
+  <servidor>
+    <cpf>14868810766</cpf>
+    <nome>ELIAS MIRANDA SILVA</nome>
+    <matricula>14868810766</matricula>
+    <vinculo>PROBATORIO</vinculo>
+    <secretaria>SECRETARIA MUNICIPAL DE TRANSPORTE E SERVIÇOS URB</secretaria>
+    <cargo>AUXILIAR DE SERVIÇOS DE LIMPEZA E CONSERVAÇÃO</cargo>
+    <chefiaCpf>11293244783</chefiaCpf>
+  </servidor>
+  <servidor>
+    <cpf>14037730766</cpf>
+    <nome>DANIELE RODRIGUES PROTAZIO</nome>
+    <matricula>14037730766</matricula>
+    <vinculo>PROBATORIO</vinculo>
+    <secretaria>SECRETARIA MUNICIPAL DE TRANSPORTE E SERVIÇOS URB</secretaria>
+    <cargo>AUXILIAR DE SERVIÇOS DE LIMPEZA E CONSERVAÇÃO</cargo>
+    <chefiaCpf>11293244783</chefiaCpf>
+  </servidor>
+  <servidor>
+    <cpf>67316000759</cpf>
+    <nome>REGINALDO RODRIGUES HILARIO DE OLIVEIRA</nome>
+    <matricula>67316000759</matricula>
+    <vinculo>PROBATORIO</vinculo>
+    <secretaria>SECRETARIA MUNICIPAL DE TRANSPORTE E SERVIÇOS URB</secretaria>
+    <cargo>AUXILIAR DE SERVIÇOS DE LIMPEZA E CONSERVAÇÃO</cargo>
+    <chefiaCpf>11293244783</chefiaCpf>
+  </servidor>
+  <servidor>
+    <cpf>09158190660</cpf>
+    <nome>SEBASTIANA NORMINDA FERREIRA ABREU RAMOS</nome>
+    <matricula>09158190660</matricula>
+    <vinculo>PROBATORIO</vinculo>
+    <secretaria>SECRETARIA MUNICIPAL DE TRANSPORTE E SERVIÇOS URB</secretaria>
+    <cargo>AUXILIAR DE SERVIÇOS DE LIMPEZA E CONSERVAÇÃO</cargo>
+    <chefiaCpf>11293244783</chefiaCpf>
+  </servidor>
+  <servidor>
+    <cpf>09100348775</cpf>
+    <nome>NORIVAL LOPES DA SILVA</nome>
+    <matricula>09100348775</matricula>
+    <vinculo>PROBATORIO</vinculo>
+    <secretaria>SECRETARIA MUNICIPAL DE TRANSPORTE E SERVIÇOS URB</secretaria>
+    <cargo>MOTORISTA PROFISSIONAL</cargo>
+    <chefiaCpf>11293244783</chefiaCpf>
+  </servidor>
+  <servidor>
+    <cpf>11218772735</cpf>
+    <nome>MARCOS COSTA ROCHA</nome>
+    <matricula>11218772735</matricula>
+    <vinculo>PROBATORIO</vinculo>
+    <secretaria>SECRETARIA MUNICIPAL DE TRANSPORTE E SERVIÇOS URB</secretaria>
+    <cargo>MOTORISTA PROFISSIONAL</cargo>
+    <chefiaCpf>11293244783</chefiaCpf>
+  </servidor>
+  <servidor>
+    <cpf>16147616714</cpf>
+    <nome>SAVIO MACEDO SILVA</nome>
+    <matricula>16147616714</matricula>
+    <vinculo>PROBATORIO</vinculo>
+    <secretaria>SECRETARIA MUNICIPAL DE TRANSPORTE E SERVIÇOS URB</secretaria>
+    <cargo>BRAÇAL</cargo>
+    <chefiaCpf>11293244783</chefiaCpf>
+  </servidor>
+  <servidor>
+    <cpf>10736553770</cpf>
+    <nome>PAULO CEZAR DE OLIVEIRA JUNIOR</nome>
+    <matricula>10736553770</matricula>
+    <vinculo>PROBATORIO</vinculo>
+    <secretaria>SECRETARIA MUNICIPAL DE TRANSPORTE E SERVIÇOS URB</secretaria>
+    <cargo>BRAÇAL</cargo>
+    <chefiaCpf>11293244783</chefiaCpf>
+  </servidor>
+  <servidor>
+    <cpf>12245606710</cpf>
+    <nome>MAGNO ROSA DA SILVA</nome>
+    <matricula>12245606710</matricula>
+    <vinculo>PROBATORIO</vinculo>
+    <secretaria>SECRETARIA MUNICIPAL DE TRANSPORTE E SERVIÇOS URB</secretaria>
+    <cargo>AUXILIAR DE SERVIÇOS DE LIMPEZA E CONSERVAÇÃO</cargo>
+    <chefiaCpf>11293244783</chefiaCpf>
+  </servidor>
+  <servidor>
+    <cpf>09310897783</cpf>
+    <nome>PEDRO PAULO TEIXEIRA DE SOUZA</nome>
+    <matricula>09310897783</matricula>
+    <vinculo>PROBATORIO</vinculo>
+    <secretaria>SECRETARIA MUNICIPAL DE TRANSPORTE E SERVIÇOS URB</secretaria>
+    <cargo>BRAÇAL</cargo>
+    <chefiaCpf>11293244783</chefiaCpf>
+  </servidor>
+  <servidor>
+    <cpf>10743646789</cpf>
+    <nome>DIOGO BORGES LOURO</nome>
+    <matricula>10743646789</matricula>
+    <vinculo>PROBATORIO</vinculo>
+    <secretaria>SECRETARIA MUNICIPAL DE TRANSPORTE E SERVIÇOS URB</secretaria>
+    <cargo>BRAÇAL</cargo>
+    <chefiaCpf>11293244783</chefiaCpf>
+  </servidor>
+  <servidor>
+    <cpf>11652899707</cpf>
+    <nome>DEBORA DE ARRUDA CARDOSO</nome>
+    <matricula>11652899707</matricula>
+    <vinculo>PROBATORIO</vinculo>
+    <secretaria>SECRETARIA MUNICIPAL DE TRANSPORTE E SERVIÇOS URB</secretaria>
+    <cargo>AUXILIAR DE SERVIÇOS DE LIMPEZA E CONSERVAÇÃO</cargo>
+    <chefiaCpf>11293244783</chefiaCpf>
+  </servidor>
+  <servidor>
+    <cpf>13979257797</cpf>
+    <nome>MAICON FERREIRA BARBOSA</nome>
+    <matricula>13979257797</matricula>
+    <vinculo>PROBATORIO</vinculo>
+    <secretaria>SECRETARIA MUNICIPAL DE TRANSPORTE E SERVIÇOS URB</secretaria>
+    <cargo>BRAÇAL</cargo>
+    <chefiaCpf>11293244783</chefiaCpf>
+  </servidor>
+  <servidor>
+    <cpf>16342353719</cpf>
+    <nome>DOUGLAS ANTONIO SANTOS COSTA</nome>
+    <matricula>16342353719</matricula>
+    <vinculo>PROBATORIO</vinculo>
+    <secretaria>SECRETARIA MUNICIPAL DE TRANSPORTE E SERVIÇOS URB</secretaria>
+    <cargo>BRAÇAL</cargo>
+    <chefiaCpf>11293244783</chefiaCpf>
+  </servidor>
+  <servidor>
+    <cpf>06256938763</cpf>
+    <nome>LUCAS CARLOS VIANA</nome>
+    <matricula>06256938763</matricula>
+    <vinculo>PROBATORIO</vinculo>
+    <secretaria>SECRETARIA MUNICIPAL DE TRANSPORTE E SERVIÇOS URB</secretaria>
+    <cargo>BRAÇAL</cargo>
+    <chefiaCpf>11293244783</chefiaCpf>
+  </servidor>
+  <servidor>
+    <cpf>08953852790</cpf>
+    <nome>GENIVAL FERREIRA ELOY</nome>
+    <matricula>08953852790</matricula>
+    <vinculo>PROBATORIO</vinculo>
+    <secretaria>SECRETARIA MUNICIPAL DE TRANSPORTE E SERVIÇOS URB</secretaria>
+    <cargo>AUXILIAR DE SERVIÇOS DE LIMPEZA E CONSERVAÇÃO</cargo>
+    <chefiaCpf>11293244783</chefiaCpf>
+  </servidor>
+  <servidor>
+    <cpf>15028235783</cpf>
+    <nome>ROMULO HENRIQUE SALOTO MARTINS</nome>
+    <matricula>15028235783</matricula>
+    <vinculo>PROBATORIO</vinculo>
+    <secretaria>SECRETARIA MUNICIPAL DE TRANSPORTE E SERVIÇOS URB</secretaria>
+    <cargo>AUXILIAR DE SERVIÇOS DE LIMPEZA E CONSERVAÇÃO</cargo>
+    <chefiaCpf>11293244783</chefiaCpf>
+  </servidor>
+  <servidor>
+    <cpf>08975720764</cpf>
+    <nome>ALAIR DETONIS</nome>
+    <matricula>08975720764</matricula>
+    <vinculo>PROBATORIO</vinculo>
+    <secretaria>SECRETARIA MUNICIPAL DE TRANSPORTE E SERVIÇOS URB</secretaria>
+    <cargo>AUXILIAR DE SERVIÇOS DE LIMPEZA E CONSERVAÇÃO</cargo>
+    <chefiaCpf>11293244783</chefiaCpf>
+  </servidor>
+  <servidor>
+    <cpf>15287061706</cpf>
+    <nome>WESLEY DE CASTRO LIMA</nome>
+    <matricula>15287061706</matricula>
+    <vinculo>PROBATORIO</vinculo>
+    <secretaria>SECRETARIA MUNICIPAL DE TRANSPORTE E SERVIÇOS URB</secretaria>
+    <cargo>PEDREIRO</cargo>
+    <chefiaCpf>11293244783</chefiaCpf>
+  </servidor>
+  <servidor>
+    <cpf>07262487701</cpf>
+    <nome>JODIMAR AGUIAR RODRIGUES</nome>
+    <matricula>07262487701</matricula>
+    <vinculo>PROBATORIO</vinculo>
+    <secretaria>SECRETARIA MUNICIPAL DE TRANSPORTE E SERVIÇOS URB</secretaria>
+    <cargo>AUXILIAR DE SERVIÇOS DE LIMPEZA E CONSERVAÇÃO</cargo>
+    <chefiaCpf>11293244783</chefiaCpf>
+  </servidor>
+  <servidor>
+    <cpf>16077902705</cpf>
+    <nome>GLAUK JOSE VIMERCATI DE CARVALHO</nome>
+    <matricula>16077902705</matricula>
+    <vinculo>PROBATORIO</vinculo>
+    <secretaria>SECRETARIA MUNICIPAL DE TRANSPORTE E SERVIÇOS URB</secretaria>
+    <cargo>AUXILIAR DE SERVIÇOS DE LIMPEZA E CONSERVAÇÃO</cargo>
+    <chefiaCpf>11293244783</chefiaCpf>
+  </servidor>
+  <servidor>
+    <cpf>03118372710</cpf>
+    <nome>LUCIANE TERESINHA PIROVANI PALACIOS</nome>
+    <matricula>03118372710</matricula>
+    <vinculo>EFETIVO</vinculo>
+    <secretaria>UNIDADE CENTRAL DE CONTROLE INTERNO</secretaria>
+    <cargo>CONTROLADOR GERAL INTERNO</cargo>
+  </servidor>
+</servidores>

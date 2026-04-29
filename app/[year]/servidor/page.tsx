@@ -7,7 +7,7 @@ import { LogoutButton } from "@/components/logout-button";
 import { StatusBadge } from "@/components/status-badge";
 import { getSessionContext, requireSessionForYear } from "@/lib/auth";
 import { decimalToNumber, ensureCurrentEvaluation } from "@/lib/evaluations-data";
-import { getClassification, getQuestionTypeByEmploymentType, isReadOnly, SCORE_BY_TYPE } from "@/lib/evaluation";
+import { getClassification, getDeadline, getQuestionTypeByEmploymentType, getRemainingDays, isReadOnly, SCORE_BY_TYPE } from "@/lib/evaluation";
 import { prisma } from "@/lib/prisma";
 import { resolveDocumentAccessUrls } from "@/lib/storage";
 import { parseYearParam } from "@/lib/year-route";
@@ -55,6 +55,7 @@ export default async function ServidorPage({
           id: true,
           name: true,
           size: true,
+          storageKey: true,
           url: true,
         },
       },
@@ -97,6 +98,8 @@ export default async function ServidorPage({
   );
   const selfScore = decimalToNumber(fullEvaluation.selfScore);
   const documents = await resolveDocumentAccessUrls(fullEvaluation.documents);
+  const selfDeadline = getDeadline(cycle.startDate, "self");
+  const remainingDays = getRemainingDays(selfDeadline);
 
   const session = await getSessionContext();
 
@@ -150,6 +153,7 @@ export default async function ServidorPage({
           })),
         }))}
         readOnly={isReadOnly(fullEvaluation.status, "self")}
+        remainingDays={remainingDays}
         status={fullEvaluation.status}
         year={cycleYear}
       />

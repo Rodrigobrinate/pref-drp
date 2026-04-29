@@ -1,8 +1,8 @@
 "use client";
 
-import { useActionState } from "react";
+import { useActionState, useState, useTransition } from "react";
 
-import { createCycleAction, importXmlAction } from "@/app/actions";
+import { createCycleAction, importXmlAction, rollbackImportAction } from "@/app/actions";
 
 export function CycleCreateForm({ suggestedYear }: { suggestedYear: number }) {
   const [state, formAction, pending] = useActionState(createCycleAction, undefined);
@@ -47,6 +47,37 @@ export function XmlImportForm({ cycleId }: { cycleId: string }) {
         {pending ? "Importando..." : "Importar XML"}
       </button>
     </form>
+  );
+}
+
+export function RollbackImportButton({ cycleId }: { cycleId: string }) {
+  const [isPending, startTransition] = useTransition();
+  const [result, setResult] = useState<{ ok: boolean; message: string } | null>(null);
+
+  function handleClick() {
+    if (!confirm("Isso apagará todos os servidores e avaliações pendentes do ciclo. Continuar?")) {
+      return;
+    }
+    startTransition(async () => {
+      const res = await rollbackImportAction(cycleId);
+      setResult(res ?? null);
+    });
+  }
+
+  return (
+    <div className="space-y-3">
+      <button
+        className="rounded-lg border border-error px-5 py-3 text-sm font-bold text-error transition hover:bg-error/10 disabled:opacity-50"
+        disabled={isPending}
+        onClick={handleClick}
+        type="button"
+      >
+        {isPending ? "Revertendo..." : "Reverter importação"}
+      </button>
+      {result ? (
+        <p className={`text-sm ${result.ok ? "text-primary" : "text-error"}`}>{result.message}</p>
+      ) : null}
+    </div>
   );
 }
 

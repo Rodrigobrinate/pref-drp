@@ -1,7 +1,6 @@
 "use client";
 
 import { EmploymentType } from "@prisma/client";
-import { useRouter } from "next/navigation";
 import { useEffect, useMemo, useRef, useState, useTransition } from "react";
 
 import { saveDraftAction, submitEvaluationAction, uploadDocumentsAction } from "@/app/actions";
@@ -39,6 +38,7 @@ export function EvaluationForm({
   employmentType,
   currentScore,
   maxScore,
+  remainingDays,
   questions,
   initialAnswers,
   initialDocuments,
@@ -52,67 +52,63 @@ export function EvaluationForm({
   employmentType: EmploymentType;
   currentScore: number;
   maxScore: number;
+  remainingDays: number;
   questions: Question[];
   initialAnswers: Record<string, string>;
   initialDocuments: DocumentItem[];
 }) {
-  const router = useRouter();
   const [answers, setAnswers] = useState<Record<string, string>>(initialAnswers);
   const [documents, setDocuments] = useState<DocumentItem[]>(initialDocuments);
   const [saveMessage, setSaveMessage] = useState("Alterações sincronizadas.");
   const [uploadMessage, setUploadMessage] = useState("");
-  const [submitPending, startSubmit] = useTransition();
+  const [submitPending, setSubmitPending] = useState(false);
+  const [savePending, setSavePending] = useState(false);
   const [uploadPending, startUpload] = useTransition();
+  const [dragging, setDragging] = useState(false);
   const saveTimeout = useRef<ReturnType<typeof setTimeout> | null>(null);
 
-  const allAnswered = questions.length > 0 && questions.every((question) => Boolean(answers[question.id]));
+  const allAnswered = questions.length > 0 && questions.every((q) => Boolean(answers[q.id]));
 
   const projectedScore = useMemo(() => {
     const selectedMap = new Map<string, number>();
-    questions.forEach((question) => {
-      question.options.forEach((option) => selectedMap.set(option.id, option.score));
-    });
-
+    questions.forEach((q) => q.options.forEach((o) => selectedMap.set(o.id, o.score)));
     return Object.values(answers).reduce((sum, optionId) => sum + (selectedMap.get(optionId) ?? 0), 0);
   }, [answers, questions]);
 
   useEffect(() => {
-    if (phase !== "self" || readOnly || !Object.keys(answers).length) {
-      return;
-    }
+    if (readOnly || !Object.keys(answers).length) return;
 
-    if (saveTimeout.current) {
-      clearTimeout(saveTimeout.current);
-    }
+    if (saveTimeout.current) clearTimeout(saveTimeout.current);
 
     saveTimeout.current = setTimeout(async () => {
       try {
-        const response = await saveDraftAction({
-          evaluationId,
-          answers,
-        });
-
+        const response = await saveDraftAction({ evaluationId, phase, answers });
         setSaveMessage(response.message);
-
-        if (response.ok) {
-          router.refresh();
-        }
       } catch {
-        setSaveMessage("Erro ao salvar rascunho. Tente novamente.");
+        setSaveMessage("Erro ao salvar rascunho.");
       }
     }, 900);
 
     return () => {
-      if (saveTimeout.current) {
-        clearTimeout(saveTimeout.current);
-      }
+      if (saveTimeout.current) clearTimeout(saveTimeout.current);
     };
-  }, [answers, evaluationId, phase, readOnly, router]);
+  }, [answers, evaluationId, phase, readOnly]);
 
-  function handleUpload(files: FileList | null) {
-    if (!files?.length) {
-      return;
+  async function saveDraft() {
+    if (readOnly || !Object.keys(answers).length) return;
+    setSavePending(true);
+    try {
+      const response = await saveDraftAction({ evaluationId, phase, answers });
+      setSaveMessage(response.message);
+    } catch {
+      setSaveMessage("Erro ao salvar rascunho.");
+    } finally {
+      setSavePending(false);
     }
+  }
+
+  function handleFiles(files: FileList | null) {
+    if (!files?.length) return;
 
     startUpload(async () => {
       try {
@@ -127,33 +123,34 @@ export function EvaluationForm({
         }
 
         setDocuments((current) => [...response.documents, ...current]);
-        setUploadMessage(`${response.documents.length} documento(s) enviado(s) ao Supabase Storage.`);
+        setUploadMessage(`${response.documents.length} curso(s) enviado(s).`);
       } catch {
-        setUploadMessage("Erro ao enviar documento. Tente novamente.");
+        setUploadMessage("Erro ao enviar. Tente novamente.");
       }
     });
   }
 
-  function submit() {
-    startSubmit(async () => {
-      const response = await submitEvaluationAction({
-        evaluationId,
-        phase,
-        answers,
-      });
+  async function submit() {
+    setSubmitPending(true);
+    try {
+      const response = await submitEvaluationAction({ evaluationId, phase, answers });
 
       if (!response.ok) {
         setSaveMessage(response.message);
         return;
       }
 
-      router.push(response.redirectTo);
-      router.refresh();
-    });
+      window.location.href = response.redirectTo;
+    } finally {
+      setSubmitPending(false);
+    }
   }
+
+  const deadlineColor = remainingDays <= 2 ? "text-error" : remainingDays <= 5 ? "text-warning" : "text-white/90";
 
   return (
     <div className="space-y-8">
+      {/* Header */}
       <section className="headline-gradient relative overflow-hidden rounded-xl px-8 py-10 text-white">
         <div className="relative z-10 flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
           <div>
@@ -164,32 +161,24 @@ export function EvaluationForm({
               {phase === "self" ? "Formulário do Servidor" : "Formulário da Chefia"}
             </h1>
             <p className="mt-3 max-w-2xl text-sm text-white/80">
-              {actorName} · {employmentType === EmploymentType.EFETIVO ? "Servidor efetivo" : "Servidor probatório"} · status atual {status.replaceAll("_", " ").toLowerCase()}.
+              {actorName} · {employmentType === EmploymentType.EFETIVO ? "Servidor efetivo" : "Servidor probatório"} · status {status.replaceAll("_", " ").toLowerCase()}
+            </p>
+            <p className={`mt-2 text-sm font-bold ${deadlineColor}`}>
+              {readOnly ? "Prazo encerrado" : remainingDays === 0 ? "Último dia para envio" : `${remainingDays} dia${remainingDays !== 1 ? "s" : ""} restante${remainingDays !== 1 ? "s" : ""} para envio`}
             </p>
           </div>
           <div className="rounded-xl bg-white/10 px-6 py-5">
             <p className="text-xs font-bold uppercase tracking-[0.24em] text-white/70">Pontuação</p>
             <p className="mt-2 font-headline text-5xl font-black">
-              {formatScore(projectedScore || currentScore)} <span className="text-2xl text-white/70">/ {formatScore(maxScore)}</span>
+              {formatScore(projectedScore || currentScore)}{" "}
+              <span className="text-2xl text-white/70">/ {formatScore(maxScore)}</span>
             </p>
           </div>
         </div>
         <div className="absolute -right-10 -top-10 h-40 w-40 rounded-full bg-white/10 blur-3xl" />
       </section>
 
-      <section className="flex flex-wrap items-center gap-4">
-        <div className="rounded-full bg-surface-container px-4 py-2 text-xs font-bold text-on-secondary-container">
-          {saveMessage}
-        </div>
-        {phase === "self" && employmentType === EmploymentType.EFETIVO ? (
-          <label className="cursor-pointer rounded-full bg-primary px-4 py-2 text-xs font-bold text-on-primary">
-            {uploadPending ? "Enviando PDFs..." : "Enviar comprovantes PDF"}
-            <input accept="application/pdf" className="sr-only" multiple onChange={(event) => handleUpload(event.target.files)} type="file" />
-          </label>
-        ) : null}
-        {uploadMessage ? <div className="text-xs text-primary">{uploadMessage}</div> : null}
-      </section>
-
+      {/* Questions */}
       <div className="space-y-8">
         {questions.map((question) => (
           <section className="grid gap-4 lg:grid-cols-[320px_1fr]" key={question.id}>
@@ -223,10 +212,7 @@ export function EvaluationForm({
                         name={question.id}
                         onChange={() => {
                           setSaveMessage("Salvando rascunho...");
-                          setAnswers((current) => ({
-                            ...current,
-                            [question.id]: option.id,
-                          }));
+                          setAnswers((current) => ({ ...current, [question.id]: option.id }));
                         }}
                         type="radio"
                       />
@@ -247,14 +233,49 @@ export function EvaluationForm({
         ))}
       </div>
 
-      {phase === "self" && employmentType === EmploymentType.EFETIVO ? (
+      {/* File upload — visible for self phase regardless of readOnly */}
+      {phase === "self" && (
         <section className="institutional-card p-8">
-          <h3 className="font-headline text-2xl font-bold text-primary">Comprovantes enviados</h3>
-          <div className="mt-6 space-y-3">
-            {documents.length === 0 ? (
-              <p className="text-sm text-on-surface-variant">Nenhum PDF anexado até o momento.</p>
-            ) : (
-              documents.map((document) => (
+          <h3 className="font-headline text-2xl font-bold text-primary">Cursos</h3>
+
+          <label
+            className={`mt-6 flex cursor-pointer flex-col items-center justify-center gap-3 rounded-xl border-2 border-dashed px-8 py-10 text-center transition ${
+              dragging
+                ? "border-primary bg-primary/5"
+                : "border-outline-variant hover:border-primary hover:bg-surface-container-low"
+            }`}
+            onDragLeave={() => setDragging(false)}
+            onDragOver={(e) => { e.preventDefault(); setDragging(true); }}
+            onDrop={(e) => {
+              e.preventDefault();
+              setDragging(false);
+              handleFiles(e.dataTransfer.files);
+            }}
+          >
+            <svg className="h-8 w-8 text-on-surface-variant" fill="none" stroke="currentColor" strokeWidth={1.5} viewBox="0 0 24 24">
+              <path d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5m-13.5-9L12 3m0 0l4.5 4.5M12 3v13.5" strokeLinecap="round" strokeLinejoin="round" />
+            </svg>
+            <p className="text-sm font-semibold text-on-surface">
+              {uploadPending ? "Enviando..." : "Arraste aqui ou clique para selecionar os arquivos"}
+            </p>
+            <p className="text-xs text-on-surface-variant">PDF · máximo 10 arquivos</p>
+            <input
+              accept="application/pdf"
+              className="sr-only"
+              disabled={uploadPending}
+              multiple
+              onChange={(e) => handleFiles(e.target.files)}
+              type="file"
+            />
+          </label>
+
+          {uploadMessage && (
+            <p className="mt-3 text-sm text-primary">{uploadMessage}</p>
+          )}
+
+          {documents.length > 0 && (
+            <div className="mt-6 space-y-3">
+              {documents.map((document) => (
                 <a
                   className="flex items-center justify-between rounded-lg bg-surface-container-low px-4 py-3 text-sm text-primary transition hover:bg-surface-container"
                   href={document.url}
@@ -263,17 +284,30 @@ export function EvaluationForm({
                   target="_blank"
                 >
                   <span>{document.name}</span>
-                  <span>{(document.size / 1024 / 1024).toFixed(2)} MB</span>
+                  <span className="text-xs text-on-surface-variant">{(document.size / 1024 / 1024).toFixed(2)} MB</span>
                 </a>
-              ))
-            )}
-          </div>
+              ))}
+            </div>
+          )}
         </section>
-      ) : null}
+      )}
 
+      {/* Bottom bar */}
       <div className="sticky bottom-6 z-10 flex flex-wrap items-center justify-between gap-4 rounded-xl bg-surface-container-low px-6 py-4">
-        <div className="text-sm text-on-surface-variant">
-          {allAnswered ? "Checklist completo para envio." : "Preencha todos os fatores obrigatórios antes de concluir."}
+        <div className="flex flex-wrap items-center gap-3">
+          <span className="text-sm text-on-surface-variant">
+            {saveMessage}
+          </span>
+          {!readOnly && (
+            <button
+              className="rounded-full border border-primary px-4 py-2 text-xs font-bold text-primary transition hover:bg-primary/10 disabled:opacity-50"
+              disabled={savePending || !Object.keys(answers).length}
+              onClick={saveDraft}
+              type="button"
+            >
+              {savePending ? "Salvando..." : "Salvar rascunho"}
+            </button>
+          )}
         </div>
         <button
           className="rounded-lg bg-institutional-gradient px-6 py-3 text-sm font-bold text-on-primary disabled:cursor-not-allowed disabled:opacity-50"

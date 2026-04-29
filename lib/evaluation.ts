@@ -26,7 +26,7 @@ export function getQuestionTypeByEmploymentType(type: EmploymentType): QuestionT
 }
 
 export function getDeadlineDays(kind: "self" | "manager"): number {
-  return kind === "self" ? 15 : 17;
+  return 10;
 }
 
 export function calculateScore(
@@ -108,29 +108,23 @@ export function isDeadlineExpired(deadline: Date, now = new Date()): boolean {
 }
 
 export function canAutosave(status: EvaluationStatus, deadline: Date, now = new Date()): boolean {
-  if (
-    status === EvaluationStatus.COMPLETED ||
-    status === EvaluationStatus.ARCHIVED ||
-    status === EvaluationStatus.AUTO_DONE
-  ) {
+  if (status === EvaluationStatus.COMPLETED || status === EvaluationStatus.ARCHIVED) {
     return false;
   }
 
   return !isDeadlineExpired(deadline, now);
 }
 
-export function canManagerEvaluate(
-  status: EvaluationStatus,
-): boolean {
-  if (status === EvaluationStatus.COMPLETED || status === EvaluationStatus.ARCHIVED) {
-    return false;
-  }
-
-  return status === EvaluationStatus.AUTO_DONE;
+export function canManagerEvaluate(status: EvaluationStatus): boolean {
+  return (
+    status !== EvaluationStatus.COMPLETED &&
+    status !== EvaluationStatus.ARCHIVED &&
+    status !== EvaluationStatus.MANAGER_DONE
+  );
 }
 
-export function canManagerSubmit(status: EvaluationStatus, deadline: Date, now = new Date()): boolean {
-  return canManagerEvaluate(status) && !isDeadlineExpired(deadline, now);
+export function canManagerSubmit(status: EvaluationStatus, managerDeadline: Date, now = new Date()): boolean {
+  return canManagerEvaluate(status) && !isDeadlineExpired(managerDeadline, now);
 }
 
 export function isReadOnly(status: EvaluationStatus, phase: "self" | "manager"): boolean {
@@ -139,7 +133,7 @@ export function isReadOnly(status: EvaluationStatus, phase: "self" | "manager"):
   }
 
   if (phase === "self") {
-    return status === EvaluationStatus.AUTO_DONE || status === EvaluationStatus.MANAGER_DONE;
+    return status === EvaluationStatus.AUTO_DONE;
   }
 
   return status === EvaluationStatus.MANAGER_DONE;

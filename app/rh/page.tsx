@@ -100,9 +100,9 @@ export default async function GlobalRhPage() {
                     <div className="flex flex-wrap items-center gap-3">
                       <Link
                         className="rounded-lg bg-institutional-gradient px-4 py-2 text-sm font-bold text-on-primary"
-                        href={`/${cycle.year}/rh`}
+                        href={cycle.status === CycleStatus.OPEN ? `/${cycle.year}/rh` : `/${cycle.year}/rh/dashboard`}
                       >
-                        Gerenciar projeto
+                        {cycle.status === CycleStatus.OPEN ? "Gerenciar projeto" : "Ver dashboard"}
                       </Link>
                       {cycle.status === CycleStatus.OPEN ? (
                         <CompleteCycleButton cycleId={cycle.id} />

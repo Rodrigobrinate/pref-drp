@@ -245,6 +245,7 @@ export async function logoutAction(year?: number, redirectTo?: string) {
 
 const draftSchema = z.object({
   evaluationId: z.string().min(1),
+  phase: z.enum(["self", "manager"]),
   answers: z.record(z.string(), z.string()),
 });
 
@@ -267,7 +268,8 @@ export async function saveDraftAction(input: z.infer<typeof draftSchema>) {
     return { ok: false as const, message: "Avaliação não encontrada." };
   }
 
-  const deadline = getDeadline(evaluation.cycle.startDate, "self");
+  const isSelf = parsed.data.phase === "self";
+  const deadline = getDeadline(evaluation.cycle.startDate, parsed.data.phase);
 
   if (!canAutosave(evaluation.status, deadline)) {
     return { ok: false as const, message: "Prazo encerrado para salvar rascunho." };
@@ -282,9 +284,19 @@ export async function saveDraftAction(input: z.infer<typeof draftSchema>) {
     },
   });
 
-  if (!actorUserCycle || evaluation.evaluatedId !== actorUserCycle.id) {
+  if (!actorUserCycle) {
     return { ok: false as const, message: "Rascunho não autorizado." };
   }
+
+  if (isSelf && evaluation.evaluatedId !== actorUserCycle.id) {
+    return { ok: false as const, message: "Rascunho não autorizado." };
+  }
+
+  if (!isSelf && evaluation.managerId !== actorUserCycle.id) {
+    return { ok: false as const, message: "Rascunho não autorizado." };
+  }
+
+  const phase = isSelf ? EvaluationPhase.SELF : EvaluationPhase.MANAGER;
 
   const questions = await prisma.question.findMany({
     where: {
@@ -309,12 +321,14 @@ export async function saveDraftAction(input: z.infer<typeof draftSchema>) {
     return { ok: false as const, message: answerValidation.message };
   }
 
+  const score = calculateScore(
+    getQuestionTypeByEmploymentType(evaluation.evaluated.employmentType ?? EmploymentType.EFETIVO),
+    answerValidation.selectedLabels,
+  );
+
   await prisma.$transaction(async (tx) => {
     await tx.evaluationAnswer.deleteMany({
-      where: {
-        evaluationId: evaluation.id,
-        phase: EvaluationPhase.SELF,
-      },
+      where: { evaluationId: evaluation.id, phase },
     });
 
     await tx.evaluationAnswer.createMany({
@@ -322,29 +336,22 @@ export async function saveDraftAction(input: z.infer<typeof draftSchema>) {
         evaluationId: evaluation.id,
         questionId,
         selectedOptionId: optionId,
-        phase: EvaluationPhase.SELF,
+        phase,
       })),
     });
 
-    const score = calculateScore(
-      getQuestionTypeByEmploymentType(evaluation.evaluated.employmentType ?? EmploymentType.EFETIVO),
-      answerValidation.selectedLabels,
-    );
-
     await tx.evaluation.update({
       where: { id: evaluation.id },
-      data: {
-        status: EvaluationStatus.DRAFT,
-        selfScore: new Prisma.Decimal(score),
-        finalScore: new Prisma.Decimal(score),
-      },
+      data: isSelf
+        ? { status: EvaluationStatus.DRAFT, selfScore: new Prisma.Decimal(score), finalScore: new Prisma.Decimal(score) }
+        : { managerScore: new Prisma.Decimal(score) },
     });
   });
 
   revalidatePath(`/${evaluation.cycle.year}/servidor`);
   revalidatePath(`/${evaluation.cycle.year}/chefia`);
 
-  return { ok: true as const, message: "Alterações salvas automaticamente." };
+  return { ok: true as const, message: "Rascunho salvo." };
 }
 
 const submitSchema = z.object({
@@ -507,10 +514,6 @@ export async function uploadDocumentsAction(formData: FormData) {
     return { ok: false as const, message: "Nao autorizado." };
   }
 
-  if ((actorUserCycle.employmentType ?? evaluation.evaluated.employmentType) !== EmploymentType.EFETIVO) {
-    return { ok: false as const, message: "Upload disponível apenas para servidores efetivos." };
-  }
-
   const deadline = getDeadline(evaluation.cycle.startDate, "self");
 
   if (!canAutosave(evaluation.status, deadline)) {
@@ -655,13 +658,18 @@ export async function importXmlAction(_prevState: { error?: string; success?: st
   const managerCpfs = new Set(employees.filter((employee) => employee.chefiaCpf).map((employee) => employee.chefiaCpf));
   const passwordHashes = await Promise.all(employees.map((employee) => bcrypt.hash(employee.cpf, 10)));
 
-  await prisma.$transaction(async (tx) => {
-    const managerMap = new Map<string, string>();
-    const employeeCycleMap = new Map<string, string>();
+  const managerMap = new Map<string, string>();
+  const employeeCycleMap = new Map<string, string>();
 
-    for (const [index, employee] of employees.entries()) {
-      const passwordHash = passwordHashes[index];
-      const user = await tx.user.upsert({
+  // Phase 1: upsert users and userCycles individually (no long transaction)
+  for (const [index, employee] of employees.entries()) {
+    const passwordHash = passwordHashes[index];
+    const isManager = managerCpfs.has(employee.cpf);
+    const employmentType =
+      employee.vinculo.toUpperCase().includes("PROB") ? EmploymentType.PROBATORIO : EmploymentType.EFETIVO;
+
+    const [user, userCycle] = await prisma.$transaction([
+      prisma.user.upsert({
         where: { cpf: employee.cpf },
         create: {
           cpf: employee.cpf,
@@ -673,21 +681,12 @@ export async function importXmlAction(_prevState: { error?: string; success?: st
           name: employee.nome,
           registration: employee.matricula,
         },
-      });
-
-      const isManager = managerCpfs.has(employee.cpf);
-      const employmentType =
-        employee.vinculo.toUpperCase().includes("PROB") ? EmploymentType.PROBATORIO : EmploymentType.EFETIVO;
-
-      const userCycle = await tx.userCycle.upsert({
-        where: {
-          userId_cycleId: {
-            userId: user.id,
-            cycleId,
-          },
-        },
+      }),
+    ]).then(async ([u]) => {
+      const uc = await prisma.userCycle.upsert({
+        where: { userId_cycleId: { userId: u.id, cycleId } },
         create: {
-          userId: user.id,
+          userId: u.id,
           cycleId,
           role: isManager ? SystemRole.MANAGER : SystemRole.EMPLOYEE,
           employmentType: isManager ? null : employmentType,
@@ -701,58 +700,51 @@ export async function importXmlAction(_prevState: { error?: string; success?: st
           jobTitle: employee.cargo,
         },
       });
+      return [u, uc] as const;
+    });
 
-      managerMap.set(employee.cpf, userCycle.id);
-      employeeCycleMap.set(employee.cpf, userCycle.id);
+    managerMap.set(employee.cpf, userCycle.id);
+    employeeCycleMap.set(employee.cpf, userCycle.id);
+  }
+
+  // Phase 2: wire manager links and evaluations
+  for (const employee of employees) {
+    if (!employee.chefiaCpf) {
+      continue;
     }
 
-    for (const employee of employees) {
-      if (!employee.chefiaCpf) {
-        continue;
-      }
+    const employeeCycleId = employeeCycleMap.get(employee.cpf);
 
-      const employeeCycleId = employeeCycleMap.get(employee.cpf);
+    if (!employeeCycleId) {
+      continue;
+    }
 
-      if (!employeeCycleId) {
-        continue;
-      }
+    const managerId = managerMap.get(employee.chefiaCpf) ?? null;
 
-      const managerId = managerMap.get(employee.chefiaCpf) ?? null;
+    const existingEvaluation = await prisma.evaluation.findFirst({
+      where: { cycleId, evaluatedId: employeeCycleId, current: true },
+    });
 
-      await tx.userCycle.update({
+    await prisma.$transaction([
+      prisma.userCycle.update({
         where: { id: employeeCycleId },
-        data: {
-          managerId,
-        },
-      });
-
-      const existingEvaluation = await tx.evaluation.findFirst({
-        where: {
-          cycleId,
-          evaluatedId: employeeCycleId,
-          current: true,
-        },
-      });
-
-      if (existingEvaluation) {
-        await tx.evaluation.update({
-          where: { id: existingEvaluation.id },
-          data: {
-            managerId,
-          },
-        });
-      } else {
-        await tx.evaluation.create({
-          data: {
-            cycleId,
-            evaluatedId: employeeCycleId,
-            managerId,
-            status: EvaluationStatus.PENDING,
-          },
-        });
-      }
-    }
-  });
+        data: { managerId },
+      }),
+      existingEvaluation
+        ? prisma.evaluation.update({
+            where: { id: existingEvaluation.id },
+            data: { managerId },
+          })
+        : prisma.evaluation.create({
+            data: {
+              cycleId,
+              evaluatedId: employeeCycleId,
+              managerId,
+              status: EvaluationStatus.PENDING,
+            },
+          }),
+    ]);
+  }
 
   revalidatePath(`/${cycle.year}/rh`);
   revalidatePath("/rh");
@@ -841,6 +833,44 @@ export async function requestReevaluationAction(evaluationId: string) {
   }
 }
 
+export async function rollbackImportAction(cycleId: string) {
+  const sessionContext = await getSessionContext();
+
+  if (sessionContext?.user.globalRole !== SystemRole.RH) {
+    return { ok: false as const, message: "Nao autorizado." };
+  }
+
+  const cycle = await prisma.cycle.findUnique({ where: { id: cycleId } });
+
+  if (!cycle) {
+    return { ok: false as const, message: "Ciclo não encontrado." };
+  }
+
+  // Block rollback if any evaluation has progressed beyond PENDING
+  const progressedCount = await prisma.evaluation.count({
+    where: {
+      cycleId,
+      current: true,
+      status: { not: EvaluationStatus.PENDING },
+    },
+  });
+
+  if (progressedCount > 0) {
+    return {
+      ok: false as const,
+      message: `Rollback bloqueado: ${progressedCount} avaliação(ões) já iniciada(s). Use reavaliação individual.`,
+    };
+  }
+
+  await prisma.userCycle.deleteMany({ where: { cycleId } });
+
+  revalidatePath(`/${cycle.year}/rh`);
+  revalidatePath("/rh");
+  revalidatePath(`/${cycle.year}/chefia`);
+
+  return { ok: true as const, message: "Importação revertida. O ciclo está em branco para nova importação." };
+}
+
 export async function completeCycleAction(cycleId: string) {
   const sessionContext = await getSessionContext();
 
@@ -854,23 +884,6 @@ export async function completeCycleAction(cycleId: string) {
 
   if (!cycle) {
     return { ok: false as const, message: "Projeto não encontrado." };
-  }
-
-  const pendingCount = await prisma.evaluation.count({
-    where: {
-      cycleId,
-      current: true,
-      status: {
-        not: EvaluationStatus.COMPLETED,
-      },
-    },
-  });
-
-  if (pendingCount > 0) {
-    return {
-      ok: false as const,
-      message: "Ainda existem avaliações pendentes. Finalize o ciclo somente após concluir todo o fluxo.",
-    };
   }
 
   await prisma.cycle.update({

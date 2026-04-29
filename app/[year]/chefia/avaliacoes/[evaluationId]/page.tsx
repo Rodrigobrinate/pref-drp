@@ -6,7 +6,7 @@ import { EvaluationForm } from "@/components/evaluation-form";
 import { LogoutButton } from "@/components/logout-button";
 import { requireSessionForYear } from "@/lib/auth";
 import { decimalToNumber, getEvaluationWithRelations } from "@/lib/evaluations-data";
-import { canManagerEvaluate, getQuestionTypeByEmploymentType, isReadOnly, SCORE_BY_TYPE } from "@/lib/evaluation";
+import { canManagerEvaluate, getDeadline, getQuestionTypeByEmploymentType, getRemainingDays, isReadOnly, SCORE_BY_TYPE } from "@/lib/evaluation";
 import { prisma } from "@/lib/prisma";
 import { resolveDocumentAccessUrls } from "@/lib/storage";
 import { parseYearParam } from "@/lib/year-route";
@@ -65,6 +65,8 @@ export default async function ManagerEvaluationPage({
       .map((answer) => [answer.questionId, answer.selectedOptionId]),
   );
   const documents = await resolveDocumentAccessUrls(evaluation.documents);
+  const managerDeadline = getDeadline(evaluation.cycle.startDate, "manager");
+  const remainingDays = getRemainingDays(managerDeadline);
 
   return (
     <AppShell
@@ -103,6 +105,7 @@ export default async function ManagerEvaluationPage({
           })),
         }))}
         readOnly={isReadOnly(evaluation.status, "manager")}
+        remainingDays={remainingDays}
         status={evaluation.status}
         year={cycleYear}
       />
